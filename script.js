@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // Carousel arrow navigation
     const carousel = document.getElementById('apple-carousel');
     const scrollLeftBtn = document.getElementById('scroll-left');
     const scrollRightBtn = document.getElementById('scroll-right');
