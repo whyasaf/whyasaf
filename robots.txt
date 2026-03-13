@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap lokasyonu
+Sitemap: https://whyasaf.github.io/whyasaf/sitemap.xml
