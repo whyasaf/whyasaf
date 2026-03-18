@@ -35,19 +35,42 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCarousel('.skills-carousel', '.prev-skill', '.next-skill');
     setupCarousel('.apple-cards-wrapper', '.prev-arrow', '.next-arrow');
 
-    document.querySelectorAll('.translate-hover').forEach(item => {
+    const hoverElements = document.querySelectorAll('.translate-hover');
+
+    hoverElements.forEach(item => {
         const originalHTML = item.innerHTML;
         const translatedText = item.getAttribute('data-tr');
-        item.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768 && translatedText) {
+        let isTranslated = false;
+
+        const showTranslation = () => {
+            if (translatedText) {
                 item.style.minHeight = item.offsetHeight + "px";
                 item.innerHTML = translatedText;
+                isTranslated = true;
             }
+        };
+
+        const showOriginal = () => {
+            item.innerHTML = originalHTML;
+            item.style.minHeight = "";
+            isTranslated = false;
+        };
+
+        item.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) showTranslation();
         });
         item.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 768) {
-                item.innerHTML = originalHTML;
-                item.style.minHeight = "";
+            if (window.innerWidth > 768) showOriginal();
+        });
+
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                if (!isTranslated) {
+                    showTranslation();
+                } else {
+                    showOriginal();
+                }
             }
         });
     });
