@@ -43,6 +43,25 @@
                     </svg>
                 </a>
             </div>
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+
+                <svg class="moon-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </nav>
     <main>
@@ -89,37 +108,85 @@
                 </div>
             </div>
         </section>
-        <section id=" skills">
-            <h2 class="translate-hover" data-tr="Yetenekler">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-col">
-                    <h3 class="translate-hover" data-tr="Programlama">Programming</h3>
-                    <ul>
-                        <li class="translate-hover" data-tr="Python">Python</li>
-                        <li class="translate-hover" data-tr="C#">C#</li>
-                        <li class="translate-hover" data-tr="OOP">OOP</li>
-                        <li class="translate-hover" data-tr="PL/SQL">PL/SQL</li>
-                    </ul>
+        <section id="skills" class="wa-carousel-section">
+            <div class="wa-container-wide">
+
+                <div class="wa-section-header">
+                    <h2 class="wa-title translate-hover" data-tr="Yetenekler & Uzmanlıklar"><strong>Skills</strong> &
+                        Expertises</h2>
+                    <div class="wa-carousel-nav">
+                        <button class="wa-nav-arrow prev-skill" id="prevSkill">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="wa-nav-arrow next-skill" id="nextSkill">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="skill-col">
-                    <h3 class="translate-hover" data-tr="Tasarım">Design</h3>
-                    <ul>
-                        <li class="translate-hover" data-tr="UI/UX Tasarım">UI/UX Design</li>
-                        <li class="translate-hover" data-tr="Grafik Tasarım">Graphic Design</li>
-                        <li class="translate-hover" data-tr="Affinity Designer">Affinity Designer
-                        </li>
-                        <li class="translate-hover" data-tr="Adobe Illustrator">Adobe Illustrator
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-col">
-                    <h3 class="translate-hover" data-tr="Diğer">Others</h3>
-                    <ul>
-                        <li class="translate-hover" data-tr="AI Meraklısı">AI Enthusiast</li>
-                        <li class="translate-hover" data-tr="Topluluk Yönetimi">Community Management
-                        </li>
-                        <li class="translate-hover" data-tr="İçerik Üretimi">Content Creation</li>
-                    </ul>
+
+                <div class="wa-cards-wrapper skills-carousel">
+
+                    <div class="wa-card skill-card">
+                        <div class="wa-card-body">
+                            <div class="wa-skill-icon">
+                                <i class="devicon-python-plain colored"></i>
+                            </div>
+                            <h3>Backend & NLP</h3>
+                            <p class="translate-hover" data-tr="Python tabanlı sistemler ve doğal dil işleme.">
+                                Python-based systems and Natural Language Processing.
+                            </p>
+                            <ul class="wa-skill-list">
+                                <li>Python (NLTK, SpaCy)</li>
+                                <li>PostgreSQL / MySQL</li>
+                                <li>Restful APIs (Flask/FastAPI)</li>
+                                <li>Vector Databases</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="wa-card skill-card">
+                        <div class="wa-card-body">
+                            <div class="wa-skill-icon">
+                                <i class="devicon-javascript-plain colored"></i>
+                            </div>
+                            <h3>Frontend & UI</h3>
+                            <p class="translate-hover"
+                                data-tr="Modern web teknolojileri ve kullanıcı deneyimi tasarımı.">
+                                Modern web technologies and User Experience design.
+                            </p>
+                            <ul class="wa-skill-list">
+                                <li>JavaScript (ES6+) / HTML5 / CSS3</li>
+                                <li>React.js (Learning)</li>
+                                <li>Affinity Designer (UI/UX)</li>
+                                <li>Responsive Design</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="wa-card skill-card">
+                        <div class="wa-card-body">
+                            <div class="wa-skill-icon">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <h3>Design & Branding</h3>
+                            <p class="translate-hover" data-tr="Marka kimliği kurguları ve vektörel kreatif süreçler.">
+                                Brand identity structures and vector creative processes.
+                            </p>
+                            <ul class="wa-skill-list">
+                                <li>Affinity Designer</li>
+                                <li>Vector Illustration</li>
+                                <li>Typography & Logo Design</li>
+                                <li>Brand Guidelines</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -238,65 +305,95 @@
     <footer id="quick-links-section" class="site-footer">
         <div class="footer-container">
             <div class="footer-quick-links">
-                <h3>Hızlı Bağlantılar</h3>
+                <h3 class="translate-hover" data-tr="Hızlı Bağlantılar">Quick Links</h3>
                 <div class="footer-pills">
-                    <a href="#about" class="footer-pill">Hakkımda</a>
-                    <a href="#skills" class="footer-pill">Yetenekler</a>
-                    <a href="#projects" class="footer-pill">Projeler</a>
-                    <a href="#contact" class="footer-pill">İletişim</a>
+                    <a href="#about" class="footer-pill translate-hover" data-tr="Hakkımda">About</a>
+                    <a href="#skills" class="footer-pill translate-hover" data-tr="Yetenekler">Skills</a>
+                    <a href="#projects" class="footer-pill translate-hover" data-tr="Projeler">Projects</a>
+                    <a href="#contact" class="footer-pill translate-hover" data-tr="İletişim">Contact</a>
                 </div>
             </div>
+
             <div class="footer-fine-print">
-                <p class>Bu portfolyo Ömer Asaf Ak tarafından tasarlanmış ve kodlanmıştır. Sitede yer alan projeler,
-                    algoritmalar ve tasarımlar kişisel gelişim ve sergileme amaçlıdır.</p>
+                <p class="translate-hover"
+                    data-tr="Bu portfolyo Ömer Asaf Ak tarafından tasarlanmış ve kodlanmıştır. Sitede yer alan projeler, algoritmalar ve tasarımlar kişisel gelişim ve sergileme amaçlıdır.">
+                    This portfolio was designed and coded by <strong>Omer Asaf Ak</strong>. The projects, algorithms,
+                    and designs featured on the site are for personal development and exhibition purposes.
+                </p>
                 <ol>
-                    <li>"whyasaf", Ömer Asaf Ak'ın dijital ekosistemdeki bağımsız tasarım ve geliştirme kimliğidir.
-                        Sitedeki tüm kreatif vizyon, kodlama süreçleri ve marka kurguları bu kişisel çatı altında
-                        şekillenmektedir.</li>
-                    <li>CodeVocab projesi Python ile geliştirilmiş olup, sunucu ve veritabanı maliyetleri nedeniyle demo
-                        sürümünde çalışmaktadır. Render ve GitHub entegrasyonu ile yönetilmektedir.</li>
-                    <li>Marki Corp. ve Kaçış Alanı F1 gibi markalar, yapay zeka ve kurumsal kimlik yeteneklerini
-                        sergilemek
-                        amacıyla oluşturulmuş kavramsal (fictional) projelerdir.</li>
-                    <li>Sitede yer alan tüm arayüz tasarımları, vektörel çizimler ve özel tipografik logolar Affinity
-                        Designer kullanılarak piksel mükemmelliği hedeflenerek sıfırdan oluşturulmuştur.</li>
-                    <li>Geliştirici, İstanbul Üniversitesi Bilgisayar Programcılığı bölümünde akademik eğitimine devam
-                        etmekte olup; makine öğrenmesi (Machine Learning) ve veri analizi süreçleri üzerine aktif olarak
-                        projeler yürütmektedir.</li>
-                    <li>Kreatif süreçler sadece kod ve görsel ile sınırlı kalmayıp, ses tasarımını da kapsamaktadır.
-                        "Marki Music" etiketi altında yayınlanan, Techno ve Lofi türlerinde dijital ses prodüksiyonu
-                        yeteneklerini temsil eder.</li>
-                    <li>Geliştirme süreçleri, tasarım vizyonu ve teknoloji dünyasındaki güncel yaklaşımlar üzerine
-                        LinkedIn ve kişisel blog platformlarında düzenli olarak profesyonel makaleler ve içerikler
-                        üretilmektedir.</li>
-                    <li>Görsel ilham panoları, UI/UX referansları, grafik tasarım araştırmaları ve marka kimliği
-                        kurguları, Pinterest ve Behance üzerinde oluşturulan özel koleksiyonlarla (moodboard) sürekli
-                        olarak
-                        beslenmektedir.</li>
+                    <li class="translate-hover"
+                        data-tr="'whyasaf', Ömer Asaf Ak'ın dijital ekosistemdeki bağımsız tasarım ve geliştirme kimliğidir. Sitedeki tüm kreatif vizyon, kodlama süreçleri ve marka kurguları bu kişisel çatı altında şekillenmektedir.">
+                        "whyasaf" is the independent design and development identity of Omer Asaf Ak in the digital
+                        ecosystem. All creative vision, coding processes, and brand structures are shaped under this
+                        personal umbrella.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="CodeVocab projesi Python ile geliştirilmiş olup, sunucu ve veritabanı maliyetleri nedeniyle demo sürümünde çalışmaktadır. Render ve GitHub entegrasyonu ile yönetilmektedir.">
+                        The CodeVocab project is developed with Python and operates in demo mode due to server and
+                        database costs. It is managed via Render and GitHub integration.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Marki Corp. ve Kaçış Alanı F1 gibi markalar, yapay zeka ve kurumsal kimlik yeteneklerini sergilemek amacıyla oluşturulmuş kavramsal (fictional) projelerdir.">
+                        Brands such as Marki Corp. and Kaçış Alanı F1 are conceptual (fictional) projects created to
+                        demonstrate AI and corporate identity capabilities.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Sitede yer alan tüm arayüz tasarımları, vektörel çizimler ve özel tipografik logolar Affinity Designer kullanılarak piksel mükemmelliği hedeflenerek sıfırdan oluşturulmuştur.">
+                        All interface designs, vector illustrations, and custom typographic logos on the site were
+                        created from scratch using Affinity Designer, aiming for pixel perfection.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Geliştirici, İstanbul Üniversitesi Bilgisayar Programcılığı bölümünde akademik eğitimine devam etmekte olup; makine öğrenmesi (Machine Learning) ve veri analizi süreçleri üzerine aktif olarak projeler yürütmektedir.">
+                        The developer continues his academic education in the Computer Programming department at
+                        Istanbul University and actively carries out projects on machine learning and data analysis
+                        processes.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Kreatif süreçler sadece kod ve görsel ile sınırlı kalmayıp, ses tasarımını da kapsamaktadır. 'Marki Music' etiketi altında yayınlanan, Techno ve Lofi türlerinde dijital ses prodüksiyonu yeteneklerini temsil eder.">
+                        Creative processes are not limited to code and visuals but also encompass sound design.
+                        Published under the "Marki Music" label, it represents digital audio production skills in Techno
+                        and Lofi genres.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Geliştirme süreçleri, tasarım vizyonu ve teknoloji dünyasındaki güncel yaklaşımlar üzerine LinkedIn ve kişisel blog platformlarında düzenli olarak profesyonel makaleler ve içerikler üretilmektedir.">
+                        Professional articles and content are regularly produced on LinkedIn and personal blog platforms
+                        regarding development processes, design vision, and current approaches in the technology world.
+                    </li>
+                    <li class="translate-hover"
+                        data-tr="Görsel ilham panoları, UI/UX referansları, grafik tasarım araştırmaları ve marka kimliği kurguları, Pinterest ve Behance üzerinde oluşturulan özel koleksiyonlarla (moodboard) sürekli olarak beslenmektedir.">
+                        Visual inspiration boards, UI/UX references, graphic design research, and brand identity
+                        structures are continuously fed by curated collections (moodboards) on Pinterest and Behance.
+                    </li>
                 </ol>
             </div>
+
             <hr class="footer-divider">
+
             <div class="footer-directory">
                 <div class="footer-col">
-                    <h4>Keşfet</h4>
+                    <h4 class="translate-hover" data-tr="Keşfet">Explore</h4>
                     <ul>
-                        <li><a href="https://github.com/whyasaf">Geliştirici Profilim</a></li>
-                        <li><a href="https://tr.pinterest.com/whyasaf57">Tasarım Portfolyom</a></li>
-                        <li><a href="https://www.linkedin.com/in/omer-asaf-ak/">Kariyer Hedefleri</a></li>
-                        <li><a href="#" class="disabled-link">Hizmetler</a></li>
+                        <li><a href="https://github.com/whyasaf" class="translate-hover"
+                                data-tr="Geliştirici Profilim">Developer Profile</a></li>
+                        <li><a href="https://tr.pinterest.com/whyasaf57" class="translate-hover"
+                                data-tr="Tasarım Portfolyom">Design Portfolio</a></li>
+                        <li><a href="https://www.linkedin.com/in/omer-asaf-ak/" class="translate-hover"
+                                data-tr="Kariyer Hedefleri">Career Goals</a></li>
+                        <li><a href="#" class="disabled-link translate-hover" data-tr="Hizmetler">Services</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Projeler</h4>
+                    <h4 class="translate-hover" data-tr="Projeler">Projects</h4>
                     <ul>
                         <li><a href="https://github.com/whyasaf/CodeVocab">CodeVocab AI</a></li>
                         <li><a href="https://www.instagram.com/kacisalanif1/">Kaçış Alanı F1</a></li>
-                        <li><a href="#" class="disabled-link">Freelance (Bionluk)</a></li>
+                        <li><a href="#" class="disabled-link translate-hover" data-tr="Freelance (Bionluk)">Freelance
+                                (Bionluk)</a></li>
                         <li><a href="https://www.youtube.com/@markimusicstudio">Marki Music</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Sosyal Ağlar</h4>
+                    <h4 class="translate-hover" data-tr="Sosyal Ağlar">Social Networks</h4>
                     <ul>
                         <li><a href="https://github.com/whyasaf" target="_blank">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/omer-asaf-ak/" target="_blank">LinkedIn</a></li>
@@ -305,20 +402,23 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Hakkında</h4>
+                    <h4 class="translate-hover" data-tr="Hakkında">About</h4>
                     <ul>
-                        <li><a href="#quick-links-section">Özgeçmiş</a></li>
-                        <li><a href="#" class="disabled-link">Blog</a></li>
-                        <li><a href="#contact">İletişim</a></li>
-                        <li><a href="#" class="disabled-link">Gizlilik</a></li>
+                        <li><a href="#quick-links-section" class="translate-hover" data-tr="Özgeçmiş">Resume</a></li>
+                        <li><a href="#" class="disabled-link translate-hover" data-tr="Blog">Blog</a></li>
+                        <li><a href="#contact" class="translate-hover" data-tr="İletişim">Contact</a></li>
+                        <li><a href="#" class="disabled-link translate-hover" data-tr="Gizlilik">Privacy</a></li>
                     </ul>
                 </div>
             </div>
-            <p class="footer-copyright">&copy; 2026 Ömer Asaf Ak - Designed by whyasaf</p>
+            <p class="footer-copyright translate-hover"
+                data-tr="&copy; 2026 Ömer Asaf Ak - whyasaf tarafından tasarlandı">&copy; 2026 Omer Asaf Ak - Designed
+                by whyasaf</p>
         </div>
     </footer>
     <div id="translation-sidebar" class="translation-sidebar"></div>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
