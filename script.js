@@ -56,21 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
             isTranslated = false;
         };
 
-        item.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768) showTranslation();
-        });
-        item.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 768) showOriginal();
-        });
+        item.addEventListener('mouseenter', () => { if (window.innerWidth > 768) showTranslation(); });
+        item.addEventListener('mouseleave', () => { if (window.innerWidth > 768) showOriginal(); });
 
         item.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
-                e.preventDefault();
-                if (!isTranslated) {
-                    showTranslation();
-                } else {
-                    showOriginal();
+                if (e.target.closest('a') || e.target.closest('button')) {
+                    return;
                 }
+
+                e.preventDefault();
+                if (!isTranslated) showTranslation(); else showOriginal();
             }
         });
     });
