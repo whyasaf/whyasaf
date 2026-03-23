@@ -7,7 +7,20 @@
     <title>Ömer Asaf Ak | whyasaf - Geliştirici & Tasarımcı</title>
     <meta name="description"
         content="Ömer Asaf Ak (whyasaf) - İstanbul Üniversitesi Bilgisayar Programcılığı öğrencisi, UI/UX tasarımcı ve yazılım geliştirici portfolyosu.">
+    <meta property="og:title" content="Ömer Asaf Ak | whyasaf - Geliştirici & Tasarımcı">
+    <meta property="og:description"
+        content="İstanbul Üniversitesi Bilgisayar Programcılığı öğrencisi, UI/UX tasarımcı ve yazılım geliştirici portfolyosu.">
+    <meta property="og:image" content="https://whyasaf.com/assets/logo.png">
+    <meta property="og:url" content="https://whyasaf.com/">
     <link rel="canonical" href="https://whyasaf.com/">
+    <script type="application/ld+json">
+        {
+            "@context" : "https://schema.org",
+            "@type" : "WebSite",
+            "name" : "Ömer Asaf Ak | whyasaf",
+            "url" : "https://whyasaf.com/"
+        }
+    </script>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -18,6 +31,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Theme Persistence (Render Blocking to prevent white flash) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -420,6 +443,42 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Theme Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('darkModeToggle');
+            if (!toggleBtn) return;
+            
+            const sunIcon = toggleBtn.querySelector('.sun-icon');
+            const moonIcon = toggleBtn.querySelector('.moon-icon');
+            
+            // Set initial state
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'dark') {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                } else {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

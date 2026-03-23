@@ -4,21 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özgeçmiş | Ömer Asaf Ak</title>
+    <title>Özgeçmiş | Ömer Asaf Ak - Geliştirici & Tasarımcı</title>
     <meta name="description"
-        content="Ömer Asaf Ak (whyasaf) - İstanbul Üniversitesi Bilgisayar Programcılığı öğrencisi, UI/UX tasarımcı ve yazılım geliştirici portfolyosu.">
+        content="Ömer Asaf Ak'ın eğitim hayatı, teknik yetkinlikleri ve projelerini içeren resmi özgeçmiş sayfasıdır.">
+
+    <meta property="og:title" content="Özgeçmiş | Ömer Asaf Ak">
+    <meta property="og:description" content="Eğitim, deneyim ve projelerimi içeren detaylı özgeçmişim.">
+    <meta property="og:image" content="https://whyasaf.com/assets/logo.png">
+    <meta property="og:url" content="https://whyasaf.com/ozgecmis.html">
+
     <link rel="canonical" href="https://whyasaf.com/ozgecmis.html">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="whyasaf" />
     <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,7 +50,7 @@
                     Links</a>
             </div>
             <div class="nav-icons">
-                <a href="#" class="nav-search-icon">
+                <a href="#" class="nav-search-icon" aria-label="Search">
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor"
                         stroke-width="1.2">
                         <circle cx="7" cy="7" r="5"></circle>
@@ -46,6 +58,25 @@
                     </svg>
                 </a>
             </div>
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+
+                <svg class="moon-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </nav>
     <main class="wa-profile-page">
@@ -116,13 +147,16 @@
 
         <section class="wa-profile-notes">
             <div class="wa-narrow-content">
-                <h3 class="wa-notes-heading">Ömer Asaf Ak'tan Notlar</h3>
+                <h3 class="wa-notes-heading translate-hover" data-tr="Ömer Asaf Ak'tan Notlar">Insights by Ömer Asaf Ak
+                </h3>
                 <div class="wa-notes-list">
-                    <blockquote class="wa-note-item">
+                    <blockquote class="wa-note-item translate-hover"
+                        data-tr="Geleceği algoritmalarla tahmin etmiyorum; onu estetikle baştan tasarlıyorum.">
                         "Geleceği algoritmalarla tahmin etmiyorum; onu estetikle baştan tasarlıyorum."
                     </blockquote>
-                    <blockquote class="wa-note-item">
-                        "Yazılım dünyasında en büyük engel dil değil, vizyon eksikliğidir."
+                    <blockquote class="wa-note-item translate-hover"
+                        data-tr="Yazılım dünyasında en büyük engel dil değil, vizyon eksikliğidir.">
+                        "Yazılım dünyasında en büyük engel dil değil, vizyon eksikliğidir." 
                     </blockquote>
                 </div>
             </div>
@@ -258,6 +292,42 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+    <!-- Theme Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('darkModeToggle');
+            if (!toggleBtn) return;
+            
+            const sunIcon = toggleBtn.querySelector('.sun-icon');
+            const moonIcon = toggleBtn.querySelector('.moon-icon');
+            
+            // Set initial state
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'dark') {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                } else {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
