@@ -1362,3 +1362,52 @@ section h2,
 [data-theme="dark"] .main-logo {
   filter: brightness(0) invert(1);
 }
+
+/* PC'de Hamburgeri Gizle (CSS dosyanın normal bir yerine ekle) */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--apple-text);
+  cursor: pointer;
+  padding: 0;
+}
+
+/* MOBİL AYARLAR (Bu kısmı @media bloğunun içine koy) */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block; /* Mobilde hamburgeri göster */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 44px; /* Navbar'ın hemen altından başlar */
+    left: 0;
+    width: 100%;
+    background: rgba(251, 251, 253, 0.98);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    /* Animasyon için başlangıç durumu (Yukarıda gizli) */
+    transform: translateY(-150%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  /* JavaScript bu class'ı ekleyince menü aşağı kayacak */
+  .nav-links.active {
+    transform: translateY(0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links a {
+    font-size: 16px; /* Mobilde parmakla basması kolay olsun diye fontu büyüttük */
+    font-weight: 500;
+    display: block;
+  }
+}
