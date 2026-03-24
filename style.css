@@ -1359,7 +1359,6 @@ section h2,
   filter: brightness(0) invert(1);
 }
 
-/* PC'de Hamburgeri Gizle (CSS dosyanın normal bir yerine ekle) */
 .hamburger-btn {
   display: none;
   background: none;
@@ -1369,15 +1368,15 @@ section h2,
   padding: 0;
 }
 
-/* MOBİL AYARLAR (Bu kısmı @media bloğunun içine koy) */
 @media (max-width: 768px) {
   .hamburger-btn {
-    display: block; /* Mobilde hamburgeri göster */
+    display: block;
   }
 
   .nav-links {
     position: absolute;
-    top: 44px; /* Navbar'ın hemen altından başlar */
+    display: flex;
+    top: 44px;
     left: 0;
     width: 100%;
     background: rgba(251, 251, 253, 0.98);
@@ -1389,21 +1388,50 @@ section h2,
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-    /* Animasyon için başlangıç durumu (Yukarıda gizli) */
     transform: translateY(-150%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
   }
-
-  /* JavaScript bu class'ı ekleyince menü aşağı kayacak */
   .nav-links.active {
     transform: translateY(0);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
 
   .nav-links a {
-    font-size: 16px; /* Mobilde parmakla basması kolay olsun diye fontu büyüttük */
+    font-size: 16px;
     font-weight: 500;
     display: block;
+  }
+}
+
+/* ==========================================
+   MODERN HAVA DURUMU WIDGET (SOLA DAYALI)
+   ========================================== */
+.weather-widget {
+  position: absolute; /* Olayın sırrı bu knk, diğerlerini ittirmesini engeller */
+  left: 22px; /* Ekranın en sol köşesine çiviler */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  cursor: default;
+  /* Hap tasarımı (arkaplanı) uçurduk, tertemiz! */
+}
+
+.weather-widget:hover {
+  color: var(--text-main);
+}
+
+.weather-widget svg {
+  color: var(--text-main); /* İkonlar bir tık daha belirgin olsun */
+}
+
+/* Mobilde kalabalık yapmasın diye gizliyoruz */
+@media (max-width: 768px) {
+  .weather-widget {
+    display: none !important;
   }
 }

@@ -59,9 +59,20 @@
     <div id="tsparticles"></div>
     <nav id="navbar" class="navbar">
       <div class="nav-container">
-        <a href="#" class="nav-brand">
-          <img src="assets/logo.png" alt="Logo" class="main-logo" />
-        </a>
+        <div
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 20px"
+        >
+          <div
+            class="weather-widget"
+            id="weatherWidget"
+            title="Hava Durumu"
+          ></div>
+
+          <a href="#" class="nav-brand">
+            <img src="assets/logo.png" alt="Logo" class="main-logo" />
+          </a>
+        </div>
         <div class="nav-links">
           <a href="ozgecmis.html" class="translate-hover" data-tr="Hakkımda"
             >About</a
@@ -802,54 +813,5 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("darkModeToggle");
-        if (toggleBtn) {
-          const sunIcon = toggleBtn.querySelector(".sun-icon");
-          const moonIcon = toggleBtn.querySelector(".moon-icon");
-
-          if (document.documentElement.getAttribute("data-theme") === "dark") {
-            sunIcon.style.display = "none";
-            moonIcon.style.display = "block";
-          } else {
-            sunIcon.style.display = "block";
-            moonIcon.style.display = "none";
-          }
-
-          toggleBtn.addEventListener("click", () => {
-            const currentTheme =
-              document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-            document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-
-            if (newTheme === "dark") {
-              sunIcon.style.display = "none";
-              moonIcon.style.display = "block";
-            } else {
-              sunIcon.style.display = "block";
-              moonIcon.style.display = "none";
-            }
-          });
-        }
-        const hamburgerBtn = document.querySelector(".hamburger-btn");
-        const navLinks = document.querySelector(".nav-links");
-
-        if (hamburgerBtn && navLinks) {
-          hamburgerBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-          });
-
-          document.querySelectorAll(".nav-links a").forEach((link) => {
-            link.addEventListener("click", () => {
-              navLinks.classList.remove("active");
-            });
-          });
-        }
-      });
-    </script>
   </body>
 </html>
