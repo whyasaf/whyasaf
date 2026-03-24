@@ -63,7 +63,9 @@
           <img src="assets/logo.png" alt="Logo" class="main-logo" />
         </a>
         <div class="nav-links">
-          <a href="#about" class="translate-hover" data-tr="Hakkımda">About</a>
+          <a href="ozgecmis.html" class="translate-hover" data-tr="Hakkımda"
+            >About</a
+          >
           <a href="#skills" class="translate-hover" data-tr="Yetenekler"
             >Skills</a
           >
@@ -80,8 +82,9 @@
             >Quick Links</a
           >
         </div>
-        <div class="nav-icons">
-          <a href="#" class="nav-search-icon">
+
+        <div class="nav-icons" style="display: flex; align-items: center">
+          <a href="#" class="nav-search-icon" aria-label="Search">
             <svg
               width="15"
               height="15"
@@ -94,69 +97,70 @@
               <path d="M11 11L13.5 13.5"></path>
             </svg>
           </a>
-        </div>
-        <button
-          class="dark-mode-toggle"
-          id="darkModeToggle"
-          aria-label="Toggle Dark Mode"
-        >
-          <svg
-            class="sun-icon"
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
 
-          <svg
-            class="moon-icon"
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+          <button
+            class="dark-mode-toggle"
+            id="darkModeToggle"
+            aria-label="Toggle Dark Mode"
+            style="margin-left: 10px"
           >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
-      <div
-        class="nav-icons"
-        style="display: flex; align-items: center; gap: 15px"
-      >
-        <button class="hamburger-btn" aria-label="Menu">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            <svg
+              class="sun-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <button
+            class="hamburger-btn"
+            aria-label="Menu"
+            style="margin-left: 10px"
           >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
     <main>
@@ -799,54 +803,52 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
 
-    <!-- Theme Toggle Logic -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const toggleBtn = document.getElementById("darkModeToggle");
-        if (!toggleBtn) return;
+        if (toggleBtn) {
+          const sunIcon = toggleBtn.querySelector(".sun-icon");
+          const moonIcon = toggleBtn.querySelector(".moon-icon");
 
-        const sunIcon = toggleBtn.querySelector(".sun-icon");
-        const moonIcon = toggleBtn.querySelector(".moon-icon");
-
-        // Set initial state
-        if (document.documentElement.getAttribute("data-theme") === "dark") {
-          sunIcon.style.display = "none";
-          moonIcon.style.display = "block";
-        } else {
-          sunIcon.style.display = "block";
-          moonIcon.style.display = "none";
-        }
-
-        toggleBtn.addEventListener("click", () => {
-          const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-          const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-          document.documentElement.setAttribute("data-theme", newTheme);
-          localStorage.setItem("theme", newTheme);
-
-          if (newTheme === "dark") {
+          if (document.documentElement.getAttribute("data-theme") === "dark") {
             sunIcon.style.display = "none";
             moonIcon.style.display = "block";
           } else {
             sunIcon.style.display = "block";
             moonIcon.style.display = "none";
           }
-        });
-      });
 
-      const hamburgerBtn = document.querySelector(".hamburger-btn");
-      const navLinks = document.querySelector(".nav-links");
+          toggleBtn.addEventListener("click", () => {
+            const currentTheme =
+              document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-      hamburgerBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
 
-      // Menüden bir linke tıklayınca menü otomatik kapansın diye:
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
+            if (newTheme === "dark") {
+              sunIcon.style.display = "none";
+              moonIcon.style.display = "block";
+            } else {
+              sunIcon.style.display = "block";
+              moonIcon.style.display = "none";
+            }
+          });
+        }
+        const hamburgerBtn = document.querySelector(".hamburger-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (hamburgerBtn && navLinks) {
+          hamburgerBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+            });
+          });
+        }
       });
     </script>
   </body>
