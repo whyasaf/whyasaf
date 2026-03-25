@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Site Haritası | whyasaf - Ömer Asaf Ak</title>
+    <meta
+      content="whyasaf portfolyo ekosisteminin tüm sayfalarına ve projelerine hızlı erişim sağlayan resmi site haritası."
+      name="description"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (
+          savedTheme === "dark" ||
+          (!savedTheme &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="sitemap-page">
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 20px"
+        >
+          <div
+            class="weather-widget"
+            id="weatherWidget"
+            title="Hava Durumu"
+          ></div>
+          <a class="nav-brand" href="index.html"
+            ><img alt="Logo" class="main-logo" src="assets/logo.png"
+          /></a>
+        </div>
+        <div class="nav-links">
+          <a class="translate-hover" data-tr="Hakkımda" href="ozgecmis.html"
+            >About</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="Yetenekler"
+            href="index.html#skills"
+            >Skills</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="Projeler"
+            href="index.html#projects"
+            >Projects</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="İletişim"
+            href="index.html#contact"
+            >Contact</a
+          >
+        </div>
+        <div class="nav-icons" style="display: flex; align-items: center">
+          <a href="#" class="nav-search-icon" aria-label="Search">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+            >
+              <circle cx="7" cy="7" r="5"></circle>
+              <path d="M11 11L13.5 13.5"></path>
+            </svg>
+          </a>
+
+          <button
+            class="dark-mode-toggle"
+            id="darkModeToggle"
+            aria-label="Toggle Dark Mode"
+            style="margin-left: 10px"
+          >
+            <svg
+              class="sun-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <button
+            class="hamburger-btn"
+            aria-label="Menu"
+            style="margin-left: 10px"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="wa-sitemap-main">
+      <div class="wa-narrow-content">
+        <h1 class="translate-hover" data-tr="whyasaf Site Haritası">
+          whyasaf Site Map
+        </h1>
+        <div class="sitemap-grid">
+          <div class="sitemap-col">
+            <h3 class="translate-hover" data-tr="Ömer Asaf Ak Hakkında">
+              About Ömer Asaf Ak
+            </h3>
+            <ul>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Hikaye & Vizyon"
+                  href="ozgecmis.html#about"
+                  >Story & Vision</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Resmi Özgeçmiş"
+                  href="ozgecmis.html"
+                  >Official Resume</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="İletişim"
+                  href="index.html#contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="sitemap-col">
+            <h3 class="translate-hover" data-tr="Projeler & Ekosistem">
+              Projects & Ecosystem
+            </h3>
+            <ul>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Ana Portfolyo"
+                  href="index.html#projects"
+                  >Main Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/whyasaf/CodeVocab" target="_blank"
+                  >CodeVocab AI</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/kacisalanif1/"
+                  target="_blank"
+                  >Kaçış Alanı F1</a
+                >
+              </li>
+              <li>
+                <a href="#">Marki Corp.</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sitemap-col">
+            <h3 class="translate-hover" data-tr="Yasal Bilgiler">
+              Legal Information
+            </h3>
+            <ul>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Gizlilik Politikası"
+                  href="#"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a class="translate-hover" data-tr="Kullanım Şartları" href="#"
+                  >Terms of Use</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="apple-bottom-bar">
+          <div
+            class="apple-copyright translate-hover"
+            data-tr="Telif Hakkı &copy; 2026 whyasaf (Ömer Asaf Ak). Tüm hakları saklıdır."
+          >
+            Copyright &copy; 2026 whyasaf (Ömer Asaf Ak). All rights reserved.
+          </div>
+          <div class="apple-legal-links">
+            <a class="translate-hover" data-tr="Gizlilik Politikası" href="#"
+              >Privacy Policy</a
+            >
+            <span class="divider">|</span>
+            <a class="translate-hover" data-tr="Kullanım Şartları" href="#"
+              >Terms of Use</a
+            >
+            <span class="divider">|</span>
+            <a
+              class="translate-hover"
+              data-tr="Site Haritası"
+              href="site-haritasi.html"
+              >Site Map</a
+            >
+          </div>
+          <div class="apple-country translate-hover" data-tr="Türkiye">
+            Turkey
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="translation-sidebar" id="translation-sidebar"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

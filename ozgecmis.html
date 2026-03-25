@@ -2,87 +2,80 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Özgeçmiş | Ömer Asaf Ak - Geliştirici & Tasarımcı</title>
     <meta
-      name="description"
       content="Ömer Asaf Ak'ın eğitim hayatı, teknik yetkinlikleri ve projelerini içeren resmi özgeçmiş sayfasıdır."
+      name="description"
     />
-
-    <meta property="og:title" content="Özgeçmiş | Ömer Asaf Ak" />
+    <meta content="Özgeçmiş | Ömer Asaf Ak" property="og:title" />
     <meta
-      property="og:description"
       content="Eğitim, deneyim ve projelerimi içeren detaylı özgeçmişim."
+      property="og:description"
     />
-    <meta property="og:image" content="https://whyasaf.com/assets/logo.png" />
-    <meta property="og:url" content="https://whyasaf.com/ozgecmis.html" />
-
-    <link rel="canonical" href="https://whyasaf.com/ozgecmis.html" />
-
+    <meta content="https://whyasaf.com/assets/logo.png" property="og:image" />
+    <meta content="https://whyasaf.com/ozgecmis.html" property="og:url" />
+    <link href="https://whyasaf.com/ozgecmis.html" rel="canonical" />
     <script>
       if (localStorage.getItem("theme") === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
       }
     </script>
-
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="whyasaf" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <meta content="whyasaf" name="apple-mobile-web-app-title" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link href="style.css" rel="stylesheet" />
   </head>
-
   <body>
     <div id="tsparticles"></div>
-    <nav id="navbar" class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
           class="weather-widget"
           id="weatherWidget"
           title="Hava Durumu"
         ></div>
-        <a href="index.html" class="nav-brand">
-          <img src="assets/logo.png" alt="Logo" class="main-logo" />
-        </a>
+        <a class="nav-brand" href="index.html"
+          ><img alt="Logo" class="main-logo" src="assets/logo.png"
+        /></a>
         <div class="nav-links">
-          <a href="index.html#about" class="translate-hover" data-tr="Hakkımda"
+          <a class="translate-hover" data-tr="Hakkımda" href="index.html#about"
             >About</a
           >
           <a
-            href="index.html#skills"
             class="translate-hover"
             data-tr="Yetenekler"
+            href="index.html#skills"
             >Skills</a
           >
           <a
-            href="index.html#projects"
             class="translate-hover"
             data-tr="Projeler"
+            href="index.html#projects"
             >Projects</a
           >
           <a
-            href="index.html#contact"
             class="translate-hover"
             data-tr="İletişim"
+            href="index.html#contact"
             >Contact</a
           >
           <a
-            href="index.html#quick-links-section"
             class="translate-hover"
             data-tr="Hızlı Bağlantılar"
+            href="index.html#quick-links-section"
             >Quick Links</a
           >
         </div>
-
         <div class="nav-icons" style="display: flex; align-items: center">
           <a href="#" class="nav-search-icon" aria-label="Search">
             <svg
@@ -102,6 +95,7 @@
             class="dark-mode-toggle"
             id="darkModeToggle"
             aria-label="Toggle Dark Mode"
+            style="margin-left: 10px"
           >
             <svg
               class="sun-icon"
@@ -173,17 +167,25 @@
             >
               Developer, Designer and Founder of Marki Corp.
             </p>
+            <div class="wa-hero-action" style="margin-top: 25px">
+              <a
+                class="wa-btn-cv translate-hover"
+                data-tr="Özgeçmişi İndir (PDF)"
+                href="assets/Omer_Asaf_Ak_CV.pdf"
+                target="_blank"
+                >Download Resume (PDF)</a
+              >
+            </div>
           </div>
           <div class="wa-hero-image">
             <img
-              src="assets/wa-about-2.png"
               alt="Ömer Asaf Ak"
               class="wa-large-pic"
+              src="assets/wa-about-2.png"
             />
           </div>
         </div>
       </section>
-
       <section class="wa-profile-story">
         <div class="wa-narrow-content">
           <p
@@ -197,7 +199,6 @@
             <strong>"whyasaf"</strong> identity comes from; the effort to turn
             something functional into a visually appealing, usable product.
           </p>
-
           <p
             class="translate-hover"
             data-tr="Okulumda Makine Öğrenmesi (Machine Learning) ve Sistem Analizi gibi alanlara odaklanarak işin matematiğine iniyorum. Benim için bir projenin sadece 'çalışması' yetmez; mimarisinin, arka planının da akıllıca ve verimli kurgulanması gerekir. Kodu yazmaya başlamadan önce sistemi kağıt üzerinde çözmeyi sevenlerdenim."
@@ -208,7 +209,6 @@
             built smartly and efficiently. I'm the kind of person who likes to
             solve the system on paper before even starting to write the code.
           </p>
-
           <p
             class="translate-hover"
             data-tr="Gerçek hayattaki sorunlara kodla çözüm üretmek en sevdiğim şey. Mesela geliştiricilerin teknik İngilizce dokümanları okurken yaşadığı zorluğu fark ettiğimde CodeVocab AI'ı geliştirmeye başladım. Bu proje, doğal dil işleme (NLP) kullanarak bu dil bariyerini aşmayı hedefleyen, uçtan uca kendi tasarlayıp kodladığım bir platform."
@@ -220,7 +220,6 @@
             platform I designed and coded myself, aiming to overcome this
             language barrier using Natural Language Processing (NLP).
           </p>
-
           <p
             class="translate-hover"
             data-tr="Tabii tüm vaktimi terminal ekranına bakarak geçirmiyorum. Sıkı bir Formula 1 takipçisiyim. Kaçış Alanı F1 adında bir proje yürütüyorum; burada yarış sonuçlarını, sıralama turlarını (pole) ve güncel haberleri kendi görsel dilimle tasarlayıp paylaşıyorum. Veriyi alıp okunabilir ve estetik bir infografiğe dönüştürmek, Affinity Designer'da en keyif aldığım işlerden biri."
@@ -233,19 +232,17 @@
             aesthetic infographic is one of the things I enjoy most in Affinity
             Designer.
           </p>
-
           <p
             class="translate-hover"
             data-tr="Tüm bu farklı ilgi alanlarımı tek bir yerde toplamak için de Marki Corp. markasını kurdum. Burasını benim 'yaratıcılık ve teknoloji çatım' olarak düşünebilirsin. Yazılım geliştirme projelerim, grafik tasarım işlerim ve hatta Techno/Lofi/Rap türünde denemeler yaptığım müzik prodüksiyonum (Marki Music)... Hepsi bu çatının altında yaşıyor."
           >
             To gather all these different interests in one place, I founded the
-            <strong>Marki Corp.</strong>
-            brand. You can think of it as my "umbrella of creativity and
-            technology." My software development projects, graphic design work,
-            and even my music production where I experiment with Techno/Lofi/Rap
-            genres (Marki Music)... They all live under this roof.
+            <strong>Marki Corp.</strong> brand. You can think of it as my
+            "umbrella of creativity and technology." My software development
+            projects, graphic design work, and even my music production where I
+            experiment with Techno/Lofi/Rap genres (Marki Music)... They all
+            live under this roof.
           </p>
-
           <p
             class="translate-hover"
             data-tr="Kısacası; bana verilen bir görevi kodlayıp geçen standart bir yazılımcı değilim. Kendi projelerini sıfırdan üreten, arayüzünü piksel piksel tasarlayan, arka planını ise sağlam temellere oturtan bir dijital ürün geliştiricisiyim."
@@ -257,7 +254,54 @@
           </p>
         </div>
       </section>
-
+      <section class="wa-profile-tech" style="margin-bottom: 60px">
+        <div class="wa-narrow-content">
+          <h3
+            class="wa-notes-heading translate-hover"
+            data-tr="Teknik Yetkinlikler"
+          >
+            Technical Proficiencies
+          </h3>
+          <div class="wa-tech-grid">
+            <div class="wa-tech-card">
+              <h4 class="translate-hover" data-tr="Yazılım Geliştirme">
+                Software Development
+              </h4>
+              <p
+                class="translate-hover"
+                data-tr="Python, JavaScript, NLP, Nesne Yönelimli Programlama (OOP), Algoritma Tasarımı"
+              >
+                Python, JavaScript, NLP, Object-Oriented Programming (OOP),
+                Algorithm Design
+              </p>
+            </div>
+            <div class="wa-tech-card">
+              <h4 class="translate-hover" data-tr="Arayüz & Deneyim">
+                Design & UI/UX
+              </h4>
+              <p
+                class="translate-hover"
+                data-tr="Affinity Designer, Vektörel Tasarım, Modern Web Teknolojileri, Görsel Hiyerarşi"
+              >
+                Affinity Designer, Vector Design, Modern Web Technologies,
+                Visual Hierarchy
+              </p>
+            </div>
+            <div class="wa-tech-card">
+              <h4 class="translate-hover" data-tr="Sistem & Analiz">
+                System & Analysis
+              </h4>
+              <p
+                class="translate-hover"
+                data-tr="Makine Öğrenmesi (Öğrenci), Sistem Analizi ve Tasarımı, Karar Teorisi"
+              >
+                Machine Learning (Learning), Systems Analysis and Design,
+                Decision Theory
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="wa-profile-notes">
         <div class="wa-narrow-content">
           <h3
@@ -269,58 +313,117 @@
           <div class="wa-notes-list">
             <blockquote
               class="wa-note-item translate-hover"
-              data-tr="Geleceği algoritmalarla tahmin etmiyorum; onu estetikle baştan tasarlıyorum."
+              data-tr='"Geleceği algoritmalarla tahmin etmiyorum; onu estetikle baştan tasarlıyorum."'
             >
-              "Geleceği algoritmalarla tahmin etmiyorum; onu estetikle baştan
-              tasarlıyorum."
+              "I don't predict the future with algorithms; I redesign it with
+              aesthetics."
             </blockquote>
             <blockquote
               class="wa-note-item translate-hover"
-              data-tr="Yazılım dünyasında en büyük engel dil değil, vizyon eksikliğidir."
+              data-tr='"Yazılım dünyasında en büyük engel dil değil, vizyon eksikliğidir."'
             >
-              "Yazılım dünyasında en büyük engel dil değil, vizyon
-              eksikliğidir."
+              "In the software world, the biggest obstacle isn't the language,
+              but the lack of vision."
             </blockquote>
           </div>
         </div>
       </section>
-
       <hr class="wa-divider" />
-
       <section class="wa-resume-footer">
         <div class="wa-narrow-content">
           <div class="wa-footer-grid">
-            <h3 class="wa-footer-label">Deneyim</h3>
+            <h3 class="wa-footer-label translate-hover" data-tr="Deneyim">
+              Experience
+            </h3>
             <div class="wa-footer-items-list">
-              <div class="wa-footer-item">
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;CodeVocab AI&lt;/h4&gt;&lt;p&gt;Yazılım Geliştirici / Python &amp; NLP &mdash; 2024 - Günümüz&lt;/p&gt;"
+              >
                 <h4>CodeVocab AI</h4>
-                <p>Software Developer / Python & NLP — 2024 - Günümüz</p>
+                <p>
+                  Software Developer / Python &amp; NLP &mdash; 2025 - Present
+                </p>
               </div>
-              <div class="wa-footer-item">
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;Marki Corp.&lt;/h4&gt;&lt;p&gt;Kreatif Yapay Zeka Stratejisti / Kurucu &mdash; 2024 - Günümüz&lt;/p&gt;"
+              >
                 <h4>Marki Corp.</h4>
-                <p>Creative AI Strategist / Founder — 2024 - Günümüz</p>
+                <p>Creative AI Strategist / Founder &mdash; 2024 - Present</p>
               </div>
-              <div class="wa-footer-item">
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;Kaçış Alanı F1&lt;/h4&gt;&lt;p&gt;Kurucu &amp; İçerik Üreticisi &mdash; 2024 - Günümüz&lt;/p&gt;"
+              >
                 <h4>Kaçış Alanı F1</h4>
-                <p>Software Developer / Python & NLP — 2024 - Günümüz</p>
+                <p>Founder &amp; Content Creator &mdash; 2025 - Present</p>
               </div>
             </div>
           </div>
-
           <div class="wa-footer-grid">
-            <h3 class="wa-footer-label">Eğitim</h3>
+            <h3 class="wa-footer-label translate-hover" data-tr="Eğitim">
+              Education
+            </h3>
             <div class="wa-footer-items-list">
-              <div class="wa-footer-item">
-                <h4>İstanbul Üniversitesi</h4>
-                <p>Bilgisayar Programcılığı — 2024 - Günümüz</p>
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;İstanbul Üniversitesi&lt;/h4&gt;&lt;p&gt;Bilgisayar Programcılığı &mdash; 2024 - Günümüz&lt;/p&gt;"
+              >
+                <h4>Istanbul University</h4>
+                <p>Computer Programming &mdash; 2024 - Present</p>
+              </div>
+            </div>
+          </div>
+          <div class="wa-footer-grid">
+            <h3
+              class="wa-footer-label translate-hover"
+              data-tr="Kurslar & Akademik"
+            >
+              Courses & Academic
+            </h3>
+            <div class="wa-footer-items-list">
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;Makine Öğrenmesi (Machine Learning)&lt;/h4&gt;&lt;p&gt;Akademik Ders / İstanbul Üniversitesi &mdash; 2026&lt;/p&gt;"
+              >
+                <h4>Machine Learning</h4>
+                <p>Academic Course / Istanbul University &mdash; 2026</p>
+              </div>
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;Mobil Programlama & Görsel Programlama&lt;/h4&gt;&lt;p&gt;Akademik Ders / İstanbul Üniversitesi &mdash; 2026&lt;/p&gt;"
+              >
+                <h4>Mobile & Visual Programming</h4>
+                <p>Academic Course / Istanbul University &mdash; 2026</p>
+              </div>
+            </div>
+          </div>
+          <div class="wa-footer-grid">
+            <h3 class="wa-footer-label translate-hover" data-tr="Diller">
+              Languages
+            </h3>
+            <div class="wa-footer-items-list">
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;İngilizce&lt;/h4&gt;&lt;p&gt;B2 &mdash; Mesleki Çalışma Yetkinliği&lt;/p&gt;"
+              >
+                <h4>English</h4>
+                <p>B2 &mdash; Professional Working Proficiency</p>
+              </div>
+              <div
+                class="wa-footer-item translate-hover"
+                data-tr="&lt;h4&gt;Türkçe&lt;/h4&gt;&lt;p&gt;Ana Dil&lt;/p&gt;"
+              >
+                <h4>Turkish</h4>
+                <p>Native Language</p>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <footer id="quick-links-section" class="site-footer">
+    <footer class="site-footer" id="quick-links-section">
       <div class="footer-container">
         <div class="footer-quick-links">
           <h3 class="translate-hover" data-tr="Profesyonel Kanallar">
@@ -328,29 +431,31 @@
           </h3>
           <div class="footer-pills">
             <a
+              class="footer-pill"
               href="https://www.linkedin.com/in/omer-asaf-ak/"
               target="_blank"
-              class="footer-pill"
               >LinkedIn</a
             >
             <a
+              class="footer-pill"
               href="https://github.com/whyasaf"
               target="_blank"
-              class="footer-pill"
               >GitHub</a
             >
             <a
+              class="footer-pill"
               href="https://www.behance.net/whyasaf"
               target="_blank"
-              class="footer-pill"
               >Behance</a
             >
-            <a href="mailto:whyasaf.wa@gmail.com" class="footer-pill"
-              >İletişim</a
+            <a
+              class="footer-pill translate-hover"
+              data-tr="İletişim"
+              href="mailto:whyasaf.wa@gmail.com"
+              >Contact</a
             >
           </div>
         </div>
-
         <div class="footer-fine-print">
           <p
             class="translate-hover"
@@ -403,9 +508,7 @@
             </li>
           </ol>
         </div>
-
         <hr class="footer-divider" />
-
         <div class="footer-directory">
           <div class="footer-col">
             <h4 class="translate-hover" data-tr="Akademik & Kariyer">
@@ -414,35 +517,35 @@
             <ul>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/omer-asaf-ak/"
-                  target="_blank"
                   class="translate-hover"
                   data-tr="LinkedIn Profilim"
+                  href="https://www.linkedin.com/in/omer-asaf-ak/"
+                  target="_blank"
                   >My LinkedIn Profile</a
                 >
               </li>
               <li>
                 <a
-                  href="https://github.com/whyasaf"
-                  target="_blank"
                   class="translate-hover"
                   data-tr="Kod Arşivim"
+                  href="https://github.com/whyasaf"
+                  target="_blank"
                   >My Code Archive</a
                 >
               </li>
               <li>
                 <a
-                  href="index.html#projects"
                   class="translate-hover"
                   data-tr="Ana Portfolyo"
+                  href="index.html#projects"
                   >Main Portfolio</a
                 >
               </li>
               <li>
                 <a
-                  href="index.html"
                   class="translate-hover"
                   data-tr="Ana Sayfaya Dön"
+                  href="index.html"
                   >Back to Home</a
                 >
               </li>
@@ -472,10 +575,10 @@
               </li>
               <li>
                 <a
-                  href="https://tr.pinterest.com/whyasaf57"
-                  target="_blank"
                   class="translate-hover"
                   data-tr="Pinterest (Moodboard)"
+                  href="https://tr.pinterest.com/whyasaf57"
+                  target="_blank"
                   >Pinterest (Moodboard)</a
                 >
               </li>
@@ -488,48 +591,67 @@
             <ul>
               <li>
                 <a
-                  href="mailto:asafak04@gmail.com"
                   class="translate-hover"
                   data-tr="E-Posta"
+                  href="mailto:asafak04@gmail.com"
                   >E-Mail</a
                 >
               </li>
               <li>
                 <a
-                  href="index.html#contact"
                   class="translate-hover"
                   data-tr="İletişim Formu"
+                  href="index.html#contact"
                   >Contact Form</a
                 >
               </li>
               <li>
                 <a
-                  href="https://instagram.com/whyasaf"
-                  target="_blank"
                   class="translate-hover"
                   data-tr="Instagram DM"
+                  href="https://instagram.com/whyasaf"
+                  target="_blank"
                   >Instagram DM</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
                   class="disabled-link translate-hover"
                   data-tr="İstanbul, Türkiye"
+                  href="#"
                   >Istanbul, Türkiye</a
                 >
               </li>
             </ul>
           </div>
         </div>
-
-        <p
-          class="footer-copyright translate-hover"
-          data-tr="&copy; 2026 Ömer Asaf Ak — Modern Tasarım, Analitik Kod, whyasaf Vizyonu."
-        >
-          &copy; 2026 Omer Asaf Ak — Modern Design, Analytical Code, whyasaf
-          Vision.
-        </p>
+        <div class="apple-bottom-bar">
+          <div
+            class="apple-copyright translate-hover"
+            data-tr="Telif Hakkı &copy; 2026 whyasaf (Ömer Asaf Ak). Tüm hakları saklıdır."
+          >
+            Copyright &copy; 2026 whyasaf (Ömer Asaf Ak). All rights reserved.
+          </div>
+          <div class="apple-legal-links">
+            <a class="translate-hover" data-tr="Gizlilik Politikası" href="#"
+              >Privacy Policy</a
+            >
+            <span class="divider">|</span>
+            <a class="translate-hover" data-tr="Kullanım Şartları" href="#"
+              >Terms of Use</a
+            >
+            <span class="divider">|</span>
+            <a
+              class="translate-hover"
+              data-tr="Site Haritası"
+              href="site-haritasi.html"
+              >Site Map</a
+            >
+          </div>
+          <div class="apple-country translate-hover" data-tr="Türkiye">
+            Turkey
+          </div>
+        </div>
       </div>
     </footer>
     <script src="script.js"></script>
