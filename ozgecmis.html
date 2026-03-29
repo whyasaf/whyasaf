@@ -36,66 +36,76 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="tsparticles"></div>
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
-          class="weather-widget"
-          id="weatherWidget"
-          title="Hava Durumu"
-        ></div>
-        <a class="nav-brand" href="index.html"
-          ><img alt="Logo" class="main-logo" src="assets/logo.png"
-        /></a>
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 20px"
+        >
+          <div
+            class="weather-widget"
+            id="weatherWidget"
+            title="Hava Durumu"
+          ></div>
+          <a class="nav-brand" href="index.html">
+            <img alt="Logo" class="main-logo" src="assets/logo.png" />
+          </a>
+        </div>
+
         <div class="nav-links">
-          <a class="translate-hover" data-tr="Hakkımda" href="index.html#about"
+          <a class="translate-hover" data-tr="Hakkımda" href="ozgecmis.html"
             >About</a
           >
-          <a
-            class="translate-hover"
-            data-tr="Yetenekler"
-            href="index.html#skills"
+          <a class="translate-hover" data-tr="Yetenekler" href="#skills"
             >Skills</a
           >
-          <a
-            class="translate-hover"
-            data-tr="Projeler"
-            href="index.html#projects"
+          <a class="translate-hover" data-tr="Projeler" href="#projects"
             >Projects</a
           >
-          <a
-            class="translate-hover"
-            data-tr="İletişim"
-            href="index.html#contact"
+          <a class="translate-hover" data-tr="İletişim" href="iletisim.html"
             >Contact</a
           >
           <a
             class="translate-hover"
             data-tr="Hızlı Bağlantılar"
-            href="index.html#quick-links-section"
+            href="#quick-links-section"
             >Quick Links</a
           >
         </div>
-        <div class="nav-icons" style="display: flex; align-items: center">
-          <a href="#" class="nav-search-icon" aria-label="Search">
+
+        <div
+          class="nav-icons"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <a aria-label="Search" class="nav-search-icon" href="#">
             <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="1.2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <circle cx="7" cy="7" r="5"></circle>
-              <path d="M11 11L13.5 13.5"></path>
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
           </a>
 
           <button
+            aria-label="Toggle Dark Mode"
             class="dark-mode-toggle"
             id="darkModeToggle"
-            aria-label="Toggle Dark Mode"
-            style="margin-left: 10px"
+            style="
+              margin-left: 10px;
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: inherit;
+              padding: 0;
+              display: flex;
+            "
           >
             <svg
               class="sun-icon"
@@ -109,14 +119,14 @@
               stroke-linejoin="round"
             >
               <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              <line x1="12" x2="12" y1="1" y2="3"></line>
+              <line x1="12" x2="12" y1="21" y2="23"></line>
+              <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+              <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+              <line x1="1" x2="3" y1="12" y2="12"></line>
+              <line x1="21" x2="23" y1="12" y2="12"></line>
+              <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+              <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
             </svg>
             <svg
               class="moon-icon"
@@ -128,29 +138,9 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
+              style="display: none"
             >
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-
-          <button
-            class="hamburger-btn"
-            aria-label="Menu"
-            style="margin-left: 10px"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -409,7 +399,7 @@
                 data-tr="&lt;h4&gt;İngilizce&lt;/h4&gt;&lt;p&gt;B2 &mdash; Mesleki Çalışma Yetkinliği&lt;/p&gt;"
               >
                 <h4>English</h4>
-                <p>B2 &mdash; Professional Working Proficiency</p>
+                <p>B1 &mdash; Intermediate Proficiency</p>
               </div>
               <div
                 class="wa-footer-item translate-hover"
@@ -601,7 +591,7 @@
                 <a
                   class="translate-hover"
                   data-tr="İletişim Formu"
-                  href="index.html#contact"
+                  href="iletisim.html"
                   >Contact Form</a
                 >
               </li>
@@ -655,5 +645,6 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script src="config.js"></script>
   </body>
 </html>

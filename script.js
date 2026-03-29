@@ -1,6 +1,3 @@
-/* ==========================================================================
-   PORTFOLYO ANA BEYNİ (WHYASAF CORE SYSTEM)
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 1. DARK MODE OPERASYONU
@@ -148,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 5. HERO YAZI YAZMA (SADECE ANA SAYFA)
   // ==========================================
-  const heroTitle = document.querySelector("#hero h1"); // CV'deki .wa-name kısmını sildik!
+  const heroTitle = document.querySelector("#hero h1");
   if (heroTitle) {
     const textToType = heroTitle.textContent.trim();
     heroTitle.textContent = "";
@@ -171,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 6. SCROLL ANİMASYONU (TÜM SAYFALARIN ALT KISMI)
   // ==========================================
-  // Hem ana sayfa hem özgeçmiş sayfasındaki BÜTÜN hareket edecek kutuları hedefe koyduk
   let elements = document.querySelectorAll(`
         /* Ana Sayfa */
         .wa-container, 
@@ -188,11 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .wa-note-item,
         .wa-footer-item
     `);
-  // Sadece açılış ekranlarını (Hero ve CV Üst Panel) bu işten muaf tutuyoruz, CSS hallediyor
   const revealElements = Array.from(elements).filter(
     (el) => !el.closest("#hero") && !el.closest(".wa-profile-hero"),
   );
-  // Geri kalan hepsine "saklan" emrini veriyoruz
   revealElements.forEach((el) => el.classList.add("reveal"));
   const revealOptions = {
     threshold: 0.15,
@@ -271,12 +265,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 9. ARKA PLAN NOKTALARI (TSPARTICLES)
   // ==========================================
-  if (typeof tsParticles !== "undefined") {
+  const tspContainer = document.getElementById("tsparticles");
+
+  if (typeof tsParticles !== "undefined" && tspContainer) {
     tsParticles.load("tsparticles", {
       fpsLimit: 120,
       fullScreen: {
-        enable: true,
-        zIndex: -1,
+        enable: false,
       },
       interactivity: {
         events: {
@@ -398,4 +393,47 @@ document.addEventListener("DOMContentLoaded", () => {
       profilePic.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
     });
   }
-}); // DOMContentLoaded BİTİŞİ
+});
+
+// ==========================================
+// 12. İLETİŞİM FORMU GÖNDERME (EMAILJS)
+// ==========================================
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const btn = contactForm.querySelector(".arch-submit");
+    const originalText = btn.innerHTML;
+
+    btn.innerHTML = 'SENDING... <span class="arch-arrow">↻</span>';
+    btn.style.opacity = "0.5";
+
+    const templateParams = {
+      name: contactForm.querySelector('input[placeholder="NAME"]').value,
+      email: contactForm.querySelector('input[placeholder="EMAIL"]').value,
+      message: contactForm.querySelector("textarea").value,
+    };
+
+    emailjs.send("service_4typs48", "template_z0x6v7n", templateParams).then(
+      function () {
+        btn.innerHTML = 'MESSAGE SENT! <span class="arch-arrow">✓</span>';
+        btn.style.background = "#34C759";
+        btn.style.opacity = "1";
+        contactForm.reset();
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = "";
+        }, 5000);
+      },
+      function (error) {
+        console.log("FAILED...", error);
+        btn.innerHTML = 'ERROR! TRY AGAIN <span class="arch-arrow">!</span>';
+        btn.style.background = "#FF3B30";
+        btn.style.opacity = "1";
+      },
+    );
+  });
+}
