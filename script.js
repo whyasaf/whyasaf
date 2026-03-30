@@ -32,13 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   const hamburgerBtn = document.querySelector(".hamburger-btn");
   const navLinks = document.querySelector(".nav-links");
+  const hamburgerIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>`;
+  const closeIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+
   if (hamburgerBtn && navLinks) {
     hamburgerBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+      const isActive = navLinks.classList.toggle("active");
+      hamburgerBtn.innerHTML = isActive ? closeIcon : hamburgerIcon;
+      document.body.style.overflow = isActive ? "hidden" : "";
     });
     document.querySelectorAll(".nav-links a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("active");
+        hamburgerBtn.innerHTML = hamburgerIcon;
+        document.body.style.overflow = "";
       });
     });
   }
@@ -398,42 +405,32 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==========================================
 // 12. İLETİŞİM FORMU GÖNDERME (EMAILJS)
 // ==========================================
-const contactForm = document.getElementById("contactForm");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", function (event) {
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const btn = contactForm.querySelector(".arch-submit");
-    const originalText = btn.innerHTML;
+    const btn = document.querySelector(".arch-submit");
 
-    btn.innerHTML = 'SENDING... <span class="arch-arrow">↻</span>';
-    btn.style.opacity = "0.5";
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
 
-    const templateParams = {
-      name: contactForm.querySelector('input[placeholder="NAME"]').value,
-      email: contactForm.querySelector('input[placeholder="EMAIL"]').value,
-      message: contactForm.querySelector("textarea").value,
-    };
+    btn.textContent = "SENDING...";
 
-    emailjs.send("service_4typs48", "template_z0x6v7n", templateParams).then(
-      function () {
-        btn.innerHTML = 'MESSAGE SENT! <span class="arch-arrow">✓</span>';
-        btn.style.background = "#34C759";
-        btn.style.opacity = "1";
-        contactForm.reset();
-
+    emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", this).then(
+      () => {
+        btn.textContent = "SENT SUCCESSFULLY";
+        this.reset();
         setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.background = "";
-        }, 5000);
+          btn.textContent = "SEND INQUIRY";
+        }, 3000);
       },
-      function (error) {
-        console.log("FAILED...", error);
-        btn.innerHTML = 'ERROR! TRY AGAIN <span class="arch-arrow">!</span>';
-        btn.style.background = "#FF3B30";
-        btn.style.opacity = "1";
+      (err) => {
+        btn.textContent = "ERROR";
+        console.error("EmailJS Hatası:", err);
+        alert("Bir hata oluştu, Lütfen tekrar deneyiniz.");
       },
     );
   });
-}
