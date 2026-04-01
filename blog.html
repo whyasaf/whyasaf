@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Journal | whyasaf — Ömer Asaf Ak</title>
+    <title>Blog | whyasaf — Ömer Asaf Ak</title>
     <meta
       content="Thoughts on design, development, F1 strategy, and building things that matter."
       name="description"
@@ -16,7 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <!-- Instant theme flicker prevention -->
     <script>
       (function () {
         const t = localStorage.getItem("theme");
@@ -30,9 +29,6 @@
     </script>
   </head>
   <body class="blog-index-page">
-    <!-- ═══════════════════════════════════════════════
-         NAVBAR  (identical to all other pages)
-    ════════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
@@ -157,9 +153,6 @@
       </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════════════
-         PAGE HERO
-    ════════════════════════════════════════════════ -->
     <header class="blog-hero">
       <div class="blog-hero-inner">
         <p class="blog-hero-kicker">whyasaf / Journal</p>
@@ -169,7 +162,6 @@
           long-form thinking.
         </p>
       </div>
-      <!-- Decorative rule ticker -->
       <div class="blog-hero-ticker" aria-hidden="true">
         <span>DESIGN</span><span>·</span> <span>DEVELOPMENT</span><span>·</span>
         <span>FORMULA 1</span><span>·</span> <span>AESTHETICS</span
@@ -180,9 +172,6 @@
       </div>
     </header>
 
-    <!-- ═══════════════════════════════════════════════
-         FILTER BAR
-    ════════════════════════════════════════════════ -->
     <div class="blog-filter-bar">
       <div class="blog-filter-inner">
         <button class="blog-filter-btn active" data-filter="all">All</button>
@@ -193,14 +182,8 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         BLOG GRID  ← Add new <article> blocks here
-    ════════════════════════════════════════════════ -->
     <main class="blog-grid-section">
       <div class="blog-grid" id="blogGrid">
-        <!-- ─────────────────────────────────────────
-             POST 1 — FEATURED (spans 2 columns)
-        ──────────────────────────────────────────── -->
         <article class="blog-card blog-card--featured" data-category="design">
           <a
             class="blog-card-link"
@@ -239,9 +222,6 @@
           </div>
         </article>
 
-        <!-- ─────────────────────────────────────────
-             POST 2
-        ──────────────────────────────────────────── -->
         <article class="blog-card" data-category="dev">
           <a
             class="blog-card-link"
@@ -277,9 +257,6 @@
           </div>
         </article>
 
-        <!-- ─────────────────────────────────────────
-             POST 3
-        ──────────────────────────────────────────── -->
         <article class="blog-card" data-category="f1">
           <a
             class="blog-card-link"
@@ -317,9 +294,6 @@
           </div>
         </article>
 
-        <!-- ─────────────────────────────────────────
-             POST 4
-        ──────────────────────────────────────────── -->
         <article class="blog-card" data-category="music">
           <a
             class="blog-card-link"
@@ -357,9 +331,6 @@
           </div>
         </article>
 
-        <!-- ─────────────────────────────────────────
-             POST 5
-        ──────────────────────────────────────────── -->
         <article class="blog-card" data-category="design">
           <a
             class="blog-card-link"
@@ -394,58 +365,9 @@
             </div>
           </div>
         </article>
-
-        <!--
-        ═══════════════════════════════════════════════
-        ┌─────────────────────────────────────────────┐
-        │  📋  NEW POST TEMPLATE  — COPY & PASTE BELOW │
-        │  Remove this comment block when you're done  │
-        └─────────────────────────────────────────────┘
-
-        STEP 1 — Copy everything between the <article> tags below.
-        STEP 2 — Paste it above this comment, before the closing </div>.
-        STEP 3 — Fill in your own: href, img src, alt, datetime, date,
-                 read time, title, excerpt. Change data-category to one of:
-                 design | dev | f1 | music
-        STEP 4 — Done. The grid auto-reflows. No CSS changes needed.
-
-        <article class="blog-card" data-category="design">
-          <a class="blog-card-link" href="post-detail.html" tabindex="-1" aria-hidden="true"></a>
-          <div class="card-image-wrapper">
-            <img
-              src="assets/blog/post-XX.jpg"
-              alt="Your Post Title Here"
-              loading="lazy"
-            />
-            <span class="card-category-badge">Design</span>
-          </div>
-          <div class="card-content">
-            <div class="card-meta">
-              <time datetime="2026-04-01">1 April 2026</time>
-              <span class="card-read-time">X min read</span>
-            </div>
-            <h2 class="card-title">
-              <a href="post-detail.html">Your Post Title Here</a>
-            </h2>
-            <p class="card-excerpt">
-              A short 2–3 sentence summary of the post. Keep it punchy.
-              The grid handles the rest.
-            </p>
-            <div class="card-footer">
-              <span class="card-author">Ömer Asaf Ak</span>
-              <a class="card-cta" href="post-detail.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        ════════════════════════════════════════════ -->
       </div>
-      <!-- /blog-grid -->
     </main>
 
-    <!-- ═══════════════════════════════════════════════
-         FOOTER
-    ════════════════════════════════════════════════ -->
     <footer class="site-footer">
       <div class="footer-container">
         <div class="apple-bottom-bar">
@@ -471,7 +393,6 @@
     <script src="script.js"></script>
     <script src="config.js"></script>
     <script>
-      // ── Filter bar ──────────────────────────────────────────────────────
       const filterBtns = document.querySelectorAll(".blog-filter-btn");
       const cards = document.querySelectorAll(".blog-card");
 
@@ -486,13 +407,11 @@
             card.style.opacity = match ? "1" : "0";
             card.style.transform = match ? "scale(1)" : "scale(0.95)";
             card.style.pointerEvents = match ? "auto" : "none";
-            // Use height-0 trick so grid reflows
             card.style.display = match ? "" : "none";
           });
         });
       });
 
-      // ── Reveal on scroll ────────────────────────────────────────────────
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
