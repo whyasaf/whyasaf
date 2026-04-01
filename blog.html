@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Journal | whyasaf — Ömer Asaf Ak</title>
+    <meta
+      content="Thoughts on design, development, F1 strategy, and building things that matter."
+      name="description"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <link href="blog-style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Instant theme flicker prevention -->
+    <script>
+      (function () {
+        const t = localStorage.getItem("theme");
+        if (
+          t === "dark" ||
+          (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="blog-index-page">
+    <!-- ═══════════════════════════════════════════════
+         NAVBAR  (identical to all other pages)
+    ════════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 20px"
+        >
+          <div
+            class="weather-widget"
+            id="weatherWidget"
+            title="Hava Durumu"
+          ></div>
+          <a class="nav-brand" href="index.html">
+            <img alt="whyasaf logo" class="main-logo" src="assets/logo.png" />
+          </a>
+        </div>
+
+        <div class="nav-links">
+          <a class="translate-hover" data-tr="Hakkımda" href="ozgecmis.html"
+            >About</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="Yetenekler"
+            href="index.html#skills"
+            >Skills</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="Projeler"
+            href="index.html#projects"
+            >Projects</a
+          >
+          <a
+            class="translate-hover"
+            data-tr="Journal"
+            href="blog.html"
+            aria-current="page"
+            >Journal</a
+          >
+          <a class="translate-hover" data-tr="İletişim" href="iletisim.html"
+            >Contact</a
+          >
+        </div>
+
+        <div
+          class="nav-icons"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <a aria-label="Search" class="nav-search-icon" href="#">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </a>
+          <button
+            aria-label="Toggle Dark Mode"
+            class="dark-mode-toggle"
+            id="darkModeToggle"
+          >
+            <svg
+              class="sun-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" x2="12" y1="1" y2="3"></line>
+              <line x1="12" x2="12" y1="21" y2="23"></line>
+              <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+              <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+              <line x1="1" x2="3" y1="12" y2="12"></line>
+              <line x1="21" x2="23" y1="12" y2="12"></line>
+              <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+              <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: none"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="hamburger-btn" aria-label="Menu">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" x2="21" y1="12" y2="12"></line>
+              <line x1="3" x2="21" y1="6" y2="6"></line>
+              <line x1="3" x2="21" y1="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════
+         PAGE HERO
+    ════════════════════════════════════════════════ -->
+    <header class="blog-hero">
+      <div class="blog-hero-inner">
+        <p class="blog-hero-kicker">whyasaf / Journal</p>
+        <h1 class="blog-hero-title">Writing.</h1>
+        <p class="blog-hero-sub">
+          Design decisions, engineering notes,<br />F1 strategy breakdowns &amp;
+          long-form thinking.
+        </p>
+      </div>
+      <!-- Decorative rule ticker -->
+      <div class="blog-hero-ticker" aria-hidden="true">
+        <span>DESIGN</span><span>·</span> <span>DEVELOPMENT</span><span>·</span>
+        <span>FORMULA 1</span><span>·</span> <span>AESTHETICS</span
+        ><span>·</span> <span>MUSIC</span><span>·</span> <span>PROCESS</span
+        ><span>·</span> <span>DESIGN</span><span>·</span>
+        <span>DEVELOPMENT</span><span>·</span> <span>FORMULA 1</span
+        ><span>·</span> <span>AESTHETICS</span><span>·</span>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════
+         FILTER BAR
+    ════════════════════════════════════════════════ -->
+    <div class="blog-filter-bar">
+      <div class="blog-filter-inner">
+        <button class="blog-filter-btn active" data-filter="all">All</button>
+        <button class="blog-filter-btn" data-filter="design">Design</button>
+        <button class="blog-filter-btn" data-filter="dev">Development</button>
+        <button class="blog-filter-btn" data-filter="f1">Formula 1</button>
+        <button class="blog-filter-btn" data-filter="music">Music</button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         BLOG GRID  ← Add new <article> blocks here
+    ════════════════════════════════════════════════ -->
+    <main class="blog-grid-section">
+      <div class="blog-grid" id="blogGrid">
+        <!-- ─────────────────────────────────────────
+             POST 1 — FEATURED (spans 2 columns)
+        ──────────────────────────────────────────── -->
+        <article class="blog-card blog-card--featured" data-category="design">
+          <a
+            class="blog-card-link"
+            href="post-detail.html"
+            tabindex="-1"
+            aria-hidden="true"
+          ></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-01.jpg"
+              alt="The Architecture of a Minimal Interface"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Design</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2026-03-28">28 March 2026</time>
+              <span class="card-read-time">6 min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html"
+                >The Architecture of a Minimal Interface</a
+              >
+            </h2>
+            <p class="card-excerpt">
+              Every pixel is a decision. Designing at the intersection of
+              restraint and function means choosing what to remove, not what to
+              add — and knowing when silence speaks louder than any element on
+              screen.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─────────────────────────────────────────
+             POST 2
+        ──────────────────────────────────────────── -->
+        <article class="blog-card" data-category="dev">
+          <a
+            class="blog-card-link"
+            href="post-detail.html"
+            tabindex="-1"
+            aria-hidden="true"
+          ></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-02.jpg"
+              alt="CSS Specificity as Architecture"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Development</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2026-03-14">14 March 2026</time>
+              <span class="card-read-time">4 min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html">CSS Specificity as Architecture</a>
+            </h2>
+            <p class="card-excerpt">
+              Treating the cascade like a system of load-bearing walls — not a
+              patchwork of overrides — changes everything about how you write
+              CSS.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─────────────────────────────────────────
+             POST 3
+        ──────────────────────────────────────────── -->
+        <article class="blog-card" data-category="f1">
+          <a
+            class="blog-card-link"
+            href="post-detail.html"
+            tabindex="-1"
+            aria-hidden="true"
+          ></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-03.jpg"
+              alt="Undercut Strategy and the Art of Controlled Risk"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Formula 1</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2026-02-27">27 February 2026</time>
+              <span class="card-read-time">5 min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html"
+                >Undercut Strategy &amp; Controlled Risk</a
+              >
+            </h2>
+            <p class="card-excerpt">
+              Why the best pit-wall calls look wrong in the moment and obvious
+              in hindsight — and what that teaches us about decision-making
+              under pressure.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─────────────────────────────────────────
+             POST 4
+        ──────────────────────────────────────────── -->
+        <article class="blog-card" data-category="music">
+          <a
+            class="blog-card-link"
+            href="post-detail.html"
+            tabindex="-1"
+            aria-hidden="true"
+          ></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-04.jpg"
+              alt="Building Marki Music: Sound as Brand Language"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Music</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2026-01-19">19 January 2026</time>
+              <span class="card-read-time">3 min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html"
+                >Building Marki Music: Sound as Brand Language</a
+              >
+            </h2>
+            <p class="card-excerpt">
+              A studio label born from two genres that shouldn't coexist —
+              Techno and Lofi — and why that tension became the strongest part
+              of the identity.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─────────────────────────────────────────
+             POST 5
+        ──────────────────────────────────────────── -->
+        <article class="blog-card" data-category="design">
+          <a
+            class="blog-card-link"
+            href="post-detail.html"
+            tabindex="-1"
+            aria-hidden="true"
+          ></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-05.jpg"
+              alt="Dark Mode Done Right"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Design</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2025-12-05">5 December 2025</time>
+              <span class="card-read-time">4 min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html">Dark Mode Done Right</a>
+            </h2>
+            <p class="card-excerpt">
+              Pure black is a trap. The nuances between #000000 and a true dark
+              UI — and why CSS custom properties make the difference invisible
+              to users but enormous in code.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <!--
+        ═══════════════════════════════════════════════
+        ┌─────────────────────────────────────────────┐
+        │  📋  NEW POST TEMPLATE  — COPY & PASTE BELOW │
+        │  Remove this comment block when you're done  │
+        └─────────────────────────────────────────────┘
+
+        STEP 1 — Copy everything between the <article> tags below.
+        STEP 2 — Paste it above this comment, before the closing </div>.
+        STEP 3 — Fill in your own: href, img src, alt, datetime, date,
+                 read time, title, excerpt. Change data-category to one of:
+                 design | dev | f1 | music
+        STEP 4 — Done. The grid auto-reflows. No CSS changes needed.
+
+        <article class="blog-card" data-category="design">
+          <a class="blog-card-link" href="post-detail.html" tabindex="-1" aria-hidden="true"></a>
+          <div class="card-image-wrapper">
+            <img
+              src="assets/blog/post-XX.jpg"
+              alt="Your Post Title Here"
+              loading="lazy"
+            />
+            <span class="card-category-badge">Design</span>
+          </div>
+          <div class="card-content">
+            <div class="card-meta">
+              <time datetime="2026-04-01">1 April 2026</time>
+              <span class="card-read-time">X min read</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post-detail.html">Your Post Title Here</a>
+            </h2>
+            <p class="card-excerpt">
+              A short 2–3 sentence summary of the post. Keep it punchy.
+              The grid handles the rest.
+            </p>
+            <div class="card-footer">
+              <span class="card-author">Ömer Asaf Ak</span>
+              <a class="card-cta" href="post-detail.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        ════════════════════════════════════════════ -->
+      </div>
+      <!-- /blog-grid -->
+    </main>
+
+    <!-- ═══════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="apple-bottom-bar">
+          <div
+            class="apple-copyright translate-hover"
+            data-tr="Telif Hakkı &copy; 2026 whyasaf (Ömer Asaf Ak). Tüm hakları saklıdır."
+          >
+            Copyright &copy; 2026 whyasaf (Ömer Asaf Ak). All rights reserved.
+          </div>
+          <div class="apple-legal-links">
+            <a href="site-haritasi.html">Site Map</a>
+            <span class="divider">|</span>
+            <a href="index.html">Home</a>
+            <span class="divider">|</span>
+            <a href="iletisim.html">Contact</a>
+          </div>
+          <div class="apple-country">Turkey</div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="translation-sidebar" id="translation-sidebar"></div>
+    <script src="script.js"></script>
+    <script src="config.js"></script>
+    <script>
+      // ── Filter bar ──────────────────────────────────────────────────────
+      const filterBtns = document.querySelectorAll(".blog-filter-btn");
+      const cards = document.querySelectorAll(".blog-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+          cards.forEach((card) => {
+            const match = filter === "all" || card.dataset.category === filter;
+            card.style.opacity = match ? "1" : "0";
+            card.style.transform = match ? "scale(1)" : "scale(0.95)";
+            card.style.pointerEvents = match ? "auto" : "none";
+            // Use height-0 trick so grid reflows
+            card.style.display = match ? "" : "none";
+          });
+        });
+      });
+
+      // ── Reveal on scroll ────────────────────────────────────────────────
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08 },
+      );
+
+      cards.forEach((c) => observer.observe(c));
+    </script>
+  </body>
+</html>
