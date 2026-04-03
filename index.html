@@ -52,10 +52,52 @@
         }
       })();
     </script>
+    <link href="mobile.css" rel="stylesheet" />
   </head>
   <body>
-    
+    <div id="preloader" style="display: none">
+      <div class="preloader-content">
+        <img
+          src="assets/wa_com2.png"
+          alt="WA Signature"
+          class="preloader-logo"
+        />
+      </div>
     </div>
+
+    <script>
+      (function () {
+        const loader = document.getElementById("preloader");
+
+        if (!sessionStorage.getItem("preloaderShown")) {
+          loader.style.display = "flex";
+          document.body.style.overflow = "hidden";
+
+          const closeLoader = () => {
+            if (loader.classList.contains("fade-out")) return;
+
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+            document.body.style.overflow = "auto";
+
+            sessionStorage.setItem("preloaderShown", "true");
+
+            setTimeout(() => {
+              loader.style.display = "none";
+            }, 800);
+          };
+
+          window.addEventListener("load", () => {
+            setTimeout(closeLoader, 1500);
+          });
+
+          setTimeout(closeLoader, 2000);
+        } else {
+          loader.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      })();
+    </script>
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
@@ -208,50 +250,47 @@
       </section>
       <section class="wa-section" id="about">
         <h2 class="translate-hover" data-tr="Hakkımda">About</h2>
-        <div class="wa-container">
-          <div class="wa-image-wrapper">
-            <img
-              alt="Ömer Asaf Ak - whyasaf"
-              class="wa-profile-pic"
-              src="assets/about_1.png"
-            />
-          </div>
+        <div class="wa-container about-centered">
           <div class="wa-content">
             <p>
               <span
                 class="translate-hover"
                 data-tr="İstanbul Üniversitesi'nde Bilgisayar Programcılığı öğrencisiyim."
-                >I am a Computer Programming student at Istanbul
-                University.</span
               >
+                I am a Computer Programming student at Istanbul University.
+              </span>
             </p>
             <p>
               <span
                 class="translate-hover"
                 data-tr="Teknolojiyi tasarımın gücüyle birleştirmeye odaklanıyorum. Sadece kod yazan değil, yazdığı kodu estetik ve kullanıcı odaklı bir deneyime dönüştüren bir geliştirici olma yolunda ilerliyorum."
-                >I focus on merging the power of technology with design. My goal
+              >
+                I focus on merging the power of technology with design. My goal
                 is to be more than just a coder; I strive to be a developer who
                 transforms lines of code into aesthetic, user-centric
-                experiences.</span
-              >
+                experiences.
+              </span>
             </p>
             <p>
               <span
                 class="translate-hover"
                 data-tr="Girişimci bir ruhla hayata geçirdiğim CodeVocab projemle, yazılım dünyasındaki dil bariyerini aşmayı hedeflerken; Marki Corp. markası altında yapay zekanın kreatif süreçlerdeki potansiyelini keşfediyorum."
-                >Driven by an entrepreneurial spirit, I aim to break language
+              >
+                Driven by an entrepreneurial spirit, I aim to break language
                 barriers in the tech world through CodeVocab, while exploring
                 the creative potential of artificial intelligence under the
-                Marki Corp. brand.</span
-              >
+                Marki Corp. brand.
+              </span>
             </p>
-            <div class="wa-content">
+
+            <div class="wa-btn-wrapper">
               <a
                 class="wa-btn-more translate-hover"
-                data-tr="Özgecmişi Keşfet"
+                data-tr="Özgeçmişi Keşfet"
                 href="/ozgecmis"
-                >Resume <span class="wa-arrow">→</span></a
               >
+                Resume <span class="wa-arrow">→</span>
+              </a>
             </div>
           </div>
         </div>

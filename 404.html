@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Architecture Not Found</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --pure-white: #ffffff;
+        --pure-black: #000000;
+        --apple-gray: #1d1d1f;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--pure-white);
+        color: var(--apple-gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .error-container {
+        text-align: center;
+        padding: 0 20px;
+        max-width: 700px;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .error-logo {
+        width: 110px;
+        height: auto;
+        margin-bottom: 2.5rem;
+        filter: brightness(0);
+      }
+
+      .error-code {
+        font-size: clamp(8rem, 25vw, 12rem);
+        font-weight: 800;
+        line-height: 0.9;
+        margin: 0;
+        color: var(--pure-black);
+        letter-spacing: -8px;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+      }
+
+      .error-title {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        margin: 1.5rem 0 2rem;
+        font-weight: 500;
+        color: var(--pure-black);
+      }
+
+      .error-message {
+        margin: 0 auto 3.5rem;
+        max-width: 650px;
+        opacity: 0.5;
+        font-weight: 300;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .back-home {
+        display: inline-block;
+        padding: 18px 45px;
+        background-color: var(--pure-black);
+        color: var(--pure-white) !important;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: 1px solid var(--pure-black);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .back-home:hover {
+        background-color: transparent;
+        color: var(--pure-black) !important;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .system-id {
+        position: absolute;
+        bottom: 30px;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        opacity: 0.2;
+      }
+    </style>
+    <link href="mobile.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="error-container">
+      <img src="assets/wa_com2.png" alt="WA" class="error-logo" />
+
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Archıtecture Not Found</h2>
+
+      <p class="error-message">
+        The structure you are looking for has not been built yet or has been
+        decommissioned. <br />
+        Follow the main axis to return to the system dashboard.
+      </p>
+
+      <a href="/" class="back-home">Return to System</a>
+    </div>
+
+    <div class="system-id">whyasaf.com</div>
+  </body>
+</html>

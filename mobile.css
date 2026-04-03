@@ -1,0 +1,251 @@
+/* ========================================================================= */
+/* MOBILE ARCHITECTURE: The Center Rule & UX Polish                          */
+/* ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+/* Breakpoint: 1024px (Tablets / Small Desktops)                             */
+/* ------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .wa-container-fluid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 0 30px;
+  }
+  .arch-link-list a {
+    font-size: 18px;
+  }
+  .post-layout {
+    grid-template-columns: 1fr;
+    padding: 50px 40px 80px;
+  }
+  .post-sidebar {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .post-sidebar-inner {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+  }
+  .post-progress {
+    grid-column: 1;
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Breakpoint: 1100px & 850px (Blog Grids)                                 */
+/* ------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .arch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .arch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Breakpoint: 768px (Mobile & Core Alignment)                               */
+/* ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* THE CENTER RULE: Hero, About, Skills, Projects */
+  section#hero,
+  section#about,
+  section#skills,
+  section#projects,
+  .apple-projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* SPECIFIC WRAPPERS: Force Column Layout & Alignment */
+  #hero .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+  }
+
+  #about .wa-container,
+  #about .wa-content,
+  #skills .wa-container-wide,
+  #projects .apple-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* DESTROY CAROUSELS: Convert to vertical stacks */
+  #skills .wa-cards-wrapper,
+  #projects .apple-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    overflow: visible; /* kill horizontal scroll */
+    padding: 0;
+  }
+
+  /* TEXT ALIGNMENT REFINEMENT */
+  #hero h1,
+  #hero h2,
+  #hero p,
+  #about h2,
+  #about p,
+  #skills h2,
+  #skills p,
+  #projects h2,
+  #projects p,
+  .apple-title,
+  .apple-title span,
+  .wa-section-header,
+  .apple-section-header {
+    text-align: center;
+  }
+
+  /* MOBILE UX POLISH: Padding & Scalable Fonts */
+  section#about,
+  section#skills,
+  section#projects,
+  .apple-projects-section,
+  #contact {
+    padding: 60px 20px;
+  }
+  #about h2, #skills h2, #projects h2 { font-size: 2rem; }
+  .wa-content p { font-size: 1.05rem; line-height: 1.6; }
+
+  /* Touch Targets Expand */
+  .btn, .wa-btn-more, .arch-submit {
+    padding: 16px 24px;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* FOOTER EXCEPTION: Left Alignment Only (Specificity Boosted) */
+  footer.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  footer.site-footer .wa-container,
+  footer.site-footer .footer-directory,
+  footer.site-footer .footer-fine-print,
+  footer.site-footer p,
+  footer.site-footer a,
+  footer.site-footer h3,
+  footer.site-footer span {
+    text-align: left;
+    align-items: flex-start;
+  }
+  footer.site-footer .footer-pills { justify-content: flex-start; }
+  footer.site-footer .footer-directory { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  footer.site-footer .apple-bottom-bar { flex-direction: column; align-items: flex-start; gap: 15px; }
+
+  /* Navigation & Core Elements */
+  .nav-container { padding: 10px 15px; flex-wrap: nowrap; }
+  .main-logo { height: 25px; width: auto; }
+  .nav-icons { gap: 8px; }
+  .nav-links { display: none; }
+  .nav-links.active {
+    display: flex; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background-color: var(--bg-white, #fff);
+    flex-direction: column; align-items: center; justify-content: center;
+    z-index: 999;
+  }
+  .nav-links.active a {
+    color: var(--text-main, #000); font-size: 2rem; margin: 20px 0;
+    display: block; text-align: center; opacity: 1;
+  }
+  .hamburger-btn {
+    display: flex; background: none; border: none; cursor: pointer;
+    color: inherit; padding: 0; margin-left: 10px;
+    align-items: center; justify-content: center;
+    position: relative; z-index: 1001;
+  }
+  .weather-widget, .translation-sidebar { display: none; }
+  #hero h1 { font-size: 12vw; line-height: 1.1; margin-top: 40px; display: inline-block; }
+
+  /* Components: Adjusted for strict column */
+  .skills-grid { grid-template-columns: 1fr; }
+  .apple-section-header, #projects .apple-section-header, .wa-section-header, #skills .wa-section-header { 
+    flex-direction: column; justify-content: center; gap: 15px; 
+  }
+  
+  /* Carousel Navigations completely removed for column stacked cards */
+  .carousel-nav, .wa-carousel-nav { display: none; }
+  
+  /* Cards adjusted for column stack */
+  .wa-card, .apple-card { 
+    width: 100%; 
+    max-width: 350px; 
+    flex: none; /* remove row flex-basis */
+    height: auto;
+    min-height: 460px;
+    box-shadow: 0 10px 40px var(--card-shadow-mobile); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+  }
+  .apple-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px var(--card-shadow-hover); }
+  
+  .input-row, .identity-blocks { flex-direction: column; display: flex; gap: 25px; padding: 0; }
+  .wa-hero-flex { flex-direction: column; gap: 30px; }
+  .wa-footer-grid { grid-template-columns: 1fr; gap: 10px; padding: 0 20px; }
+  .wa-footer-label { margin-bottom: 5px; }
+  .arch-form input, .arch-form textarea { width: 100%; font-size: 16px; }
+  .arch-social-list ul { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0; }
+  .translate-hover:active { opacity: 0.7; }
+
+  /* Blog & Post Specific */
+  .blog-hero-inner { padding: 50px 20px 36px; }
+  .blog-hero-ticker span { font-size: 9px; }
+  .blog-filter-inner { padding: 0 20px; }
+  .blog-grid-section { padding: 40px 20px 70px; }
+  .blog-grid, .blog-grid--small { grid-template-columns: 1fr; gap: 24px; }
+  .blog-grid .blog-card--featured { grid-column: 1; }
+  .card-image-wrapper { aspect-ratio: 16 / 9; }
+  .card-content { padding: 20px 20px 16px; }
+  .card-excerpt { -webkit-line-clamp: 4; line-clamp: 4; }
+  .post-header-inner { padding: 50px 20px 32px; }
+  .post-layout { padding: 40px 20px 70px; gap: 30px; }
+  .post-related { padding: 50px 20px 60px; }
+  
+  .post-hero { padding-top: 100px; }
+  .post-hero-image { aspect-ratio: 16 / 10; }
+  .post-body { padding: 50px 0 0 0; }
+  .post-lead { font-size: 19px; }
+  .post-content p { font-size: 17px; }
+  .system-insight { padding: 20px 25px; }
+  .system-insight p { font-size: 14px; }
+  .post-next-system { margin-top: 80px; padding: 50px 0; }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Breakpoint: 600px & 480px (Small Mobile Devices)                          */
+/* ------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .arch-grid { grid-template-columns: 1fr; }
+  .filters-panel { max-width: 100%; padding: 0 10px 10px 10px; overflow-x: auto; justify-content: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .footer-directory { grid-template-columns: 1fr; }
+  .blog-filter-btn { padding: 12px 14px; font-size: 11px; }
+  .post-title { letter-spacing: -1px; }
+  .blog-content-wrapper blockquote { padding-left: 20px; }
+}

@@ -254,37 +254,3 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .post-hero {
-    padding-top: 100px;
-  }
-
-  .post-hero-image {
-    aspect-ratio: 16 / 10;
-  }
-
-  .post-body {
-    padding: 50px 0 0 0;
-  }
-
-  .post-lead {
-    font-size: 19px;
-  }
-
-  .post-content p {
-    font-size: 17px;
-  }
-
-  .system-insight {
-    padding: 20px 25px;
-  }
-
-  .system-insight p {
-    font-size: 14px;
-  }
-
-  .post-next-system {
-    margin-top: 80px;
-    padding: 50px 0;
-  }
-}

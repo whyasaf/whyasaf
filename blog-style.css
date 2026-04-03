@@ -200,28 +200,6 @@
 }
 
 
-@media (max-width: 1100px) {
-  .arch-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 850px) {
-  .arch-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .arch-grid {
-    grid-template-columns: 1fr;
-  }
-  .filters-panel {
-    max-width: 100%;
-    padding: 0 10px 10px 10px;
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
-}
-
 
 [data-theme="dark"] .arch-card-title {
   color: #fff;
