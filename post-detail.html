@@ -41,13 +41,13 @@
             id="weatherWidget"
             title="Hava Durumu"
           ></div>
-          <a class="nav-brand" href="index.html">
+          <a class="nav-brand" href="/">
             <img alt="Logo" class="main-logo" src="assets/wa_com1.png" />
           </a>
         </div>
 
         <div class="nav-links">
-          <a class="translate-hover" data-tr="Hakkımda" href="ozgecmis.html"
+          <a class="translate-hover" data-tr="Hakkımda" href="/ozgecmis"
             >About</a
           >
           <a class="translate-hover" data-tr="Yetenekler" href="#skills"
@@ -56,10 +56,10 @@
           <a class="translate-hover" data-tr="Projeler" href="#projects"
             >Projects</a
           >
-          <a class="translate-hover" data-tr="İletişim" href="iletisim.html"
+          <a class="translate-hover" data-tr="İletişim" href="/iletisim"
             >Contact</a
           >
-          <a class="translate-hover" data-tr="Blog" href="blog.html">Blog</a>
+          <a class="translate-hover" data-tr="Blog" href="/blog">Blog</a>
         </div>
 
         <div
@@ -144,7 +144,7 @@
 
     <header class="post-hero">
       <div class="post-hero-container">
-        <a href="blog.html" class="back-to-grid">← BACK TO GRID</a>
+        <a href="/blog" class="back-to-grid">← BACK TO GRID</a>
       </div>
       <figure class="post-hero-image">
         <img
@@ -200,11 +200,11 @@
             Copyright &copy; 2026 whyasaf (Ömer Asaf Ak). All rights reserved.
           </div>
           <div class="apple-legal-links">
-            <a href="site-haritasi.html">Site Map</a>
+            <a href="/site-haritasi">Site Map</a>
             <span class="divider">|</span>
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <span class="divider">|</span>
-            <a href="iletisim.html">Contact</a>
+            <a href="/iletisim">Contact</a>
           </div>
           <div class="apple-country">Turkey</div>
         </div>
@@ -221,7 +221,7 @@
         const postId = params.get("id");
 
         if (!postId || !blogPosts[postId]) {
-          window.location.href = "blog.html";
+          window.location.href = "/blog";
           return;
         }
 
@@ -282,7 +282,7 @@
         document.getElementById("postLocation").textContent = post.location;
 
         if (post.nextPostId && blogPosts[post.nextPostId]) {
-          nextTitleEl.href = "post-detail.html?id=" + post.nextPostId;
+          nextTitleEl.href = "/post-detail?id=" + post.nextPostId;
         } else {
           document.getElementById("postNextSystem").style.display = "none";
         }
