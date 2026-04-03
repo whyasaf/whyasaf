@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Blog | whyasaf — Ömer Asaf Ak</title>
+    <title id="pageTitle">Loading... | Journal — whyasaf</title>
     <meta
-      content="Thoughts on design, development, F1 strategy, and building things that matter."
+      content="Thoughts on systems, capital, and insights."
       name="description"
+      id="pageMeta"
     />
     <link href="style.css" rel="stylesheet" />
-    <link href="blog-style.css" rel="stylesheet" />
+    <link href="post-detail-style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -28,7 +29,7 @@
       })();
     </script>
   </head>
-  <body class="blog-index-page">
+  <body class="post-detail-page">
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
@@ -141,85 +142,53 @@
       </div>
     </nav>
 
-    <header class="blog-hero">
-      <div class="blog-hero-inner">
-        <nav class="blog-breadcrumb" id="blogBreadcrumb">
-          <span class="breadcrumb-btn active" data-view="grid">GRID</span>
-          <span class="divider">/</span>
-          <span class="breadcrumb-btn" data-toggle="filters">FILTERS</span>
-          <span class="divider">/</span>
-          <span class="breadcrumb-btn" data-toggle="search">SEARCH</span>
-        </nav>
-
-        <div class="blog-controls-container">
-          <div class="filters-panel" id="filtersPanel">
-            <button class="filter-tag active" data-filter="all">ALL</button>
-            <button class="filter-tag" data-filter="systems">SYSTEMS</button>
-            <button class="filter-tag" data-filter="capital">CAPITAL</button>
-            <button class="filter-tag" data-filter="insights">INSIGHTS</button>
-          </div>
-          <div class="search-panel" id="searchPanel">
-            <input
-              type="text"
-              id="blogSearchInput"
-              class="blog-search-input"
-              placeholder="Search by title or location..."
-              autocomplete="off"
-            />
-          </div>
-        </div>
+    <header class="post-hero">
+      <div class="post-hero-container">
+        <a href="blog.html" class="back-to-grid">← BACK TO GRID</a>
       </div>
+      <figure class="post-hero-image">
+        <img
+          id="heroImage"
+          src=""
+          alt=""
+          loading="eager"
+        />
+      </figure>
     </header>
 
-    <main class="blog-grid-section">
-      <div class="arch-grid">
-        <article class="arch-card" data-category="systems">
-          <a href="post-detail.html?id=kontrol-bizde-mi" class="card-link">
-            <div class="arch-image-wrapper">
-              <img
-                src="assets/linked1.png"
-                alt="Kontrol bizde mi?"
-                loading="lazy"
-              />
-            </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">KONTROL BİZDE Mİ?</h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
-            </div>
-          </a>
+    <main class="post-body">
+      <div class="post-body-container">
+        <div class="post-meta-row">
+          <span class="post-category" id="postCategory"></span>
+          <time class="post-date" id="postDate" datetime=""></time>
+          <div class="lang-switch" id="langSwitch">
+            <button class="lang-btn active" data-lang="tr">TR</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
+
+        <h1 class="post-title" id="postTitle"></h1>
+
+        <div class="post-byline">
+          <span class="post-author" id="postAuthor"></span>
+          <span class="post-separator">—</span>
+          <span class="post-location" id="postLocation"></span>
+        </div>
+
+        <article class="post-content">
+          <p class="post-lead" id="postLead"></p>
+          <div id="postContent"></div>
         </article>
-
-        <article class="arch-card" data-category="insights">
-          <a href="post-detail.html?id=than-code" class="card-link">
-            <div class="arch-image-wrapper">
-              <img src="assets/linked3.png" alt="Ben" loading="lazy" />
-            </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">
-                Son zamanlarda kendimi tanımlamakta zorlanıyorum.
-              </h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="arch-card" data-category="capital">
-          <a href="post-detail.html?id=110b-investment" class="card-link">
-            <div class="arch-image-wrapper">
-              <img src="assets/linked2.png" alt="OpenAı" loading="lazy" />
-            </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">
-                Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?
-              </h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
-            </div>
-          </a>
-        </article>
-
-
       </div>
     </main>
+
+    <nav class="post-next-system" id="postNextSystem">
+      <div class="post-next-container">
+        <span class="post-next-label">NEXT SYSTEM</span>
+        <a href="#" class="post-next-title" id="postNextTitle"></a>
+      </div>
+    </nav>
 
     <footer class="site-footer">
       <div class="footer-container">
@@ -245,6 +214,87 @@
     <div class="translation-sidebar" id="translation-sidebar"></div>
     <script src="script.js"></script>
     <script src="config.js"></script>
-    <script src="blog-engine.js"></script>
+    <script src="posts-data.js"></script>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const postId = params.get("id");
+
+        if (!postId || !blogPosts[postId]) {
+          window.location.href = "blog.html";
+          return;
+        }
+
+        const post = blogPosts[postId];
+        let currentLang = "tr";
+
+        const titleEl = document.getElementById("postTitle");
+        const leadEl = document.getElementById("postLead");
+        const contentEl = document.getElementById("postContent");
+        const nextTitleEl = document.getElementById("postNextTitle");
+
+        function renderPost(lang) {
+          const data = post[lang];
+          if (!data) return;
+
+          document.getElementById("pageTitle").textContent =
+            data.title + " | Journal — whyasaf";
+          document
+            .getElementById("pageMeta")
+            .setAttribute("content", data.lead);
+
+          titleEl.textContent = data.title;
+          leadEl.textContent = data.lead;
+          contentEl.innerHTML = data.content;
+
+          if (post.nextPostId && post.nextPostTitle) {
+            nextTitleEl.textContent = post.nextPostTitle[lang] || post.nextPostTitle.tr;
+          }
+        }
+
+        function switchLang(lang) {
+          if (lang === currentLang) return;
+          currentLang = lang;
+
+          const targets = [titleEl, leadEl, contentEl];
+          targets.forEach((el) => (el.style.opacity = "0"));
+
+          setTimeout(() => {
+            renderPost(lang);
+            targets.forEach((el) => (el.style.opacity = "1"));
+          }, 300);
+
+          document.querySelectorAll(".lang-btn").forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.lang === lang);
+          });
+        }
+
+
+        document.getElementById("heroImage").src = post.image;
+        document.getElementById("heroImage").alt = post.tr.title;
+        document.getElementById("postCategory").textContent = post.category;
+
+        const dateEl = document.getElementById("postDate");
+        dateEl.textContent = post.date;
+        dateEl.setAttribute("datetime", post.dateISO);
+
+        document.getElementById("postAuthor").textContent = post.author;
+        document.getElementById("postLocation").textContent = post.location;
+
+        if (post.nextPostId && blogPosts[post.nextPostId]) {
+          nextTitleEl.href = "post-detail.html?id=" + post.nextPostId;
+        } else {
+          document.getElementById("postNextSystem").style.display = "none";
+        }
+
+
+        renderPost("tr");
+
+
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", () => switchLang(btn.dataset.lang));
+        });
+      })();
+    </script>
   </body>
 </html>
