@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Blog | whyasaf — Ömer Asaf Ak</title>
+    <title>İletişim | whyasaf - Ömer Asaf Ak</title>
     <meta
-      content="Thoughts on design, development, F1 strategy, and building things that matter."
+      content="Ömer Asaf Ak ile iletişime geçin. İster proje teklifi, ister bir F1 analizi için."
       name="description"
     />
-    <link href="style.css" rel="stylesheet" />
-    <link href="blog-style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <script>
       (function () {
-        const t = localStorage.getItem("theme");
+        const savedTheme = localStorage.getItem("theme");
         if (
-          t === "dark" ||
-          (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          savedTheme === "dark" ||
+          (!savedTheme &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
           document.documentElement.setAttribute("data-theme", "dark");
         }
       })();
     </script>
-    <link href="mobile.css" rel="stylesheet" />
+    <link href="../css/mobile.css" rel="stylesheet" />
   </head>
-  <body class="blog-index-page">
+  <body class="contact-page">
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div
@@ -42,7 +42,7 @@
             title="Hava Durumu"
           ></div>
           <a class="nav-brand" href="/">
-            <img alt="Logo" class="main-logo" src="assets/wa_com1.png" />
+            <img alt="Logo" class="main-logo" src="../assets/wa_com1.png" />
           </a>
         </div>
 
@@ -81,10 +81,20 @@
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
           </a>
+
           <button
             aria-label="Toggle Dark Mode"
             class="dark-mode-toggle"
             id="darkModeToggle"
+            style="
+              margin-left: 10px;
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: inherit;
+              padding: 0;
+              display: flex;
+            "
           >
             <svg
               class="sun-icon"
@@ -122,6 +132,7 @@
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </button>
+
           <button class="hamburger-btn" aria-label="Menu">
             <svg
               width="24"
@@ -141,111 +152,131 @@
         </div>
       </div>
     </nav>
-
-    <header class="blog-hero">
-      <div class="blog-hero-inner">
-        <nav class="blog-breadcrumb" id="blogBreadcrumb">
-          <span class="breadcrumb-btn active" data-view="grid">GRID</span>
-          <span class="divider">/</span>
-          <span class="breadcrumb-btn" data-toggle="filters">FILTERS</span>
-          <span class="divider">/</span>
-          <span class="breadcrumb-btn" data-toggle="search">SEARCH</span>
-        </nav>
-
-        <div class="blog-controls-container">
-          <div class="filters-panel" id="filtersPanel">
-            <button class="filter-tag active" data-filter="all">ALL</button>
-            <button class="filter-tag" data-filter="systems">SYSTEMS</button>
-            <button class="filter-tag" data-filter="capital">CAPITAL</button>
-            <button class="filter-tag" data-filter="insights">INSIGHTS</button>
+    <main class="wa-arch-contact">
+      <div class="wa-container-fluid">
+        <section class="contact-identity">
+          <h1 class="arch-title">CONNECT.</h1>
+          <div class="identity-blocks">
+            <div class="id-block">
+              <small>LOCATION</small>
+              <p>
+                Istanbul, TR<br />
+                Istanbul University
+              </p>
+            </div>
+            <div class="id-block">
+              <small>DIRECT LINE</small>
+              <p>
+                <a href="mailto:whyasaf.wa@gmail.com">whyasaf.wa@gmail.com</a>
+              </p>
+            </div>
           </div>
-          <div class="search-panel" id="searchPanel">
-            <input
-              type="text"
-              id="blogSearchInput"
-              class="blog-search-input"
-              placeholder="Search by title or location..."
-              autocomplete="off"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="blog-grid-section">
-      <div class="arch-grid">
-        <article class="arch-card" data-category="systems">
-          <a href="/post-detail?id=kontrol-bizde-mi" class="card-link">
-            <div class="arch-image-wrapper">
-              <img
-                src="assets/linked1.png"
-                alt="Kontrol bizde mi?"
-                loading="lazy"
+        </section>
+        <section class="contact-action">
+          <form class="arch-form" id="contactForm" name="contactForm">
+            <div class="input-row">
+              <input
+                id="user_name"
+                name="user_name"
+                placeholder="NAME"
+                required
+                type="text"
+              />
+              <input
+                id="user_email"
+                name="user_email"
+                placeholder="EMAIL"
+                required
+                type="email"
               />
             </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">KONTROL BİZDE Mİ?</h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
+            <div class="input-row">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="PROJECT OR INQUIRY"
+                required
+                rows="6"
+              ></textarea>
             </div>
-          </a>
-        </article>
-
-        <article class="arch-card" data-category="insights">
-          <a href="/post-detail?id=than-code" class="card-link">
-            <div class="arch-image-wrapper">
-              <img src="assets/linked3.png" alt="Ben" loading="lazy" />
-            </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">
-                Son zamanlarda kendimi tanımlamakta zorlanıyorum.
-              </h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="arch-card" data-category="capital">
-          <a href="/post-detail?id=110b-investment" class="card-link">
-            <div class="arch-image-wrapper">
-              <img src="assets/linked2.png" alt="OpenAı" loading="lazy" />
-            </div>
-            <div class="arch-content">
-              <h2 class="arch-card-title">
-                Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?
-              </h2>
-              <p class="arch-card-location">Istanbul, Turkey</p>
-            </div>
-          </a>
-        </article>
-
-
+            <button class="arch-submit" type="submit">SEND INQUIRY</button>
+          </form>
+          <div class="arch-social-list">
+            <small>ECOSYSTEM</small>
+            <ul>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="GitHub"
+                  href="https://github.com/whyasaf"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="LinkedIn"
+                  href="https://linkedin.com"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Instagram"
+                  href="https://instagram.com/whyasaf"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Marki Music"
+                  href="https://www.youtube.com/@markimusicstudio"
+                  >Marki Music</a
+                >
+              </li>
+              <li>
+                <a
+                  class="translate-hover"
+                  data-tr="Pinterest"
+                  href="https://tr.pinterest.com/whyasaf57"
+                  >Pinterest</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
     </main>
-
     <footer class="site-footer">
       <div class="footer-container">
         <div class="apple-bottom-bar">
           <div
             class="apple-copyright translate-hover"
-            data-tr="Telif Hakkı &copy; 2026 whyasaf (Ömer Asaf Ak). Tüm hakları saklıdır."
+            data-tr="Telif Hakkı &copy; 2026 whyasaf."
           >
-            Copyright &copy; 2026 whyasaf (Ömer Asaf Ak). All rights reserved.
+            Copyright &copy; 2026 whyasaf.
           </div>
           <div class="apple-legal-links">
             <a href="/site-haritasi">Site Map</a>
-            <span class="divider">|</span>
-            <a href="/">Home</a>
-            <span class="divider">|</span>
-            <a href="/iletisim">Contact</a>
+            <span class="divider">|</span> <a href="/">Home</a>
           </div>
           <div class="apple-country">Turkey</div>
         </div>
       </div>
     </footer>
-
-    <div class="translation-sidebar" id="translation-sidebar"></div>
-    <script src="script.js"></script>
-    <script src="config.js"></script>
-    <script src="blog-engine.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("lnJZo-B2byLvNMn_x");
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/config.js"></script>
   </body>
 </html>

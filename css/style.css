@@ -423,15 +423,15 @@ main {
 }
 
 .btn:hover {
-  background-color: var(--text-main);
-  border-color: var(--text-main);
-  color: var(--bg-white);
+  background-color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #ffffff !important;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px var(--btn-shadow);
+  box-shadow: 0 10px 25px rgba(0, 102, 204, 0.25);
 }
 
-/* --- GLOBAL SECTION ARCHITECTURE --- */
-/* --- GLOBAL SECTION ARCHITECTURE --- */
+
+
 #about,
 #skills,
 #projects {
@@ -442,24 +442,35 @@ main {
   box-shadow: none;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Bölüm içindeki her şeyi yatayda merkeze al */
+  align-items: center; 
 }
 
-/* Bölüm Başlıkları (Heading) */
+
 #about h2,
 #skills h2,
-#projects h2,
-.wa-section-header {
+#projects h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 50px;
   color: var(--text-main);
   letter-spacing: -0.03em;
   text-align: center;
+}
+
+.wa-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
   width: 100%;
 }
 
-/* --- ABOUT SECTION SPECIFIC (CENTERED) --- */
+.wa-title {
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+
 section#about .wa-container {
   width: 100%;
   max-width: 750px;
@@ -534,7 +545,7 @@ section#about .wa-btn-more:hover .wa-arrow {
   transform: translateX(4px);
 }
 
-/* MOBİL AYARLAR: MacBook'tan telefona geçtiğinde de kalsın */
+
 
 .skills-grid {
   display: grid;
@@ -574,66 +585,19 @@ section#about .wa-btn-more:hover .wa-arrow {
   margin: 0 auto;
 }
 
-.apple-section-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-#projects .apple-section-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.apple-title {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin: 0;
-  text-align: center;
-}
-
-.apple-title strong {
-  color: var(--text-main);
-  font-weight: 700;
-}
-
-.apple-title span {
-  display: block;
-  font-size: 1.1rem;
-  margin-top: 5px;
-  font-weight: 400;
+.apple-container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .carousel-nav {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 12px;
-}
-
-.nav-arrow {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: var(--nav-arrow-bg);
-  color: var(--text-main);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.nav-arrow:hover {
-  background: var(--border-color);
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  transform: none !important;
 }
 
 .apple-cards-wrapper {
@@ -739,20 +703,7 @@ section#about .wa-btn-more:hover .wa-arrow {
   padding: 0 40px;
 }
 
-.wa-section-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
 
-#skills .wa-section-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .wa-title {
   font-size: 2rem;
@@ -765,35 +716,44 @@ section#about .wa-btn-more:hover .wa-arrow {
   color: var(--text-main);
 }
 
-.wa-carousel-nav {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.wa-carousel-nav,
+.carousel-nav {
   display: flex;
-  gap: 15px;
+  gap: 12px;
+  align-items: center;
 }
 
-.wa-nav-arrow {
-  width: 36px;
-  height: 36px;
+.wa-nav-arrow,
+.nav-arrow {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: none;
-  background: var(--nav-arrow-bg);
-  color: var(--text-main);
-  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   padding: 0;
-  transition: background-color 0.2s ease;
+  outline: none;
 }
 
-.wa-nav-arrow:hover {
-  background: var(--border-color);
+.wa-nav-arrow:hover,
+.nav-arrow:hover {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 102, 204, 0.15);
 }
-.wa-nav-arrow svg {
-  display: block;
+
+.wa-nav-arrow svg,
+.nav-arrow svg {
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transition: transform 0.3s ease;
 }
 
 .wa-cards-wrapper {
@@ -878,6 +838,7 @@ section#about .wa-btn-more:hover .wa-arrow {
 }
 
 #contact h2 {
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
@@ -928,9 +889,14 @@ section#about .wa-btn-more:hover .wa-arrow {
 
 .icons a {
   color: var(--text-main);
+  fill: currentColor;
   transition:
     color 0.3s ease,
     transform 0.3s ease;
+}
+
+.icons a svg {
+  fill: currentColor;
 }
 
 .icons a:hover {
@@ -1143,8 +1109,9 @@ section#about .wa-btn-more:hover .wa-arrow {
   text-align: left;
 }
 
-.translate-hover:hover {
-  color: var(--accent-blue-dark);
+.translate-hover:hover,
+.translate-hover:hover strong {
+  color: var(--accent-blue);
 }
 
 .disabled-link {
@@ -1156,7 +1123,7 @@ section#about .wa-btn-more:hover .wa-arrow {
 
 .wa-profile-hero {
   background-color: var(--bg-off-white);
-  padding: 80px 0 40px;
+  padding: 160px 0 60px;
   opacity: 0;
   transform: translateY(30px);
   animation: cvFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -1164,17 +1131,17 @@ section#about .wa-btn-more:hover .wa-arrow {
 
 .wa-hero-flex {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 40px;
-  gap: 40px;
+  gap: 20px;
 }
 
 .wa-hero-text {
-  flex: 0 0 45%;
-  text-align: left;
+  text-align: center;
 }
 
 .wa-name {
@@ -1590,8 +1557,6 @@ section#about .wa-btn-more:hover .wa-arrow {
     transform: translateY(0);
   }
 }
-
-
 
 .blog-index-page,
 .blog-post-page {
@@ -2299,5 +2264,3 @@ section#about .wa-btn-more:hover .wa-arrow {
   margin-bottom: 40px;
   letter-spacing: -0.03em;
 }
-
-

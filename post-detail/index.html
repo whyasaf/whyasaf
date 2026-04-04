@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title id="pageTitle">Loading... | Journal — whyasaf</title>
+    <title id="pageTitle">Blog | Blog — whyasaf</title>
     <meta
       content="Thoughts on systems, capital, and insights."
       name="description"
       id="pageMeta"
     />
-    <link href="style.css" rel="stylesheet" />
-    <link href="post-detail-style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/post-detail-style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
@@ -28,7 +28,7 @@
         }
       })();
     </script>
-    <link href="mobile.css" rel="stylesheet" />
+    <link href="../css/mobile.css" rel="stylesheet" />
   </head>
   <body class="post-detail-page">
     <nav class="navbar" id="navbar">
@@ -43,7 +43,7 @@
             title="Hava Durumu"
           ></div>
           <a class="nav-brand" href="/">
-            <img alt="Logo" class="main-logo" src="assets/wa_com1.png" />
+            <img alt="Logo" class="main-logo" src="../assets/wa_com1.png" />
           </a>
         </div>
 
@@ -148,12 +148,7 @@
         <a href="/blog" class="back-to-grid">← BACK TO GRID</a>
       </div>
       <figure class="post-hero-image">
-        <img
-          id="heroImage"
-          src=""
-          alt=""
-          loading="eager"
-        />
+        <img id="heroImage" src="" alt="" loading="eager" />
       </figure>
     </header>
 
@@ -213,9 +208,9 @@
     </footer>
 
     <div class="translation-sidebar" id="translation-sidebar"></div>
-    <script src="script.js"></script>
-    <script src="config.js"></script>
-    <script src="posts-data.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/posts-data.js"></script>
     <script>
       (function () {
         const params = new URLSearchParams(window.location.search);
@@ -249,7 +244,8 @@
           contentEl.innerHTML = data.content;
 
           if (post.nextPostId && post.nextPostTitle) {
-            nextTitleEl.textContent = post.nextPostTitle[lang] || post.nextPostTitle.tr;
+            nextTitleEl.textContent =
+              post.nextPostTitle[lang] || post.nextPostTitle.tr;
           }
         }
 
@@ -270,7 +266,6 @@
           });
         }
 
-
         document.getElementById("heroImage").src = post.image;
         document.getElementById("heroImage").alt = post.tr.title;
         document.getElementById("postCategory").textContent = post.category;
@@ -288,9 +283,7 @@
           document.getElementById("postNextSystem").style.display = "none";
         }
 
-
         renderPost("tr");
-
 
         document.querySelectorAll(".lang-btn").forEach((btn) => {
           btn.addEventListener("click", () => switchLang(btn.dataset.lang));
