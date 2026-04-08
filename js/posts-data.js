@@ -125,7 +125,7 @@ const blogPosts = {
 
   "110b-investment": {
     id: "110b-investment",
-    category: "CAPITAL",
+    category: "INVESTMENT",
     date: "1 April 2026",
     dateISO: "2026-04-01",
     author: "Ömer Asaf Ak",
@@ -318,6 +318,88 @@ const blogPosts = {
           is clear: Individual skill is now a basic requirement (commodity), but real added value lies in 
           systems architecture. When building the future, those who design not just the commands but the 
           order itself will remain at the table.
+        </p>
+      `,
+    },
+  },
+  "spacex-ipo": {
+    id: "spacex-ipo",
+    category: "INVESTMENT",
+    date: "8 April 2026",
+    dateISO: "2026-04-08",
+    author: "Ömer Asaf Ak",
+    location: "Istanbul, Turkey",
+    image: "assets/linked4.png",
+    nextPostId: "than-code",
+    nextPostTitle: {
+      tr: "Koddan Daha Büyük: Sistem Mimarı Olmak",
+      en: "Bigger Than Code: Becoming a Systems Architect",
+    },
+    tr: {
+      title: "SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası",
+      lead: "Teknoloji ve finans dünyasında her gün aynı soru yankılanıyor: SpaceX halka arz olacak mı? Ancak SpaceX söz konusu olduğunda mesele sadece bir şirketin borsaya açılması değil; çok daha geniş bir çerçevede geleceğin altyapısına, yani sistemin kendisine erişim anlamına geliyor.",
+      content: `
+        <h2>SpaceX’i Farklı Kılan Nedir?</h2>
+        <p>
+          SpaceX’i geleneksel teknoloji şirketlerinden ayıran en önemli unsur, ürün odaklı değil <strong>sistem odaklı</strong> bir yapı inşa etmesidir. Şirket sadece roket fırlatmıyor; ulaşımdan iletişime kadar her şeyi kapsayan devasa bir ekosistem kuruyor.
+        </p>
+        <div class="system-insight">
+          <span class="system-insight-label">SİSTEM BİLGİSİ</span>
+          <p>
+            SpaceX bir uzay şirketi değildir; çok katmanlı bir teknolojik altyapı sağlayıcısıdır. Starlink ile veri akışını, Starship ile lojistiği kontrol eden bir 'Gelecek Mimarı'dır.
+          </p>
+        </div>
+        <h2>Halka Arz Paradoksu</h2>
+        <p>
+          Halka açık şirketler, çeyreklik finansal raporlar ve yatırımcı baskısı altında kısa vadeli performans sergilemek zorundadır. Ancak SpaceX; yüksek sermaye gerektiren, belirsizlik içeren ve uzun geliştirme döngülerine dayanan Ar-Ge süreçleri üzerine kuruludur. Bu yüzden halka arz, şirketin stratejik esnekliğini sınırlayabilir.
+        </p>
+        <h2>Yatırım mı, Sistem mi?</h2>
+        <p>
+          Asıl soru şu: SpaceX’e yatırım yapmak, bir hisse senedine mi yoksa bir sisteme mi yatırım yapmaktır? SpaceX; global iletişim (Starlink), gezegenler arası ulaşım (Starship) ve uzun vadeli yaşam alanları gibi alanları kapsayan bir altyapı ekosistemi inşa etmektedir.
+        </p>
+        <div class="system-insight">
+          <span class="system-insight-label">STRATEJİK ÖNGÖRÜ</span>
+          <p>
+            En güçlü senaryo, Starlink'in ayrı bir halka arz süreciyle ayrıştırılmasıdır. Bu hamle, ana şirketin uzun vadeli Mars vizyonunu korurken, yatırımcılara devasa veri altyapısına erişim imkanı tanır.
+          </p>
+        </div>
+        <h2>Sonuç: Bir Sistemin İnşası</h2>
+        <p>
+          Olası bir halka arz durumunda bu sadece yeni bir 'stock' olmayacaktır. Bu, bireysel yatırımcıların uzay ekonomisine ve geleceğin teknolojik sistemlerine dolaylı katılımıdır. SpaceX'in halka arzı bir şirketin büyümesi değil, <strong>bir sistemin inşa edilmesidir.</strong>
+        </p>
+      `,
+    },
+    en: {
+      title: "SpaceX IPO: More Than Just an Investment Opportunity",
+      lead: "The tech and financial worlds echo the same question every day: Will SpaceX go public? But when it comes to SpaceX, it's not just about a company listing on the stock exchange; it means accessing the infrastructure of the future—accessing the system itself.",
+      content: `
+        <h2>What Makes SpaceX Different?</h2>
+        <p>
+          The most important factor that distinguishes SpaceX from traditional tech companies is that it builds a <strong>system-oriented</strong> structure, not a product-oriented one. The company doesn't just launch rockets; it builds a massive ecosystem covering everything from transportation to communication.
+        </p>
+        <div class="system-insight">
+          <span class="system-insight-label">SYSTEM INSIGHT</span>
+          <p>
+            SpaceX is not a space company; it is a multi-layered infrastructure provider. It is an 'Architect of the Future' that controls data flow with Starlink and logistics with Starship.
+          </p>
+        </div>
+        <h2>The IPO Paradox</h2>
+        <p>
+          Public companies are forced to deliver short-term performance due to quarterly financial reports and investor pressure. However, SpaceX is built on capital-intensive, high-uncertainty, and long-cycle R&D processes. Therefore, an IPO could limit the company's strategic flexibility.
+        </p>
+        <h2>Investment or Infrastructure?</h2>
+        <p>
+          The real question is: Are you investing in a stock or a system? SpaceX is constructing an infrastructure ecosystem encompassing global communication (Starlink), interplanetary transport (Starship), and long-term human habitats.
+        </p>
+        <div class="system-insight">
+          <span class="system-insight-label">STRATEGIC FORESIGHT</span>
+          <p>
+            The strongest scenario is the spin-off of Starlink into a separate IPO. This move protects the parent company's long-term Mars vision while granting investors access to a massive data infrastructure.
+          </p>
+        </div>
+        <h2>Conclusion: Constructing a System</h2>
+        <p>
+          In the event of a possible IPO, this won't just be another 'stock.' It is the indirect participation of individual investors in the space economy and future technological systems. SpaceX's IPO is not the growth of a company; it is the <strong>construction of a system.</strong>
         </p>
       `,
     },
