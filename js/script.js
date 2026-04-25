@@ -405,9 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==========================================
 // 12. İLETİŞİM FORMU GÖNDERME (EMAILJS)
 // ==========================================
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const btn = document.querySelector(".arch-submit");
@@ -417,20 +417,54 @@ document
       return;
     }
 
-    btn.textContent = "SENDING...";
+    if (!window.CONFIG) {
+      console.error("Hata: CONFIG objesi yüklenemedi!");
+      alert("Hata: CONFIG objesi yüklenemedi!");
+      return;
+    }
 
-    emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", this).then(
-      () => {
-        btn.textContent = "SENT SUCCESSFULLY";
-        this.reset();
-        setTimeout(() => {
-          btn.textContent = "SEND INQUIRY";
-        }, 3000);
-      },
-      (err) => {
-        btn.textContent = "ERROR";
-        console.error("EmailJS Hatası:", err);
-        alert("Bir hata oluştu, Lütfen tekrar deneyiniz.");
-      },
-    );
+    btn.textContent = "SENDING...";
+    btn.disabled = true;
+
+    console.log("[EmailJS] Gönderiliyor...", {
+      serviceId: CONFIG.EMAILJS_SERVICE_ID,
+      templateId: CONFIG.EMAILJS_TEMPLATE_ID,
+    });
+
+    emailjs
+      .sendForm(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, this)
+      .then(
+        () => {
+          btn.textContent = "SENT SUCCESSFULLY";
+          btn.disabled = false;
+          this.reset();
+          setTimeout(() => {
+            btn.textContent = "SEND INQUIRY";
+          }, 3000);
+        },
+        (error) => {
+          btn.textContent = "ERROR — TRY AGAIN";
+          btn.disabled = false;
+          console.error("EmailJS Error Detail:", error);
+          console.error("[EmailJS] Status:", error?.status);
+          console.error("[EmailJS] Text:", error?.text);
+          console.error(
+            "[EmailJS] Kullanılan Service ID:",
+            CONFIG.EMAILJS_SERVICE_ID,
+          );
+          console.error(
+            "[EmailJS] Kullanılan Template ID:",
+            CONFIG.EMAILJS_TEMPLATE_ID,
+          );
+          alert(
+            "Bir hata oluştu (" +
+              (error?.status || "?") +
+              "). Lütfen tekrar deneyiniz.",
+          );
+          setTimeout(() => {
+            btn.textContent = "SEND INQUIRY";
+          }, 4000);
+        },
+      );
   });
+}
