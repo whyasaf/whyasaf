@@ -29,12 +29,21 @@ export const metadata = {
     siteName: 'whyasaf',
     locale: 'tr_TR',
     type: 'website',
+    images: [
+      {
+        url: '/og_image.png',
+        width: 1200,
+        height: 630,
+        alt: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
     description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
     creator: '@whyasaf',
+    images: ['/og_image.png'],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
