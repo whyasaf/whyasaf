@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap lokasyonu
+Sitemap: https://whyasaf.com/sitemap.xml
