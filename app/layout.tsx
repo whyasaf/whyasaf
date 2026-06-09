@@ -35,6 +35,9 @@ export const metadata = {
     title: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
     description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
     creator: '@whyasaf',
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   }
 };
 
