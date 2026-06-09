@@ -58,36 +58,6 @@ whyasaf-websayt/
 ├── package.json          # Dependency configurations
 └── tailwind.config.js    # Tailwind layout overrides
 ```
+--
 
----
-
-## 💻 Local Setup & Development
-
-### 1. Installation
-Install project dependencies:
-```bash
-npm install
-```
-
-### 2. Environment Setup
-Create a `.env.local` file in the root directory:
-```env
-NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION="your-google-verification-token"
-```
-
-### 3. Running Locally
-Start the local development server (runs on port `3057`):
-```bash
-npm run dev
-```
-Open [http://localhost:3057](http://localhost:3057) to view the app.
-
-### 4. Production Build
-Check code validity and compile the optimized bundle:
-```bash
-npm run build
-```
-Run the production server:
-```bash
-npm run start
-```
+Designed by Ömer Asaf Ak | whyasaf
