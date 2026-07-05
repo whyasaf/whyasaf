@@ -5,18 +5,23 @@ const nextConfig = {
     return [
       {
         source: '/home',
-        destination: '/about',
+        destination: '/',
         permanent: true,
       },
       {
         source: '/ozgecmis',
-        destination: '/about',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/',
         permanent: true,
       },
       // Eski URL'ler — Google'ın eski sitemap'ten bildiği ölü URL'ler
       {
         source: '/iletisim',
-        destination: '/about',
+        destination: '/',
         permanent: true,
       },
       {
