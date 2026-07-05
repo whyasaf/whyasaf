@@ -13,6 +13,24 @@ const nextConfig = {
         destination: '/about',
         permanent: true,
       },
+      // Eski URL'ler — Google'ın eski sitemap'ten bildiği ölü URL'ler
+      {
+        source: '/iletisim',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/site-haritasi',
+        destination: '/',
+        permanent: true,
+      },
+      // Eski blog URL yapısı: /post-detail?id=slug → /blog/slug
+      {
+        source: '/post-detail',
+        has: [{ type: 'query', key: 'id', value: '(?<slug>.*)' }],
+        destination: '/blog/:slug',
+        permanent: true,
+      },
     ];
   },
 };

@@ -126,6 +126,28 @@ export default function BlogList() {
                         {post.category}
                       </span>
                     </div>
+
+                    {/* YENİ / NEW Rozeti */}
+                    {post.isNew && (
+                      <div className="absolute top-3 right-3">
+                        <span
+                          className="px-2 py-0.5 text-white text-[9px] font-black uppercase tracking-widest rounded"
+                          style={{
+                            background: "linear-gradient(135deg, #ff416c, #ff4b2b)",
+                            boxShadow: "0 0 8px rgba(255,65,108,0.7), 0 0 16px rgba(255,65,108,0.4)",
+                            animation: "newBadgePulse 2s ease-in-out infinite",
+                          }}
+                        >
+                          {language === "tr" ? "YENİ" : "NEW"}
+                        </span>
+                        <style>{`
+                          @keyframes newBadgePulse {
+                            0%, 100% { box-shadow: 0 0 8px rgba(255,65,108,0.7), 0 0 16px rgba(255,65,108,0.4); }
+                            50% { box-shadow: 0 0 14px rgba(255,65,108,1), 0 0 28px rgba(255,65,108,0.6); }
+                          }
+                        `}</style>
+                      </div>
+                    )}
                   </div>
 
                   {/* Caption area - like Instax bottom */}

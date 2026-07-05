@@ -17,6 +17,7 @@ export interface BlogPost {
   author: string;
   location: string;
   image: string;
+  isNew?: boolean;
   nextPostId: string;
   nextPostTitle: NextPostTitle;
   tr: PostTranslation;
@@ -147,6 +148,96 @@ export const blogPosts: Record<string, BlogPost> = {
       `,
     },
   },
+
+  "zuckerberg-bank": {
+  id: "zuckerberg-bank",
+  category: "FINANCE",
+  date: "3 July 2026",
+  dateISO: "2026-07-03",
+  author: "Ömer Asaf Ak",
+  location: "Istanbul, Turkey",
+  image: "assets/zuckerberg_banka.png",
+  isNew: true,
+  nextPostId: "spacex-ipo",
+  nextPostTitle: {
+    tr: "SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası",
+    en: "SpaceX IPO: More Than Just an Investment Opportunity",
+  },
+  tr: {
+    title: "Mark Zuckerberg Bir Banka Kursaydı Ne Olurdu?",
+    lead: "Bugün geleneksel bankacılık sektörü; devasa binalar, bitmek bilmeyen bürokratik prosedürler ve aşılması güç yasal mevzuatlar arkasına gizlenmiş hantal bir yapıdan ibarettir. Peki ya Silikon Vadisi'nin en agresif veri avcılarından biri olan Meta'nın kurucusu Mark Zuckerberg, geleneksel finans dünyasını tamamen yıkmak amacıyla kendi bankasını kursaydı ne olurdu?",
+    content: `
+      <h2>1. Güç Katmanı: Devasa Hazır Müşteri ve Sıfır Sürtünme</h2>
+      <p>
+        Geleneksel bir bankanın en büyük maliyet kalemlerinden biri müşteri edinmek, şubeler açmak ve o müşterileri elde tutmaktır. Zuckerberg’in kuracağı bir bankanın (MetaBank) fiziksel hiçbir şubeye ihtiyacı olmazdı. Nedeni çok basit: Meta’nın elinde zaten Instagram, WhatsApp ve Facebook kullanan <strong>3 milyardan fazla aktif ve hazır müşteri</strong> var.
+      </p>
+      <ul>
+        <li><strong>Sıfır Bürokrasi ile Hesap Açımı:</strong> Banka hesabı açmak için 60 sayfa kağıt imzalamak, şubede sıra beklemek tamamen tarih olurdu. Instagram'a girip kameraya kimliğinizi gösterdiğiniz an, yüz tanıma altyapısı sayesinde saniyeler içinde küresel hesabınız aktifleşirdi.</li>
+        <li><strong>DM'den Para Gönderme Kolaylığı:</strong> Bir arkadaşınıza fotoğraf veya mesaj gönderir gibi, sıfır komisyonla ve milisaniyeler içinde uluslararası para transferi yapabilirdiniz. WhatsApp üzerinden entegre edilen bu sistem, tüm aracı bankaları (Swift vb.) devre dışı bırakırdı.</li>
+      </ul>
+      <div class="system-insight">
+        <span class="system-insight-label">SİSTEM BİLGİSİ</span>
+        <p>
+          MetaBank, finansal işlemlerdeki tüm 'sürtünmeyi' ortadan kaldıran bir yapı olacaktı. İnsanlar bir uygulamadan diğerine geçmeden, mesajlaşma hızıyla ticaret yapabilecekti.
+        </p>
+      </div>
+      <h2>2. Mühendislik Katmanı: Sıfır Veri Kaybı ve Çöl Kasaları</h2>
+      <p>
+        Finansal verilerin güvenliği ve sürekliliği bir bankanın omurgasıdır. Zuckerberg, bu sistemin altyapısı için siber dünyanın en dayanıklı mühendislik mimarilerini hayata geçirirdi. Texas ve Arizona çöllerine, en zorlu jeopolitik krizlerde veya siber saldırılarda bile ayakta kalabilecek, sıfır veri kayıplı ve sürekli yedekleme yapan devasa fiziksel sunucu kasaları inşa edilirdi.
+      </p>
+      <p>
+        Yapay zeka altyapısı sizi sizden daha iyi tanıdığı için, paraya tam olarak sıkışacağınız anı milisaniyeler öncesinden öngörebilirdi. Algoritmalar, platformlardaki tüketim ve etkileşim alışkanlıklarınızı analiz ederek, ihtiyacınız olduğu an ekranınıza tek tıkla onaylayabileceğiniz, tamamen kişiselleştirilmiş mikrokrediler çıkarırdı.
+      </p>
+      <h2>3. Büyük Final: Devlet Neden İzin Vermiyor?</h2>
+      <p>
+        Peki, hem kullanıcıyı bürokrasiden kurtaran hem de sistem tasarımı olarak bu kadar güçlü bir finansal modele devletler neden asla izin vermez? Cevap, paranın kontrolünde saklıdır. Paranın egemenliğini ve basma gücünü Zuckerberg gibi tek bir CEO'ya teslim etmek, devletlerin kendi varoluşsal egemenliklerini devretmesi demektir.
+      </p>
+      <div class="system-insight">
+        <span class="system-insight-label">STRATEJİK ÖNGÖRÜ</span>
+        <p>
+          Para basmak ve onu kontrol etmek bir devletin en büyük güç simgesidir. Devlet, kesemeyeceği kafayı asla kendinden üstün yapmaz. Bu yüzden Zuckerberg ne kadar kusursuz bir sistem kurursa kursun, karşısında her zaman devletin egemenlik duvarını bulacaktır.
+        </p>
+      </div>
+    `,
+  },
+  en: {
+    title: "What If Mark Zuckerberg Started a Bank?",
+    lead: "Today, the traditional banking sector is slow and heavy, hidden behind huge buildings, endless bureaucratic procedures, and complex laws. But what if Mark Zuckerberg, the founder of Meta and one of Silicon Valley's most aggressive data collectors, started his own bank to destroy the traditional financial world?",
+    content: `
+      <h2>1. The Power Layer: Massive Ready Audience and Zero Friction</h2>
+      <p>
+        One of the biggest costs for a traditional bank is getting customers, opening branches, and keeping those customers. A bank created by Zuckerberg (MetaBank) would not need any physical branches. The reason is very simple: Meta already has <strong>more than 3 billion active and ready customers</strong> using Instagram, WhatsApp, and Facebook.
+      </p>
+      <ul>
+        <li><strong>Account Opening with Zero Bureaucracy:</strong> Signing 60 pages of paper to open a bank account or waiting in line at a branch would be history. When you open Instagram and show your ID to the camera, your global account would become active in seconds thanks to face recognition infrastructure.</li>
+        <li><strong>Easy Money Transfer via DM:</strong> Just like sending a photo or a message to a friend, you could transfer money internationally with zero fees and in milliseconds. This system, integrated into WhatsApp, would eliminate all intermediary banks (like Swift).</li>
+      </ul>
+      <div class="system-insight">
+        <span class="system-insight-label">SYSTEM INSIGHT</span>
+        <p>
+          MetaBank would be a structure that completely removes all 'friction' from financial transactions. People could do commerce at the speed of messaging without switching from one app to another.
+        </p>
+      </div>
+      <h2>2. The Engineering Layer: Zero Data Loss and Desert Vaults</h2>
+      <p>
+        The security and continuity of financial data is the backbone of a bank. Zuckerberg would implement the most durable engineering architectures of the cyber world for this system. Huge physical server vaults would be built in the deserts of Texas and Arizona. These vaults would keep running with zero data loss and continuous backup, even during the hardest geopolitical crises or cyber attacks.
+      </p>
+      <p>
+        Because the artificial intelligence infrastructure knows you better than you know yourself, it could predict the exact millisecond you will need money. By analyzing your consumption and interaction habits on the platforms, algorithms would offer fully personalized micro-loans on your screen that you could approve with a single click.
+      </p>
+      <h2>3. The Grand Finale: Why States Do Not Allow It?</h2>
+      <p>
+        So, why do governments never allow such a powerful financial model that saves users from bureaucracy and has a strong system design? The answer lies in the control of money. Giving the control and printing power of money to a single CEO like Zuckerberg means states would give away their own existential sovereignty.
+      </p>
+      <div class="system-insight">
+        <span class="system-insight-label">STRATEGIC FORESIGHT</span>
+        <p>
+          Printing and controlling money is a state's ultimate symbol of power. A state will never make someone more powerful than itself if it cannot control them. Therefore, no matter how perfect a system Zuckerberg builds, he will always face the wall of state sovereignty.
+        </p>
+      </div>
+    `,
+  },
+},
 
   "110b-investment": {
     id: "110b-investment",

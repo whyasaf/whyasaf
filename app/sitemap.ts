@@ -1,32 +1,44 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from '../src/data/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Dinamik blog verileri buraya eklenecek
+  const baseUrl = 'https://whyasaf.com';
 
-  return [
+  // Statik sayfalar
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: 'https://whyasaf.com',
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
     {
-      url: 'https://whyasaf.com/about',
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://whyasaf.com/projects',
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: 'https://whyasaf.com/blog',
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
   ];
+
+  // Blog yazıları — posts.ts'den dinamik olarak üretiliyor
+  const blogPages: MetadataRoute.Sitemap = Object.values(blogPosts).map((post) => ({
+    url: `${baseUrl}/blog/${post.id}`,
+    lastModified: new Date(post.dateISO),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...blogPages];
 }
