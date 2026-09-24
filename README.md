@@ -1,63 +1,164 @@
-# <p align="center"><img src="public/assets/wa_com1.png" alt="whyasaf logo" width="100" /></p>
+<p align="center">
+  <img src="public/assets/wa-kurumsal.png" alt="whyasaf logo" width="120" />
+</p>
 
-# whyasaf.com
+<h1 align="center">whyasaf.com</h1>
 
-A premium, minimalist personal portfolio and blog built with **Next.js 14**, **Framer Motion**, and **Tailwind CSS**. Focused on clean typography, custom 3D animations, and robust SEO foundations.
+<p align="center">
+  <b>Yazılım Mimarisi • Ürün Tasarımı • Yapay Zeka Entegrasyonları</b><br />
+  <i>"Algoritmalarla geleceği tahmin etme, estetikle onu baştan tasarla."</i>
+</p>
 
----
-
-## 🚀 Key Features
-
-### 1. 📖 3D Interactive Notebook (Blog Footer)
-A realistic, double-sided 3D notebook component simulating physical page turns:
-- **Spine Anchored Pivot**: Transformation axis aligned (`originX: 0` / `originX: 1`) on the binding spine.
-- **Backface Rendering**: Utilizes `backface-visibility: hidden` and `preserve-3d` cards to swap content mid-flip seamlessly.
-- **Dynamic sweep shadows**: Gradient shadow layers that sweep across pages during turns to emphasize folding.
-- **Loop Flow**: Contains 2 loopable spreads featuring bio quotes, Twitter/X, LinkedIn, and GitHub links.
-
-### 2. 📐 AutoCAD Kinetic Typography (Projects Footer)
-An interactive tag cloud reflecting engineering and system blueprints:
-- **AutoCAD Crosshair**: Tracks cursors inside the container with responsive grid coordinate indicators (`X`, `Y`).
-- **Interactive Ticks**: Bounding borders and corner `+` tick marks scale dynamically with active links.
-- **Parallax movement**: Words glide slightly according to cursor vectors for kinetic depth.
-
-### 3. 🔍 SEO & Web Schema Integration
-- **Person JSON-LD**: Embedded structured data schemas representing skills (Next.js, Python, UI/UX, Systems Architecture).
-- **Dynamic Sitemap & Robots**: Prerendered Next.js SEO route templates (`/sitemap.xml` and `/robots.txt`).
-- **Dynamic Blog Metadata**: Automatically outputs multilingual canonical tags and OG Article tags.
+<p align="center">
+  <a href="https://whyasaf.com"><img src="https://img.shields.io/badge/Canl%C4%B1%20Site-whyasaf.com-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Site" /></a>
+  <a href="https://x.com/whyasaf"><img src="https://img.shields.io/badge/X-@whyasaf-000000?style=for-the-badge&logo=x&logoColor=white" alt="X Twitter" /></a>
+  <a href="https://www.linkedin.com/in/omer-asaf-ak/"><img src="https://img.shields.io/badge/LinkedIn-Ömer%20Asaf%20Ak-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+</p>
 
 ---
 
-## 🛠️ Tech Stack
+## Hakkımda & Vizyon
 
-- **Core**: Next.js 14 (App Router), React 18, TypeScript
-- **Styling**: Tailwind CSS, PostCSS, `@tailwindcss/typography`
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Analytics / Verification**: Google Search Console
+Merhaba, ben **Ömer Asaf Ak (whyasaf)**. İstanbul merkezli **Ürün Geliştirici (Product Developer)** ve **Sistem Mimarısı (Systems Architect)** adayıyım.
+
+Yazılım geliştirme süreçlerinde **teknik mimariyi estetik tasarım prensipleriyle** harmanlıyorum. Bir projenin sadece "çalışması" yeterli değildir; arka planda sağlam, sürdürülebilir bir kod yapısına ve ön planda kullanıcıyı etkileyen kusursuz, minimalist bir arayüze sahip olması gerekir.
+
+- **İstanbul Üniversitesi (2024—2026):** Bilgisayar Programcılığı — Makine Öğrenmesi & Sistem Analizi
+- **CodeVocab AI (2025—Günümüz):** Kurucu & Geliştirici — Doğal Dil İşleme (NLP) ve AI Destekli Kodlama
+- **Marki Corp. (2022—Günümüz):** Kurucu & Product Developer — Bağımsız Dijital Ürün Stüdyosu
 
 ---
 
-## 📁 Directory Structure
+## Portfolyo & Canlı Projeler
+
+Web sitesinde yer alan ve bağımsız olarak geliştirdiğim tüm dijital ürünler:
+
+### 1. CodeVocab AI
+
+- **Kategori:** Yapay Zeka / NLP / İngilizce Öğrenim Platformu
+- **Medya & Görsel:** `public/assets/cv.png` & `public/assets/codevocab.mp4`
+- **Bağlantılar:** [Live Site](https://codevocab.whyasaf.com) • [GitHub Repository](https://github.com/whyasaf/CodeVocab)
+- **Özet:** İngilizce çalışırken _"Acaba bu cümleyi doğru mu kurdum?"_ ikilemini bitiren platform. Doğal dil işleme (NLP) ve yapay zeka modelleriyle teknik ve genel cümle yapılarını anında analiz eder.
+
+### 2. Plus Otoyol
+
+- **Kategori:** Ulaşım Teknolojileri & Rota Mimarisi
+- **Görsel:** `public/assets/plusotoyolresmi.png`
+- **Bağlantılar:** [Live Site](https://plusotoyol.com) • [GitHub Repository](https://github.com/whyasaf)
+- **Özet:** Türkiye genelindeki yolculuk deneyimini geliştirmek amacıyla tasarlanan platform. Rota planlama, mola noktaları, otoyol ve ücret bilgileri ile akaryakıt verilerini tek bir merkezde toplar.
+
+### 3. Neon Oto Kurtarma
+
+- **Kategori:** Kurumsal Web Sitesi & Marka Kimliği
+- **Görsel:** `public/assets/neon.png`
+- **Bağlantılar:** [Live Site](https://neonotokurtarma.com) • [Instagram](https://www.instagram.com/neonotokurtarma) • [YouTube](https://www.youtube.com/@neonotokurtarma) • [TikTok](https://www.tiktok.com/@neonotokurtarma)
+- **Özet:** Neon Oto Kurtarma için özel olarak kurgulanan kurumsal kimlik, logo tasarımı ve modern web sitesi projesi.
+
+### 4. Cultivated Voice System (CVS)
+
+- **Kategori:** Akademik & Profesyonel İngilizce Eğitim Sistemi
+- **Görsel:** `public/assets/zach_andre_home.jpeg`
+- **Bağlantılar:** [Live Site](https://www.cultivatedvoicesystem.com/) • [GitHub Repository](https://github.com/whyasaf)
+- **Özet:** Doğru akademik çalışma, özgüvenli iletişim ve etkili İngilizce konuşma becerileri (IELTS, PTE, TOEFL) için tasarlanmış sistemli öğretim modeli.
+
+### 5. Kaçış Alanı F1
+
+- **Kategori:** Veri Analitiği & Medya Topluluğu
+- **Görsel:** `public/assets/maxtek.png` & `public/assets/ist_uni.mp4`
+- **Bağlantılar:** [Instagram Topluluğu](https://www.instagram.com/kacisalanif1/)
+- **Özet:** Formula 1 yarış analizleri, güncel telemetri verileri ve minimalist infografikler paylaşan popüler Instagram topluluğu (@kacisalanif1).
+
+### 6. zerP Finance
+
+- **Kategori:** Finansal Takip & Bütçe Yönetimi
+- **Görsel:** `public/assets/zerp_pdf.png`
+- **Bağlantılar:** [GitHub Repository](https://github.com/whyasaf)
+- **Özet:** Bireysel kullanıcılar için özel geliştirilmiş minimalist finansal takip, gelir-gider dengesi ve bütçe planlama konsepti.
+
+---
+
+## Blog & Düşünce Notları
+
+Sitede yayınlanan ve teknoloji, finans ile sistem tasarımı üzerine odaklanan derinlemesine makaleler:
+
+1. **Kontrol Bizde mi, Yoksa Sadece Öyle mi Sanıyoruz?** (`assets/linked1.png`)
+   - _Süper Yapay Zeka (ASI), Zeka Patlaması ve Hizalama Sorunu üzerine sistem analizi._
+2. **Mark Zuckerberg Bir Banka Kursaydı Ne Olurdu?** (`assets/zuckerberg_banka.png`)
+   - _MetaBank konsepti: Devasa müşteri ağı, sıfır bürokrasi ve devlet egemenliği arasındaki finansal çatışma._
+3. **110 Milyar Dolar: Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?** (`assets/linked2.png`)
+   - _Devasa sermaye akışları ve küresel teknoloji yatırımlarının analizi._
+4. **Kod Yazmaktan Fazlası: Problem Çözme Sanatı** (`assets/linked3.png`)
+   - _Yazılım geliştirmede sentaksın ötesine geçip sistem mimarı gibi düşünebilmek._
+5. **SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası** (`assets/linked4.png`)
+   - _Uzay ekonomisi, Starlink ve küresel finans piyasaları üzerindeki etkileri._
+
+---
+
+## Öne Çıkan Mimari & Animasyon Özellikleri
+
+Sitede yer alan ve özel olarak geliştirilen etkileşimli bileşenler:
+
+### 1. 3D İnteraktif Not Defteri (Blog Footer)
+
+- **Spine-Anchored Pivot:** Defter sırtına (`originX: 0` / `originX: 1`) sabitlenmiş dönüş ekseni.
+- **Double-Sided 3D Pages:** `backface-visibility: hidden` ve `preserve-3d` kullanarak sayfa çevrilirken ön/arka yüz içeriğinin kusursuz geçiş yapması.
+- **Dynamic Sweep Shadows:** Sayfa dönüş açısına göre yumuşak gölge katmanlarının hareket etmesi.
+
+### 2. AutoCAD Kinetic Typography (Projeler Footer)
+
+- **AutoCAD Crosshair Tracker:** İmlecin konumunu algılayan canlı koordinat indikatörleri (`X`, `Y`).
+- **Dynamic Grid Ticks:** Hover olunduğunda ölçeklenen köşe `+` çizgi işaretleri ve teknik çizim sınırları.
+- **Parallax Kinetic Text:** İmleç vektörüne göre hafifçe kayan tipografi haritası.
+
+### 3. Dinamik Tema & Medya Duyarlı Favicon
+
+- **Anti-Flash Script:** Sayfa yüklenirken beyaz ekran sıçramasını (flash) önleyen yerel saklama kontrolü.
+- **Media-Query Favicon:** Kullanıcının sistem temasına göre (Light / Dark) otomatik değişen koyu/açık ikonlar (`wa-favicon.png` & `wa-favicon-light.png`).
+
+---
+
+## Teknik Altyapı & Teknolojiler
+
+- **Framework:** Next.js 14 (App Router)
+- **Dil:** TypeScript, React 18
+- **Stil & Tasarım System:** Tailwind CSS, Vanilla CSS, Responsive Layout
+- **Animasyon Mimarısı:** Framer Motion
+- **İkonografi:** Lucide React, Custom SVG
+- **Çoklu Dil (i18n):** Özel `LanguageContext` altyapısı (Türkçe & İngilizce)
+- **SEO & Semantik HTML:** Person JSON-LD, OpenGraph, Dynamic Sitemap (`sitemap.ts`) ve Robots (`robots.ts`)
+
+---
+
+## Dosya ve Proje Dizini
 
 ```text
-whyasaf-websayt/
-├── app/                  # Next.js App Router (Layouts & Routes)
-│   ├── about/            # About page
-│   ├── blog/             # Blog indexing & [slug] dynamic posts
-│   ├── projects/         # Projects grid page
-│   ├── robots.ts         # Robots.txt generator
-│   └── sitemap.ts        # Sitemap.xml generator
-├── public/               # Public assets (images, logos, videos)
-│   └── assets/           # Curated project showcases & profile media
-├── src/
-│   ├── components/       # Custom components (Footer, Hero, ProjectsGrid)
-│   ├── context/          # State providers (LanguageContext)
-│   ├── data/             # Static post databases
-│   └── lib/              # Translations dictionary
-├── package.json          # Dependency configurations
-└── tailwind.config.js    # Tailwind layout overrides
+whyasaf_websayt/
+├── app/                      # Next.js App Router Yapısı
+│   ├── about/                # Hakkımda Sayfası
+│   ├── blog/                 # Blog Liste & [slug] Detay Sayfaları
+│   ├── projects/             # Projeler Sayfası
+│   ├── globals.css           # Küresel CSS ve Tema Stil Tanımları
+│   ├── layout.tsx            # Ana Düzen (Metadata, Fontlar & Favicon)
+│   ├── page.tsx              # Anasayfa (Bio & Seçkiler)
+│   ├── robots.ts             # Dinamik Robots.txt
+│   └── sitemap.ts            # Dinamik Sitemap.xml
+├── public/
+│   └── assets/               # Proje Görselleri, Videolar ve Logolar
+│       ├── codevocab.mp4     # CodeVocab Demo Videosu
+│       ├── cv.png            # CodeVocab Kapak Görseli
+│       ├── plusotoyolresmi.png # Plus Otoyol Görseli
+│       ├── neon.png          # Neon Oto Kurtarma Görseli
+│       ├── wa-favicon.png    # Koyu Favicon
+│       └── wa-favicon-light.png # Açık Favicon
+└── src/
+    ├── components/           # UI Bileşenleri (ProjectsGrid, Footer, HeroSection)
+    ├── context/              # Dil ve Tema Context Yapıları
+    ├── data/                 # Blog İçerik Veritabanı (posts.ts)
+    └── lib/                  # Çeviri Sözlüğü (translations.ts)
 ```
---
 
-Designed by Ömer Asaf Ak | whyasaf
+---
+
+<p align="center">
+  Designed & Developed by <b>Ömer Asaf Ak (whyasaf)</b>
+</p>
