@@ -36,6 +36,8 @@ export const translations = {
     projectWebsite: "Web Sitesi",
     projectGithub: "GitHub Deposu",
     projectInstagram: "Instagram Profili",
+    projectYoutube: "YouTube Kanalı",
+    projectTiktok: "TikTok Hesabı",
     
     projCodeVocabDesc: "İngilizce çalışırken \"Acaba bu cümleyi doğru mu kurdum?\" ikilemini bitiriyoruz. Yazdığınız veya çalıştığınız İngilizce cümleleri anında teyit etmenizi sağlayan yeni platformum: CodeVocab",
     projCodeVocabDetailed: "İngilizce çalışırken \"Acaba bu cümleyi doğru mu kurdum?\" ikilemini bitiriyoruz. Yazdığınız veya çalıştığınız İngilizce cümleleri anında teyit etmenizi sağlayan yeni platformum: CodeVocab. Doğal dil işleme (NLP) ve yapay zeka modelleriyle tüm teknik ve genel cümle yapılarını analiz eder.",
@@ -52,8 +54,8 @@ export const translations = {
     projZerpDesc: "Bireysel kullanıcılar için geliştirilmiş minimalist finansal takip ve bütçe yönetim sistemi.",
     projZerpDetailed: "Bireysel kullanıcılar için özel olarak geliştirilmiş minimalist finansal takip ve bütçe yönetim sistemi. Gelir-gider dengesi, bütçe planlama ve finansal analiz araçları sunar. Şu anda kullanıma açık olmayan kapalı bir sistem olup, sadece konsept tanıtımı yapılmaktadır.",
     
-    projFocusValleyDesc: "Kullanıcıların 25, 30 ve 50 dakikalık periyotlarla odaklanmasını sağlayan ve odaklandıkça kazanılan sanal birikimlerle sanal mülkler edinilen oyunlaştırma tabanlı odaklanma platformu.",
-    projFocusValleyDetailed: "Focus Valley, dikkatinizi toplama süreçlerinizi oyunlaştırma (gamification) mekanikleriyle birleştiren yeni nesil bir odaklanma platformudur. Kullanıcılar 25, 30 ve 50 dakikalık optimize edilmiş periyotlarda odaklanarak sanal gelir elde eder ve bu birikimlerle dijital ekosistemde ev, araba gibi sanal mülkler edinebilirler. Not: Proje şu an prototip aşamasındadır, canlı veri akışı veya aktif veri tabanı bulunmamaktadır.",
+    projPlusOtoyolDesc: "Türkiye genelindeki yolculuk deneyimini geliştirmek amacıyla tasarlanan bir ulaşım teknolojileri platformu.",
+    projPlusOtoyolDetailed: "Plus Otoyol, Türkiye genelindeki yolculuk deneyimini geliştirmek amacıyla tasarlanan bir ulaşım teknolojileri platformudur. Rota planlama, mola noktaları, otoyol ve ücret bilgileri, akaryakıt verileri gibi birçok yolculuk bilgisini tek bir platformda bir araya getirmeyi hedefler.",
 
     // Blog
     blogTitle: "Düşünceler & Notlar",
@@ -142,6 +144,8 @@ export const translations = {
     projectWebsite: "Website",
     projectGithub: "GitHub Repository",
     projectInstagram: "Instagram Profile",
+    projectYoutube: "YouTube Channel",
+    projectTiktok: "TikTok Account",
     
     projCodeVocabDesc: "We eliminate the 'Did I form this sentence correctly?' dilemma while studying English. My new platform, CodeVocab, allows you to instantly verify English sentences.",
     projCodeVocabDetailed: "We eliminate the 'Did I form this sentence correctly?' dilemma while studying English. My new platform, CodeVocab, allows you to instantly verify English sentences. Powered by natural language processing (NLP) and AI models to analyze syntax and grammar.",
@@ -158,8 +162,8 @@ export const translations = {
     projZerpDesc: "A minimalist personal financial tracker and budget management application.",
     projZerpDetailed: "A minimalist personal financial tracker and budget management application. Features income-expense logs, budget planning, and basic financial analysis. Currently a closed concept layout.",
  
-    projFocusValleyDesc: "A gamified focus platform allowing users to concentrate in 25, 30, and 50-minute periods, earning virtual currency to purchase assets like virtual houses and cars.",
-    projFocusValleyDetailed: "Focus Valley is a next-generation productivity and focus platform that integrates core concentration techniques with gamification mechanics. Users commit to optimized focus intervals of 25, 30, and 50 minutes to generate virtual rewards, which can be spent to acquire digital assets like virtual estates, vehicles, and items. Note: This project is currently in the prototype phase, and no live database or user data integration is active.",
+    projPlusOtoyolDesc: "A transportation technology platform designed to enhance the travel experience across Turkey.",
+    projPlusOtoyolDetailed: "Plus Otoyol is a transportation technology platform designed to enhance the travel experience across Turkey. It aims to bring together various travel information such as route planning, rest stops, highway and toll details, and fuel data into a single platform.",
  
     // Blog
     blogTitle: "Thoughts & Notes",

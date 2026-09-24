@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Github, Instagram, Globe, X } from "lucide-react";
+import { ArrowUpRight, Github, Instagram, Globe, Youtube, X } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
@@ -20,6 +20,8 @@ interface Project {
     github?: string;
     website?: string;
     instagram?: string;
+    youtube?: string;
+    tiktok?: string;
   };
   gridClass: string;
   imageMode?: "cover" | "contain";
@@ -59,7 +61,9 @@ export default function ProjectsGrid() {
       links: {
         website: "https://neonotokurtarma.com",
         github: "https://github.com/whyasaf",
-        instagram: "https://www.instagram.com/neonotokurtarma"
+        instagram: "https://www.instagram.com/neonotokurtarma",
+        youtube: "https://www.youtube.com/@neonotokurtarma",
+        tiktok: "https://www.tiktok.com/@neonotokurtarma"
       },
       gridClass: "md:col-span-1 md:row-span-1"
     },
@@ -109,20 +113,21 @@ export default function ProjectsGrid() {
       darkInvert: true
     },
     {
-      id: "focusvalley",
-      title: "Focus Valley",
-      subtitle: language === "tr" ? "Odaklanma & Oyunlaştırma" : "Focus & Gamification",
-      description: t.projFocusValleyDesc,
-      detailedInfo: t.projFocusValleyDetailed,
-      cover: "/assets/fv_logo_wa.png",
+      id: "plusotoyol",
+      title: "Plus Otoyol",
+      subtitle: language === "tr" ? "Ulaşım Teknolojileri" : "Transportation Technologies",
+      description: t.projPlusOtoyolDesc,
+      detailedInfo: t.projPlusOtoyolDetailed,
+      cover: "/assets/plusotoyolresmi.png",
       mediaType: "image",
-      mediaSrc: "/assets/fv_logo_wa.png",
+      mediaSrc: "/assets/plusotoyolresmi.png",
       links: {
+        website: "https://plusotoyol.com",
         github: "https://github.com/whyasaf"
       },
       gridClass: "md:col-span-2 md:row-span-1",
       imageMode: "contain",
-      darkInvert: true
+      darkInvert: false
     },
   ];
 
@@ -275,6 +280,30 @@ export default function ProjectsGrid() {
                           title={t.projectInstagram}
                         >
                           <Instagram size={13} />
+                        </a>
+                      )}
+                      {selectedProject.links.youtube && (
+                        <a
+                          href={selectedProject.links.youtube}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-1.5 bg-zinc-50 dark:bg-zinc-900 hover:bg-cyan-50 dark:hover:bg-cyan-950/20 text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 border border-zinc-200 dark:border-zinc-800 rounded-full transition-colors inline-flex items-center justify-center shadow-sm"
+                          title={t.projectYoutube}
+                        >
+                          <Youtube size={13} />
+                        </a>
+                      )}
+                      {selectedProject.links.tiktok && (
+                        <a
+                          href={selectedProject.links.tiktok}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-1.5 bg-zinc-50 dark:bg-zinc-900 hover:bg-cyan-50 dark:hover:bg-cyan-950/20 text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 border border-zinc-200 dark:border-zinc-800 rounded-full transition-colors inline-flex items-center justify-center shadow-sm"
+                          title={t.projectTiktok}
+                        >
+                          <svg width={13} height={13} className="fill-current" viewBox="0 0 24 24">
+                            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-2.892 2.892 2.896 2.896 0 0 1-2.893-2.892 2.896 2.896 0 0 1 2.893-2.892c.394 0 .762.077 1.1.216V9.45a6.31 6.31 0 0 0-1.1-.097 6.337 6.337 0 0 0-6.337 6.337 6.337 6.337 0 0 0 6.337 6.337 6.337 6.337 0 0 0 6.337-6.337V9.014a8.211 8.211 0 0 0 4.97 1.637V7.228a4.83 4.83 0 0 1-1.207-.542z"/>
+                          </svg>
                         </a>
                       )}
                     </div>

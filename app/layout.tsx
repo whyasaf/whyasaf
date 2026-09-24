@@ -45,6 +45,14 @@ export const metadata = {
     creator: '@whyasaf',
     images: ['/og_image.png'],
   },
+  icons: {
+    icon: [
+      { url: '/assets/wa-favicon.png', media: '(prefers-color-scheme: light)' },
+      { url: '/assets/wa-favicon-light.png', media: '(prefers-color-scheme: dark)' },
+    ],
+    shortcut: '/assets/wa-favicon-light.png',
+    apple: '/assets/wa-favicon-light.png',
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   }
@@ -58,6 +66,9 @@ export default function RootLayout({
   return (
     <html lang="tr" className="dark" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/assets/wa-favicon.png" media="(prefers-color-scheme: light)" type="image/png" />
+        <link rel="icon" href="/assets/wa-favicon-light.png" media="(prefers-color-scheme: dark)" type="image/png" />
+        <link rel="apple-touch-icon" href="/assets/wa-favicon-light.png" />
         {/* Anti-flash theme script */}
         <script
           dangerouslySetInnerHTML={{
