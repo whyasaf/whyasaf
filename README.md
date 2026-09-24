@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="public/assets/wa-kurumsal.png" alt="whyasaf logo" width="120" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/assets/wa-kurumsal-light.png">
+    <source media="(prefers-color-scheme: light)" srcset="public/assets/wa-kurumsal.png">
+    <img src="public/assets/wa-kurumsal.png" alt="whyasaf logo" width="240" />
+  </picture>
 </p>
 
 <h1 align="center">whyasaf.com</h1>
@@ -29,51 +33,47 @@ Yazılım geliştirme süreçlerinde **teknik mimariyi estetik tasarım prensipl
 
 ---
 
-## Portfolyo & Canlı Projeler
-
-Web sitesinde yer alan ve bağımsız olarak geliştirdiğim tüm dijital ürünler:
+## Portfolyo & Öne Çıkan Projeler
 
 ### 1. CodeVocab AI
 
+<p align="center">
+  <img src="public/assets/cv.png" alt="CodeVocab AI" width="100%" />
+</p>
+
 - **Kategori:** Yapay Zeka / NLP / İngilizce Öğrenim Platformu
-- **Medya & Görsel:** `public/assets/cv.png` & `public/assets/codevocab.mp4`
 - **Bağlantılar:** [Live Site](https://codevocab.whyasaf.com) • [GitHub Repository](https://github.com/whyasaf/CodeVocab)
 - **Özet:** İngilizce çalışırken _"Acaba bu cümleyi doğru mu kurdum?"_ ikilemini bitiren platform. Doğal dil işleme (NLP) ve yapay zeka modelleriyle teknik ve genel cümle yapılarını anında analiz eder.
 
-### 2. Plus Otoyol
+### 2. Cultivated Voice System (CVS)
 
-- **Kategori:** Ulaşım Teknolojileri & Rota Mimarisi
-- **Görsel:** `public/assets/plusotoyolresmi.png`
-- **Bağlantılar:** [Live Site](https://plusotoyol.com) • [GitHub Repository](https://github.com/whyasaf)
-- **Özet:** Türkiye genelindeki yolculuk deneyimini geliştirmek amacıyla tasarlanan platform. Rota planlama, mola noktaları, otoyol ve ücret bilgileri ile akaryakıt verilerini tek bir merkezde toplar.
-
-### 3. Neon Oto Kurtarma
-
-- **Kategori:** Kurumsal Web Sitesi & Marka Kimliği
-- **Görsel:** `public/assets/neon.png`
-- **Bağlantılar:** [Live Site](https://neonotokurtarma.com) • [Instagram](https://www.instagram.com/neonotokurtarma) • [YouTube](https://www.youtube.com/@neonotokurtarma) • [TikTok](https://www.tiktok.com/@neonotokurtarma)
-- **Özet:** Neon Oto Kurtarma için özel olarak kurgulanan kurumsal kimlik, logo tasarımı ve modern web sitesi projesi.
-
-### 4. Cultivated Voice System (CVS)
+<p align="center">
+  <img src="public/assets/zach_andre_home.jpeg" alt="Cultivated Voice System" width="100%" />
+</p>
 
 - **Kategori:** Akademik & Profesyonel İngilizce Eğitim Sistemi
-- **Görsel:** `public/assets/zach_andre_home.jpeg`
 - **Bağlantılar:** [Live Site](https://www.cultivatedvoicesystem.com/) • [GitHub Repository](https://github.com/whyasaf)
 - **Özet:** Doğru akademik çalışma, özgüvenli iletişim ve etkili İngilizce konuşma becerileri (IELTS, PTE, TOEFL) için tasarlanmış sistemli öğretim modeli.
 
-### 5. Kaçış Alanı F1
+### 3. Neon Oto Kurtarma
 
-- **Kategori:** Veri Analitiği & Medya Topluluğu
-- **Görsel:** `public/assets/maxtek.png` & `public/assets/ist_uni.mp4`
-- **Bağlantılar:** [Instagram Topluluğu](https://www.instagram.com/kacisalanif1/)
-- **Özet:** Formula 1 yarış analizleri, güncel telemetri verileri ve minimalist infografikler paylaşan popüler Instagram topluluğu (@kacisalanif1).
+<p align="center">
+  <img src="public/assets/neon.png" alt="Neon Oto Kurtarma" width="100%" />
+</p>
 
-### 6. zerP Finance
+- **Kategori:** Kurumsal Web Sitesi & Marka Kimliği
+- **Bağlantılar:** [Live Site](https://neonotokurtarma.com) • [Instagram](https://www.instagram.com/neonotokurtarma) • [YouTube](https://www.youtube.com/@neonotokurtarma) • [TikTok](https://www.tiktok.com/@neonotokurtarma)
+- **Özet:** Neon Oto Kurtarma için özel olarak kurgulanan kurumsal kimlik, logo tasarımı ve modern web sitesi projesi.
 
-- **Kategori:** Finansal Takip & Bütçe Yönetimi
-- **Görsel:** `public/assets/zerp_pdf.png`
-- **Bağlantılar:** [GitHub Repository](https://github.com/whyasaf)
-- **Özet:** Bireysel kullanıcılar için özel geliştirilmiş minimalist finansal takip, gelir-gider dengesi ve bütçe planlama konsepti.
+### 4. Plus Otoyol
+
+<p align="center">
+  <img src="public/assets/plusotoyolresmi.png" alt="Plus Otoyol" width="100%" />
+</p>
+
+- **Kategori:** Ulaşım Teknolojileri & Rota Mimarisi
+- **Bağlantılar:** [Live Site](https://plusotoyol.com) • [GitHub Repository](https://github.com/whyasaf)
+- **Özet:** Türkiye genelindeki yolculuk deneyimini geliştirmek amacıyla tasarlanan platform. Rota planlama, mola noktaları, otoyol ve ücret bilgileri ile akaryakıt verilerini tek bir merkezde toplar.
 
 ---
 
@@ -81,15 +81,15 @@ Web sitesinde yer alan ve bağımsız olarak geliştirdiğim tüm dijital ürün
 
 Sitede yayınlanan ve teknoloji, finans ile sistem tasarımı üzerine odaklanan derinlemesine makaleler:
 
-1. **Kontrol Bizde mi, Yoksa Sadece Öyle mi Sanıyoruz?** (`assets/linked1.png`)
+1. **Kontrol Bizde mi, Yoksa Sadece Öyle mi Sanıyoruz?**
    - _Süper Yapay Zeka (ASI), Zeka Patlaması ve Hizalama Sorunu üzerine sistem analizi._
-2. **Mark Zuckerberg Bir Banka Kursaydı Ne Olurdu?** (`assets/zuckerberg_banka.png`)
+2. **Mark Zuckerberg Bir Banka Kursaydı Ne Olurdu?**
    - _MetaBank konsepti: Devasa müşteri ağı, sıfır bürokrasi ve devlet egemenliği arasındaki finansal çatışma._
-3. **110 Milyar Dolar: Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?** (`assets/linked2.png`)
+3. **110 Milyar Dolar: Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?**
    - _Devasa sermaye akışları ve küresel teknoloji yatırımlarının analizi._
-4. **Kod Yazmaktan Fazlası: Problem Çözme Sanatı** (`assets/linked3.png`)
+4. **Kod Yazmaktan Fazlası: Problem Çözme Sanatı**
    - _Yazılım geliştirmede sentaksın ötesine geçip sistem mimarı gibi düşünebilmek._
-5. **SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası** (`assets/linked4.png`)
+5. **SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası**
    - _Uzay ekonomisi, Starlink ve küresel finans piyasaları üzerindeki etkileri._
 
 ---
