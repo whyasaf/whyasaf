@@ -129,36 +129,6 @@ Sitede yer alan ve özel olarak geliştirilen etkileşimli bileşenler:
 
 ---
 
-## Dosya ve Proje Dizini
-
-```text
-whyasaf_websayt/
-├── app/                      # Next.js App Router Yapısı
-│   ├── about/                # Hakkımda Sayfası
-│   ├── blog/                 # Blog Liste & [slug] Detay Sayfaları
-│   ├── projects/             # Projeler Sayfası
-│   ├── globals.css           # Küresel CSS ve Tema Stil Tanımları
-│   ├── layout.tsx            # Ana Düzen (Metadata, Fontlar & Favicon)
-│   ├── page.tsx              # Anasayfa (Bio & Seçkiler)
-│   ├── robots.ts             # Dinamik Robots.txt
-│   └── sitemap.ts            # Dinamik Sitemap.xml
-├── public/
-│   └── assets/               # Proje Görselleri, Videolar ve Logolar
-│       ├── codevocab.mp4     # CodeVocab Demo Videosu
-│       ├── cv.png            # CodeVocab Kapak Görseli
-│       ├── plusotoyolresmi.png # Plus Otoyol Görseli
-│       ├── neon.png          # Neon Oto Kurtarma Görseli
-│       ├── wa-favicon.png    # Koyu Favicon
-│       └── wa-favicon-light.png # Açık Favicon
-└── src/
-    ├── components/           # UI Bileşenleri (ProjectsGrid, Footer, HeroSection)
-    ├── context/              # Dil ve Tema Context Yapıları
-    ├── data/                 # Blog İçerik Veritabanı (posts.ts)
-    └── lib/                  # Çeviri Sözlüğü (translations.ts)
-```
-
----
-
 <p align="center">
   Designed & Developed by <b>Ömer Asaf Ak (whyasaf)</b>
 </p>

@@ -15,6 +15,10 @@ export const translations = {
     aboutFooterQuote: "Algoritmalarla geleceği tahmin etme, estetikle onu baştan tasarla",
     
     // Experiences
+    exp0Title: "De Montfort University",
+    exp0Period: "2026—2030",
+    exp0Subtitle: "Yazılım Mühendisliği — De Montfort University Dubai",
+    exp0Desc: "Ekim 2026 itibarıyla Dubai Internet City'deki De Montfort University Dubai kampüsünde yeni bir akademik sayfaya başlıyorum. Uluslararası bir ortamda yazılım mühendisliği alanındaki yolculuğumu derinleştirmeyi hedefliyorum.",
     exp1Title: "İstanbul Üniversitesi",
     exp1Period: "2024—2026",
     exp1Subtitle: "Bilgisayar Programcılığı — Makine Öğrenmesi & Sistem Analizi",
@@ -25,10 +29,10 @@ export const translations = {
     exp2Subtitle: "Kurucu & Geliştirici — AI Destekli Kodlama ve Yazılım Mimarisi",
     exp2Desc: "İngilizce çalışırken 'Acaba bu cümleyi doğru mu kurdum?' ikilemini bitiriyoruz. Yazdığınız veya çalıştığınız İngilizce cümleleri anında teyit etmenizi sağlayan yeni platformum: CodeVocab",
     
-    exp3Title: "Marki Corp.",
+    exp3Title: "Marki Labs.",
     exp3Period: "2022—Günümüz",
     exp3Subtitle: "Kurucu & Product Developer — Dijital Ürün Stüdyosu",
-    exp3Desc: "Fikir aşamasından market sunumuna kadar olan tüm tasarım, arayüz mimarisi ve altyapı geliştirme süreçlerinin üstlenilmesi. Kaçış Alanı F1 ve diğer bağımsız ürünlerin hayata geçirilmesi.",
+    exp3Desc: "Fikir aşamasından market sunumuna kadar olan tüm tasarım, arayüz mimarisi ve altyapı geliştirme süreçlerinin üstlenilmesi.",
 
     // Projects Page & Cards
     projectInspect: "Projeyi İncele",
@@ -123,6 +127,10 @@ export const translations = {
     aboutFooterQuote: "Predict the future with algorithms, redesign it with aesthetics",
     
     // Experiences
+    exp0Title: "De Montfort University",
+    exp0Period: "Oct 2026—",
+    exp0Subtitle: "Software Engineering — De Montfort University Dubai",
+    exp0Desc: "Starting October 2026, I begin a new academic chapter at the De Montfort University Dubai campus in Dubai Internet City, aiming to deepen my journey in software engineering in an international environment.",
     exp1Title: "Istanbul University",
     exp1Period: "2024—2026",
     exp1Subtitle: "Computer Programming — Machine Learning & Systems Analysis",
@@ -133,7 +141,7 @@ export const translations = {
     exp2Subtitle: "Founder & Developer — AI-Assisted Coding & Software Architecture",
     exp2Desc: "We eliminate the 'Did I form this sentence correctly?' dilemma while studying English. My new platform, CodeVocab, allows you to instantly verify English sentences you write or study.",
     
-    exp3Title: "Marki Corp.",
+    exp3Title: "Marki Labs.",
     exp3Period: "2022—Present",
     exp3Subtitle: "Founder & Product Developer — Digital Product Studio",
     exp3Desc: "Handling the end-to-end process from launch, including product design, interface architecture, and infrastructure development. Bringing Kaçış Alanı F1 and other indie products to life.",

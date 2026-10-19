@@ -25,6 +25,16 @@ export default function HomePage() {
 
         {/* Vertical Premium Experience Cards */}
         <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+          {/* Experience 0: De Montfort University */}
+          <ExperienceCard
+            videoSrc="/assets/dmu-clip-1.mp4"
+            logo={<GraduationCap size={18} />}
+            title={t.exp0Title}
+            period={t.exp0Period}
+            subtitle={t.exp0Subtitle}
+            description={t.exp0Desc}
+          />
+
           {/* Experience 1: Istanbul University */}
           <ExperienceCard
             videoSrc="/assets/ist_uni.mp4"
@@ -45,9 +55,9 @@ export default function HomePage() {
             description={t.exp2Desc}
           />
 
-          {/* Experience 3: Marki Corp & Ventures */}
+          {/* Experience 3: Marki Labs */}
           <ExperienceCard
-            imageSrc="/assets/marki_wa.png"
+            imageSrc="/assets/marki_logo.jpg"
             imageMode="cover"
             logo={<Rocket size={18} />}
             title={t.exp3Title}

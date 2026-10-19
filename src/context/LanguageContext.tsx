@@ -32,6 +32,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     } catch (_) {}
   }, []);
 
+  // Keep <html lang> in sync so CSS uppercase doesn't turn "i" into "İ" in English
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     try {
