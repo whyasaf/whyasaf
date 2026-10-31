@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "sans-serif"],
         serif: ["var(--font-serif)", "Playfair Display", "serif"],
+        hand: ["var(--font-hand)", "Caveat", "cursive"],
       },
       colors: {
         dark: {

@@ -41,17 +41,45 @@
 }
 
 /* Rich Blog typography */
+/* Blog post scale: phones get larger base text, desktop is zoomed 1.2x as a whole */
+@media (min-width: 768px) {
+  .blog-article {
+    zoom: 1.2;
+    max-width: min(618px, calc((100vw - 3rem) / 1.2));
+  }
+}
 .blog-content h2 {
-  @apply text-lg font-semibold text-zinc-900 dark:text-zinc-100 mt-8 mb-3 tracking-tight;
+  scroll-margin-top: 5rem;
+  @apply text-xl md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 mt-8 mb-3 tracking-tight;
 }
 .blog-content p {
-  @apply text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4 font-normal;
+  @apply text-zinc-600 dark:text-zinc-400 text-base md:text-sm leading-relaxed mb-4 font-normal;
 }
 .blog-content strong {
   @apply text-zinc-900 dark:text-zinc-200 font-semibold;
 }
 .blog-content em {
   @apply text-zinc-800 dark:text-zinc-300 italic;
+}
+
+/* Loading skeleton */
+.skeleton {
+  background-color: #e4e4e7;
+  background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.65) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s linear infinite;
+}
+.dark .skeleton {
+  background-color: #18181b;
+  background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.07) 50%, transparent 70%);
+}
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
 }
 
 /* Infinite Marquee */
@@ -70,4 +98,15 @@
 
 .animate-marquee-slow {
   animation: marquee 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

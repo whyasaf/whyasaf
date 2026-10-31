@@ -1,0 +1,29 @@
+# whyasaf
+
+> Personal portfolio and blog of Ömer Asaf Ak (whyasaf): software engineering student, product developer and systems architect. Studies Software Engineering at De Montfort University Dubai (2026-2030).
+
+## About
+- Name: Ömer Asaf Ak (alias: whyasaf)
+- Focus: web apps, AI-assisted products, software architecture, interface design
+- Languages: Turkish, English
+- Contact: whyasaf.wa@gmail.com
+
+## Pages
+- [Home / About](https://whyasaf.com): education, experience and background
+- [Projects](https://whyasaf.com/projects): selected products and design work
+- [Blog](https://whyasaf.com/blog): notes on technology, design, systems and investing (Turkish and English)
+- [RSS feed](https://whyasaf.com/feed.xml)
+
+## Projects
+- [Lecmic](https://lecmic.whyasaf.com): lecture assistant for university students. Live transcription and translation of lectures, notes, recordings and PDFs in one place, summaries, vocabulary notebook, audio transcription. Source: https://github.com/whyasaf/lecmic
+- [CodeVocab AI](https://codevocab.whyasaf.com): Python & NLP platform that verifies English sentences instantly. Source: https://github.com/whyasaf/CodeVocab
+- [Neon Oto Kurtarma](https://neonotokurtarma.com): website and logo design
+- [Cultivated Voice System](https://www.cultivatedvoicesystem.com/): English education system
+- [Plus Otoyol](https://plusotoyol.com): transportation technologies
+- Kaçış Alanı F1: Formula 1 Instagram page (https://www.instagram.com/kacisalanif1/)
+- zerP Finance: minimalist personal finance tracker (closed concept)
+
+## Elsewhere
+- GitHub: https://github.com/whyasaf
+- LinkedIn: https://www.linkedin.com/in/omer-asaf-ak/
+- X: https://x.com/whyasaf

@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
         className={`relative px-1 py-0.5 transition-colors duration-200 ${
           language === "tr"
             ? "text-zinc-900 dark:text-zinc-100 font-bold"
-            : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-650 dark:hover:text-zinc-355"
+            : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-650 dark:hover:text-zinc-355"
         }`}
       >
         TR
@@ -39,7 +39,7 @@ export default function LanguageSwitcher() {
         className={`relative px-1 py-0.5 transition-colors duration-200 ${
           language === "en"
             ? "text-zinc-900 dark:text-zinc-100 font-bold"
-            : "text-zinc-400 dark:text-zinc-500 hover:text-zinc-650 dark:hover:text-zinc-355"
+            : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-650 dark:hover:text-zinc-355"
         }`}
       >
         EN

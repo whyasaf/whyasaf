@@ -1,9 +1,10 @@
 import { Mail } from "lucide-react";
+import { mailtoHref } from "../lib/contact";
 
 export default function ContactButton() {
   return (
     <a
-      href="mailto:whyasaf.wa@gmail.com"
+      href={mailtoHref("en")}
       className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-100 text-zinc-950 font-medium text-sm rounded-full hover:bg-zinc-200 transition-colors shadow-lg hover:shadow-zinc-500/5 select-none"
     >
       <Mail size={16} />

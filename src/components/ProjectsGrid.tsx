@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowUpRight, Github, Instagram, Globe, Youtube, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Github, Instagram, Globe, Youtube, X, ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectCard from "./ProjectCard";
+import LazyVideo from "./LazyVideo";
+import ShimmerImage from "./ShimmerImage";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
@@ -34,6 +36,21 @@ export default function ProjectsGrid() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects: Project[] = [
+    {
+      id: "lecmic",
+      title: "Lecmic",
+      subtitle: language === "tr" ? "Web Uygulaması" : "Web App",
+      description: t.projLecmicDesc,
+      detailedInfo: t.projLecmicDetailed,
+      cover: "",
+      mediaType: "video",
+      mediaSrc: language === "tr" ? "/assets/lecmic-tr.mp4" : "/assets/lecmic-en.mp4",
+      links: {
+        website: "https://lecmic.whyasaf.com",
+        github: "https://github.com/whyasaf/lecmic"
+      },
+      gridClass: "md:col-span-1 md:row-span-1"
+    },
     {
       id: "codevocab",
       title: "CodeVocab AI",
@@ -131,6 +148,29 @@ export default function ProjectsGrid() {
     },
   ];
 
+  // Keyboard: Esc closes the modal, arrow keys switch between projects
+  useEffect(() => {
+    if (!selectedProject) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null);
+        return;
+      }
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const index = projects.findIndex((p) => p.id === selectedProject.id);
+      const step = e.key === "ArrowRight" ? 1 : -1;
+      setSelectedProject(projects[(index + step + projects.length) % projects.length]);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedProject, projects]);
+
+  const switchProject = (step: number) => {
+    if (!selectedProject) return;
+    const index = projects.findIndex((p) => p.id === selectedProject.id);
+    setSelectedProject(projects[(index + step + projects.length) % projects.length]);
+  };
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -138,8 +178,7 @@ export default function ProjectsGrid() {
           const projectUrl =
             project.links.website ||
             project.links.github ||
-            project.links.instagram ||
-            "#";
+            project.links.instagram;
           return (
             <ProjectCard
               key={project.id}
@@ -167,6 +206,9 @@ export default function ProjectsGrid() {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-md cursor-pointer"
           >
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label={selectedProject.title}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -177,6 +219,7 @@ export default function ProjectsGrid() {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
+                aria-label={language === "tr" ? "Kapat" : "Close"}
                 className="absolute top-4 right-4 z-20 p-2 text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100 bg-white/80 dark:bg-black/60 border border-zinc-200/50 dark:border-zinc-800/60 rounded-full transition-colors backdrop-blur-sm"
               >
                 <X size={15} />
@@ -185,16 +228,12 @@ export default function ProjectsGrid() {
               {/* Left Side: Media Showcase (50% width on desktop) */}
               <div className="w-full md:w-1/2 h-48 md:h-full bg-zinc-50 dark:bg-zinc-950 relative overflow-hidden select-none border-b md:border-b-0 md:border-r border-zinc-150 dark:border-zinc-900 rounded-t-3xl md:rounded-t-none md:rounded-l-3xl">
                 {selectedProject.mediaType === "video" ? (
-                  <video
-                     src={selectedProject.mediaSrc}
-                     autoPlay
-                     loop
-                     muted
-                     playsInline
-                     className="w-full h-full object-cover rounded-t-3xl md:rounded-t-none md:rounded-l-3xl"
+                  <LazyVideo
+                    src={selectedProject.mediaSrc}
+                    className="w-full h-full object-cover rounded-t-3xl md:rounded-t-none md:rounded-l-3xl"
                   />
                 ) : (
-                  <img
+                  <ShimmerImage
                     src={selectedProject.mediaSrc}
                     alt={selectedProject.title}
                     className={`w-full h-full rounded-t-3xl md:rounded-t-none md:rounded-l-3xl ${
@@ -210,7 +249,7 @@ export default function ProjectsGrid() {
               <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between h-[calc(90vh-12rem)] md:h-full overflow-hidden">
                 <div className="space-y-4 overflow-y-auto pr-1">
                   <div>
-                    <span className="block text-[10px] md:text-xs font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 font-sans mb-1.5">
+                    <span className="block text-[10px] md:text-xs font-semibold tracking-wider text-zinc-500 dark:text-zinc-400 font-sans mb-1.5">
                       {(() => {
                         const hasTrChars = /[ışğçöüİŞĞÇÖÜ]/.test(selectedProject.subtitle);
                         return selectedProject.subtitle.toLocaleUpperCase(hasTrChars ? "tr-TR" : "en-US");
@@ -241,7 +280,7 @@ export default function ProjectsGrid() {
                           <ArrowUpRight size={13} />
                         </a>
                       ) : (
-                        <span className="text-xs text-zinc-400 dark:text-zinc-500 italic">
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400 italic">
                           {t.projectNoLink}
                         </span>
                       );
@@ -307,6 +346,24 @@ export default function ProjectsGrid() {
                         </a>
                       )}
                     </div>
+                  </div>
+
+                  {/* Prev / next project */}
+                  <div className="flex items-center gap-1 shrink-0">
+                    <button
+                      onClick={() => switchProject(-1)}
+                      aria-label={language === "tr" ? "Önceki proje" : "Previous project"}
+                      className="p-1.5 text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-full transition-colors"
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button
+                      onClick={() => switchProject(1)}
+                      aria-label={language === "tr" ? "Sonraki proje" : "Next project"}
+                      className="p-1.5 text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-full transition-colors"
+                    >
+                      <ChevronRight size={16} />
+                    </button>
                   </div>
 
                   {/* Logo branding inside modal */}

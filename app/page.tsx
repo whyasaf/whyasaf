@@ -6,16 +6,17 @@ import HeroSection from "../src/components/HeroSection";
 import ExperienceCard from "../src/components/ExperienceCard";
 import { useLanguage } from "../src/context/LanguageContext";
 import { translations } from "../src/lib/translations";
+import { mailtoHref } from "../src/lib/contact";
 
 export default function HomePage() {
   const { language } = useLanguage();
   const t = translations[language];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-[34px]">
       <HeroSection activeTab="about" />
       
-      <div className="space-y-12 animate-in fade-in duration-500 max-w-5xl mx-auto py-6">
+      <div className="space-y-12 animate-in fade-in duration-500 max-w-5xl mx-auto pt-[21px] pb-6">
         {/* Intro Text */}
         <div 
           className="text-zinc-500 dark:text-zinc-400/80 text-lg md:text-xl leading-relaxed text-center py-2 max-w-3xl mx-auto font-sans italic"
@@ -45,9 +46,9 @@ export default function HomePage() {
             description={t.exp1Desc}
           />
 
-          {/* Experience 2: CodeVocab AI */}
+          {/* Experience 2: Lecmic */}
           <ExperienceCard
-            videoSrc="/assets/codevocab.mp4"
+            videoSrc={language === "tr" ? "/assets/lecmic-tr.mp4" : "/assets/lecmic-en.mp4"}
             logo={<Code2 size={18} />}
             title={t.exp2Title}
             period={t.exp2Period}
@@ -69,9 +70,9 @@ export default function HomePage() {
 
         {/* Curations Stacked Gallery */}
         <div className="pt-12 border-t border-zinc-200/50 dark:border-zinc-900/50 space-y-6 max-w-4xl mx-auto text-left">
-          <h3 className="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase font-serif">
+          <h2 className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400 uppercase font-serif">
             {t.galleryTitle}
-          </h3>
+          </h2>
 
           <div className="relative h-[380px] md:h-[420px] w-full flex items-center justify-center select-none py-4 overflow-visible">
             {/* Card 1: Book (Left) */}
@@ -87,10 +88,10 @@ export default function HomePage() {
                 <span className="block text-[8px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-sans">
                   {language === 'tr' ? 'KİTAP' : 'BOOK'}
                 </span>
-                <h4 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
+                <h3 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
                   {t.curation2Title}
-                </h4>
-                <p className="text-[10px] text-zinc-450 dark:text-zinc-500 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
+                </h3>
+                <p className="text-[10px] text-zinc-500 dark:text-zinc-400 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
                   {t.curation2Desc}
                 </p>
               </div>
@@ -109,10 +110,10 @@ export default function HomePage() {
                 <span className="block text-[8px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-sans">
                   {language === 'tr' ? 'FİLM' : 'FILM'}
                 </span>
-                <h4 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
+                <h3 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
                   {t.curation1Title}
-                </h4>
-                <p className="text-[10px] text-zinc-450 dark:text-zinc-500 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
+                </h3>
+                <p className="text-[10px] text-zinc-500 dark:text-zinc-400 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
                   {t.curation1Desc}
                 </p>
               </div>
@@ -131,10 +132,10 @@ export default function HomePage() {
                 <span className="block text-[8px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-widest font-sans">
                   {language === 'tr' ? 'MÜZİK' : 'MUSIC'}
                 </span>
-                <h4 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
+                <h3 className="text-xs font-bold text-zinc-850 dark:text-zinc-100 font-sans truncate">
                   {t.curation3Title}
-                </h4>
-                <p className="text-[10px] text-zinc-450 dark:text-zinc-500 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
+                </h3>
+                <p className="text-[10px] text-zinc-500 dark:text-zinc-400 leading-snug line-clamp-2 mt-0.5 font-sans font-light">
                   {t.curation3Desc}
                 </p>
               </div>
@@ -142,16 +143,26 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Plain-language summary: quotable by search engines and AI assistants */}
+        <section className="pt-12 border-t border-zinc-200/50 dark:border-zinc-900/50 space-y-3 max-w-4xl mx-auto text-left">
+          <h2 className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400 uppercase font-serif">
+            {t.whoTitle}
+          </h2>
+          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-light">
+            {t.whoText}
+          </p>
+        </section>
+
         {/* Connect Section */}
         <div className="pt-12 border-t border-zinc-200/50 dark:border-zinc-900/50 space-y-6 max-w-4xl mx-auto text-left">
-          <h3 className="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase font-serif">
+          <h2 className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400 uppercase font-serif">
             {t.connectTitle}
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Email */}
             <a
-              href="mailto:whyasaf.wa@gmail.com"
+              href={mailtoHref(language)}
               className="flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[#0f0f11] border border-zinc-200 dark:border-zinc-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-sm group"
             >
               <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-950/40 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300 shrink-0">
@@ -161,7 +172,7 @@ export default function HomePage() {
                 <span className="block text-sm font-semibold text-zinc-800 dark:text-zinc-200 font-sans">
                   Email
                 </span>
-                <span className="block text-xs text-zinc-400 dark:text-zinc-500 font-sans font-light">
+                <span className="block text-xs text-zinc-500 dark:text-zinc-400 font-sans font-light">
                   whyasaf.wa@gmail.com
                 </span>
               </div>
@@ -183,7 +194,7 @@ export default function HomePage() {
                 <span className="block text-sm font-semibold text-zinc-800 dark:text-zinc-200 font-sans">
                   X
                 </span>
-                <span className="block text-xs text-zinc-400 dark:text-zinc-500 font-sans font-light">
+                <span className="block text-xs text-zinc-500 dark:text-zinc-400 font-sans font-light">
                   @whyasaf
                 </span>
               </div>
@@ -203,7 +214,7 @@ export default function HomePage() {
                 <span className="block text-sm font-semibold text-zinc-800 dark:text-zinc-200 font-sans">
                   LinkedIn
                 </span>
-                <span className="block text-xs text-zinc-400 dark:text-zinc-500 font-sans font-light">
+                <span className="block text-xs text-zinc-500 dark:text-zinc-400 font-sans font-light">
                   in/omer-asaf-ak
                 </span>
               </div>
@@ -212,7 +223,7 @@ export default function HomePage() {
 
           {/* Connect Quote Note */}
           <div className="pt-4 text-center w-full max-w-2xl mx-auto">
-            <p className="text-sm md:text-base text-zinc-400/80 dark:text-zinc-500/80 leading-relaxed font-serif italic">
+            <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed font-serif italic">
               {t.aboutFooterQuote}
             </p>
           </div>

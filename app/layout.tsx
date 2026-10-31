@@ -1,5 +1,5 @@
 import React from "react";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Caveat, Inter, Playfair_Display } from "next/font/google";
 import ThemeSwitcher from "../src/components/ThemeSwitcher";
 import { LanguageProvider } from "../src/context/LanguageContext";
 import LanguageSwitcher from "../src/components/LanguageSwitcher";
@@ -15,6 +15,11 @@ const playfair = Playfair_Display({
   variable: "--font-serif",
 });
 
+const caveat = Caveat({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-hand",
+});
+
 export const metadata = {
   metadataBase: new URL('https://whyasaf.com'),
   title: {
@@ -22,6 +27,10 @@ export const metadata = {
     template: '%s | whyasaf',
   },
   description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
+  alternates: {
+    canonical: '/',
+    types: { 'application/rss+xml': '/feed.xml' },
+  },
   openGraph: {
     title: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
     description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
@@ -31,7 +40,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/og_image.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
@@ -43,7 +52,7 @@ export const metadata = {
     title: 'whyasaf | Yazılım Geliştirici ve Tasarımcı',
     description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
     creator: '@whyasaf',
-    images: ['/og_image.png'],
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
@@ -84,7 +93,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-[#f4f4f5] flex flex-col transition-colors duration-300 selection:bg-zinc-200 dark:selection:bg-zinc-800 selection:text-zinc-900 dark:selection:text-zinc-100`}>
+      <body className={`${inter.variable} ${playfair.variable} ${caveat.variable} font-sans min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-[#f4f4f5] flex flex-col transition-colors duration-300 selection:bg-zinc-200 dark:selection:bg-zinc-800 selection:text-zinc-900 dark:selection:text-zinc-100`}>
         {/* JSON-LD Schema */}
         <script
           type="application/ld+json"
@@ -95,9 +104,12 @@ export default function RootLayout({
               "name": "Ömer Asaf Ak",
               "alternateName": "whyasaf",
               "url": "https://whyasaf.com",
+              "image": "https://whyasaf.com/assets/cv_1.jpg",
+              "description": "Ömer Asaf Ak (whyasaf) is a software engineering student and product developer building web apps such as Lecmic and CodeVocab.",
               "jobTitle": "Product Developer & Systems Architect",
               "sameAs": [
                 "https://github.com/whyasaf",
+                "https://lecmic.whyasaf.com",
                 "https://www.linkedin.com/in/omer-asaf-ak/",
                 "https://x.com/whyasaf"
               ],
@@ -109,6 +121,19 @@ export default function RootLayout({
                 "Software Engineering",
                 "Web Development"
               ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "whyasaf",
+              "url": "https://whyasaf.com",
+              "inLanguage": ["tr", "en"],
+              "author": { "@type": "Person", "name": "Ömer Asaf Ak", "url": "https://whyasaf.com" }
             })
           }}
         />

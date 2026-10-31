@@ -2,6 +2,8 @@
 
 import React, { useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import LazyVideo from "./LazyVideo";
+import ShimmerImage from "./ShimmerImage";
 
 interface ExperienceCardProps {
   videoSrc?: string;
@@ -42,7 +44,7 @@ export default function ExperienceCard({
       {/* Media Showcase Container */}
       <div className="relative aspect-[16/9] w-full bg-zinc-50 dark:bg-zinc-950 rounded-2xl overflow-hidden shadow-inner flex items-center justify-center">
         {imageSrc ? (
-          <img
+          <ShimmerImage
             src={imageSrc}
             alt={`${title} Medya`}
             className={`w-full h-full select-none ${
@@ -55,13 +57,10 @@ export default function ExperienceCard({
           />
         ) : (
           <>
-            <video
+            <LazyVideo
               ref={videoRef}
-              src={videoSrc}
-              autoPlay
-              loop
+              src={videoSrc!}
               muted={isMuted}
-              playsInline
               className="w-full h-full object-cover rounded-2xl select-none"
             />
             
@@ -86,14 +85,14 @@ export default function ExperienceCard({
             <div className="w-8 h-8 rounded-full bg-cyan-50 dark:bg-cyan-950/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
               {logo}
             </div>
-            <h3 
+            <h2 
               className="text-2xl md:text-3xl text-zinc-900 dark:text-zinc-100 tracking-tight leading-none"
               style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
             >
               {title}
-            </h3>
+            </h2>
           </div>
-          <span className="text-sm font-light text-zinc-400 dark:text-zinc-500 tracking-wide font-mono mb-0.5 shrink-0">
+          <span className="text-sm font-light text-zinc-500 dark:text-zinc-400 tracking-wide font-mono mb-0.5 shrink-0">
             {period}
           </span>
         </div>

@@ -32,7 +32,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateISO: "2026-03-28",
     author: "Ömer Asaf Ak",
     location: "Istanbul, Turkey",
-    image: "assets/linked1.png",
+    image: "assets/linked1.jpg",
     nextPostId: "110b-investment",
     nextPostTitle: {
       tr: "110 Milyar Dolar: Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?",
@@ -156,7 +156,7 @@ export const blogPosts: Record<string, BlogPost> = {
   dateISO: "2026-07-03",
   author: "Ömer Asaf Ak",
   location: "Istanbul, Turkey",
-  image: "assets/zuckerberg_banka.png",
+  image: "assets/zuckerberg_banka.jpg",
   isNew: true,
   nextPostId: "spacex-ipo",
   nextPostTitle: {
@@ -246,7 +246,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateISO: "2026-04-01",
     author: "Ömer Asaf Ak",
     location: "Istanbul, Turkey",
-    image: "assets/linked2.png",
+    image: "assets/linked2.jpg",
     nextPostId: "than-code",
     nextPostTitle: {
       tr: "Koddan Daha Büyük: Sistem Mimarı Olmak",
@@ -345,7 +345,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateISO: "2026-04-03",
     author: "Ömer Asaf Ak",
     location: "Istanbul, Turkey",
-    image: "assets/linked3.png",
+    image: "assets/linked3.jpg",
     nextPostId: "kontrol-bizde-mi",
     nextPostTitle: {
       tr: "Kontrol Bizde mi, Yoksa Sadece Öyle mi Sanıyoruz?",
@@ -444,7 +444,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateISO: "2026-04-08",
     author: "Ömer Asaf Ak",
     location: "Istanbul, Turkey",
-    image: "assets/linked4.png",
+    image: "assets/linked4.jpg",
     nextPostId: "than-code",
     nextPostTitle: {
       tr: "Koddan Daha Büyük: Sistem Mimarı Olmak",

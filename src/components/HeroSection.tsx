@@ -5,6 +5,7 @@ import { Mail, User, Briefcase, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
+import { mailtoHref } from "../lib/contact";
 
 interface HeroSectionProps {
   activeTab: "about" | "projects" | "blog";
@@ -15,18 +16,20 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
   const t = translations[language];
 
   return (
-    <div className="space-y-12 max-w-5xl mx-auto pb-6">
+    <div className="space-y-12 max-w-5xl mx-auto">
       {/* ── Layer 1: Logo (centered, small) ── */}
       <div className="flex justify-center pt-4 mb-2">
-        <img
-          src="/assets/wa_com2.png"
-          alt="WhyAsaf Logo"
-          className="h-6 md:h-7 w-auto object-contain invert-0 dark:invert transition-all duration-300 select-none opacity-80"
-        />
+        <Link href="/" aria-label={language === "tr" ? "Ana sayfa" : "Home"}>
+          <img
+            src="/assets/wa_com2.png"
+            alt="WhyAsaf Logo"
+            className="h-6 md:h-7 w-auto object-contain invert-0 dark:invert transition-all duration-300 select-none opacity-80"
+          />
+        </Link>
       </div>
 
       {/* Hero Section — strict vertical stack */}
-      <div className="max-w-4xl mx-auto flex flex-col gap-4 pt-2 pb-4">
+      <div className="max-w-4xl mx-auto flex flex-col gap-4 pt-2">
         {/* ── Layer 2: Name (left) + Social icons (right) ── */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 md:gap-4">
@@ -43,7 +46,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
           </div>
           <div className="flex items-center gap-2.5">
             <a
-              href="mailto:whyasaf.wa@gmail.com"
+              href={mailtoHref(language)}
               className="w-12 h-12 md:w-14 md:h-14 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-cyan-300 dark:hover:border-cyan-900/60 text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 rounded-full transition-all duration-200 inline-flex items-center justify-center shrink-0 shadow-sm"
               title={t.sendEmail}
             >
@@ -69,10 +72,10 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
         </p>
 
         {/* ── Layer 4: Segmented Control (Centered) ── */}
-        <div className="flex justify-center mt-8 mb-8">
+        <div className="flex justify-center mt-[34px]">
           <div className="inline-flex bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-1 rounded-full select-none shadow-sm relative">
             <Link
-              href="/about"
+              href="/"
               className="relative px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors duration-200 z-10 block"
             >
               {activeTab === "about" && (
@@ -82,7 +85,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "about" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 hover:text-cyan-500 dark:hover:text-cyan-400"}`}>
+              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "about" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400"}`}>
                 <User size={13} />
                 {t.navAbout}
               </span>
@@ -98,7 +101,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "projects" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 hover:text-cyan-500 dark:hover:text-cyan-400"}`}>
+              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "projects" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400"}`}>
                 <Briefcase size={13} />
                 {t.navProjects}
               </span>
@@ -114,7 +117,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "blog" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 hover:text-cyan-500 dark:hover:text-cyan-400"}`}>
+              <span className={`inline-flex items-center gap-1.5 transition-colors ${activeTab === "blog" ? "text-cyan-600 dark:text-cyan-400" : "text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400"}`}>
                 <BookOpen size={13} />
                 {t.navBlog}
               </span>

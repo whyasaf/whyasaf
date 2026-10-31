@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   Calendar,
@@ -15,62 +16,65 @@ import {
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
-
-// Calculate reading time from HTML content
-function getReadingTime(html: string): number {
-  const text = html.replace(/<[^>]*>/g, "");
-  const words = text.split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / 200));
-}
-
-// Category color mapping
-const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-  INSIGHTS: {
-    bg: "bg-cyan-100 dark:bg-cyan-950/40",
-    text: "text-cyan-600 dark:text-cyan-400",
-    border: "border-cyan-200 dark:border-cyan-800",
-  },
-  INVESTMENT: {
-    bg: "bg-emerald-100 dark:bg-emerald-950/40",
-    text: "text-emerald-600 dark:text-emerald-400",
-    border: "border-emerald-200 dark:border-emerald-800",
-  },
-  SYSTEMS: {
-    bg: "bg-blue-100 dark:bg-blue-950/40",
-    text: "text-blue-600 dark:text-blue-400",
-    border: "border-blue-200 dark:border-blue-800",
-  },
-};
-
-function getCategoryStyle(category: string) {
-  return categoryColors[category] || categoryColors.INSIGHTS;
-}
+import ShimmerImage from "./ShimmerImage";
+import { getReadingTime, getCategoryStyle, getCategoryLabel, formatPostDate, getRelatedPosts, addHeadingIds, markPostRead } from "../lib/blog";
 
 export default function BlogPostContent({ post, blogPosts }: { post: any; blogPosts: any }) {
   const { language } = useLanguage();
   const t = translations[language];
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isRead, setIsRead] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [copied, setCopied] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
   const articleRef = useRef<HTMLElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const endRef = useRef<HTMLDivElement>(null);
 
-  // Reading progress bar
+  // Reading progress bar: driven by requestAnimationFrame and a transform,
+  // so it tracks every pixel of scrolling without React re-renders
   useEffect(() => {
-    const handleScroll = () => {
-      if (!articleRef.current) return;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
       const el = articleRef.current;
+      const bar = barRef.current;
+      if (!el || !bar) return;
       const rect = el.getBoundingClientRect();
-      const scrolled = Math.max(0, -rect.top);
-      const total = el.scrollHeight - window.innerHeight;
-      const progress = Math.min(100, Math.max(0, (scrolled / total) * 100));
-      setScrollProgress(progress);
+      const total = rect.height - window.innerHeight;
+      const progress = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 1;
+      bar.style.transform = `scaleX(${progress})`;
       setShowBackToTop(window.scrollY > 400);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
+
+  // "Read" badge: fires once when the end of the text comes into view
+  useEffect(() => {
+    const sentinel = endRef.current;
+    if (!sentinel || isRead) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsRead(true);
+          markPostRead(post.id);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [isRead, post.id]);
 
   // Entrance animation
   useEffect(() => {
@@ -93,14 +97,17 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
   const nextPost = post.nextPostId ? blogPosts[post.nextPostId] : null;
   const readTime = getReadingTime(content.content);
   const catStyle = getCategoryStyle(post.category);
+  const { html: bodyHtml, headings } = addHeadingIds(content.content);
+  const related = getRelatedPosts(post, nextPost ? [nextPost.id] : [], 2);
 
   return (
     <>
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-transparent">
         <div
-          className="h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+          ref={barRef}
+          className="h-full w-full origin-left bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500"
+          style={{ transform: "scaleX(0)" }}
         />
       </div>
 
@@ -115,7 +122,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
         <ChevronUp size={18} />
       </button>
 
-      <article ref={articleRef} className="max-w-2xl mx-auto space-y-8 text-left">
+      <article ref={articleRef} className="blog-article max-w-[618px] mx-auto space-y-[34px] text-left">
         {/* Navigation & Actions */}
         <div
           className={`flex items-center justify-between transition-all duration-700 ${
@@ -158,7 +165,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
 
         {/* Header */}
         <div
-          className={`space-y-5 border-b border-zinc-200 dark:border-zinc-900 pb-8 transition-all duration-700 delay-100 ${
+          className={`space-y-[21px] border-b border-zinc-200 dark:border-zinc-900 pb-[34px] transition-all duration-700 delay-100 ${
             headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -167,13 +174,13 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
             <span
               className={`px-2.5 py-1 ${catStyle.bg} ${catStyle.text} rounded-md text-[10px] font-bold uppercase tracking-widest`}
             >
-              {post.category}
+              {getCategoryLabel(post.category, language)}
             </span>
             <span className="flex items-center gap-1 text-zinc-500 dark:text-zinc-400 font-sans">
               <Calendar size={12} />
-              {post.date}
+              {formatPostDate(post.dateISO, language)}
             </span>
-            <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 font-sans">
+            <span className="flex items-center gap-1 text-zinc-500 dark:text-zinc-400 font-sans">
               <span className="inline-block w-[11px] h-[11px]">⏱</span>
               {readTime} {t.blogReadTime}
             </span>
@@ -185,7 +192,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
           </h1>
 
           {/* Lead / Excerpt */}
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed font-light italic border-l-2 border-cyan-300 dark:border-cyan-800 pl-4 py-1 font-sans">
+          <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed font-light italic border-l-2 border-cyan-300 dark:border-cyan-800 pl-4 py-1 font-sans">
             {content.lead}
           </p>
 
@@ -198,7 +205,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
               <div className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 font-sans">
                 {post.author}
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-500 font-sans">
+              <div className="flex items-center gap-1.5 text-[11px] text-zinc-500 dark:text-zinc-400 font-sans">
                 <MapPin size={10} />
                 {post.location}
               </div>
@@ -206,26 +213,80 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
           </div>
         </div>
 
+        {/* Cover image */}
+        <div className="relative aspect-[1.618/1] w-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+          <ShimmerImage src={`/${post.image}`} alt={content.title} className="w-full h-full object-cover" />
+        </div>
+
+        {/* Table of contents */}
+        {headings.length >= 3 && (
+          <nav
+            aria-label={language === "tr" ? "İçindekiler" : "Contents"}
+            className="rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-950 p-5"
+          >
+            <div className="text-xs uppercase tracking-wider font-semibold text-zinc-500 dark:text-zinc-400 mb-3 font-sans">
+              {language === "tr" ? "İçindekiler" : "Contents"}
+            </div>
+            <ol className="space-y-2 text-sm font-sans">
+              {headings.map((h, i) => (
+                <li key={h.id} className="flex gap-3">
+                  <span className="text-zinc-500 dark:text-zinc-400 font-mono text-xs pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <a
+                    href={`#${h.id}`}
+                    className="text-zinc-600 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                  >
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
         {/* Body Content */}
         <div
-          className="blog-content text-zinc-800 dark:text-zinc-300 text-sm md:text-base leading-relaxed space-y-6 transition-all duration-700 delay-200"
-          dangerouslySetInnerHTML={{ __html: content.content }}
+          className="blog-content text-zinc-800 dark:text-zinc-300 text-base leading-relaxed space-y-6 transition-all duration-700 delay-200"
+          dangerouslySetInnerHTML={{ __html: bodyHtml }}
         />
 
-        {/* Reading Complete Indicator */}
-        {scrollProgress > 95 && (
-          <div className="flex items-center justify-center py-6 animate-in fade-in duration-500">
-            <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 rounded-full text-emerald-600 dark:text-emerald-400 text-xs font-medium font-sans">
-              <Check size={14} />
-              {language === "tr" ? "Okuma tamamlandı!" : "Reading complete!"}
-            </div>
-          </div>
-        )}
+        {/* Reading complete: fixed-height slot so the page never jumps */}
+        <div ref={endRef} className="flex items-center justify-center h-[55px]">
+          {isRead && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", stiffness: 320, damping: 20 }}
+              className="flex items-center gap-2 pl-2 pr-4 py-1.5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 rounded-full text-emerald-600 dark:text-emerald-400 text-xs font-medium font-sans"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <motion.circle
+                  cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"
+                  initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                />
+                <motion.path
+                  d="M7.5 12.5l3 3 6-6.5" stroke="currentColor" strokeWidth="2"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.4, delay: 0.35, ease: "easeOut" }}
+                />
+              </svg>
+              <motion.span
+                initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.3 }}
+              >
+                {language === "tr" ? "Okundu" : "Read"}
+              </motion.span>
+            </motion.div>
+          )}
+        </div>
 
         {/* Next Post Banner */}
         {nextPost && (
-          <div className="border-t border-zinc-200 dark:border-zinc-900 pt-8 mt-12">
-            <div className="text-zinc-450 dark:text-zinc-500 text-xs uppercase tracking-wider font-semibold mb-3 flex items-center gap-2 font-sans">
+          <div className="border-t border-zinc-200 dark:border-zinc-900 pt-[34px] mt-[55px]">
+            <div className="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-wider font-semibold mb-3 flex items-center gap-2 font-sans">
               <ArrowRight size={12} />
               {t.blogNextPost}
             </div>
@@ -241,9 +302,9 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
                     <span
                       className={`text-[10px] ${getCategoryStyle(nextPost.category).bg} ${getCategoryStyle(nextPost.category).text} px-2 py-0.5 rounded font-semibold uppercase tracking-wider font-sans`}
                     >
-                      {nextPost.category}
+                      {getCategoryLabel(nextPost.category, language)}
                     </span>
-                    <span className="flex items-center gap-1 text-[11px] text-zinc-400 dark:text-zinc-500 font-sans">
+                    <span className="flex items-center gap-1 text-[11px] text-zinc-500 dark:text-zinc-400 font-sans">
                       <span className="inline-block w-[11px] h-[11px]">⏱</span>
                       {getReadingTime(
                         language === "tr" ? nextPost.tr.content : nextPost.en.content
@@ -263,6 +324,42 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
                 </div>
               </div>
             </Link>
+          </div>
+        )}
+
+        {/* Related posts */}
+        {related.length > 0 && (
+          <div className="border-t border-zinc-200 dark:border-zinc-900 pt-[34px] mt-[55px]">
+            <div className="text-zinc-500 dark:text-zinc-400 text-xs uppercase tracking-wider font-semibold mb-[21px] font-sans">
+              {language === "tr" ? "İlgili Yazılar" : "Related Posts"}
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {related.map((r) => {
+                const rc = language === "tr" ? r.tr : r.en;
+                return (
+                  <Link
+                    key={r.id}
+                    href={`/blog/${r.id}`}
+                    className="group flex gap-4 p-3 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:border-cyan-500/30 transition-colors"
+                  >
+                    <img
+                      src={`/${r.image}`}
+                      alt={rc.title}
+                      className="w-16 h-16 rounded-lg object-cover shrink-0"
+                      loading="lazy"
+                    />
+                    <div className="min-w-0 space-y-1">
+                      <span className={`text-[10px] font-bold uppercase tracking-widest ${getCategoryStyle(r.category).text}`}>
+                        {getCategoryLabel(r.category, language)}
+                      </span>
+                      <h4 className="text-sm font-semibold font-sans text-zinc-800 dark:text-zinc-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2">
+                        {rc.title}
+                      </h4>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         )}
       </article>
