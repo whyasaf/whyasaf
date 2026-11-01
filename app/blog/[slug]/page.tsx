@@ -6,13 +6,14 @@ import { blogPosts } from "../../../src/data/posts";
 import BlogPostContent from "../../../src/components/BlogPostContent";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const post = blogPosts[params.slug];
+  const { slug } = await params;
+  const post = blogPosts[slug];
   if (!post) {
     return {
       title: "Yazı Bulunamadı",
@@ -20,12 +21,12 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const lang = cookieStore.get("language")?.value || "tr";
   const content = lang === "en" ? post.en : post.tr;
   const pageTitle = content.title;
   const pageDescription = content.seoDescription;
-  const canonicalUrl = `https://whyasaf.com/blog/${params.slug}`;
+  const canonicalUrl = `https://whyasaf.com/blog/${slug}`;
   const imageUrl = `https://whyasaf.com/${post.image.replace(/^\//, "")}`;
 
   return {
@@ -54,8 +55,9 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const post = blogPosts[params.slug];
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = blogPosts[slug];
 
   if (!post) {
     return (
