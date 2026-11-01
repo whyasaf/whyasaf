@@ -1,16 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function ThemeSwitcher() {
+  const { language } = useLanguage();
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
-  useEffect(() => {
-    // Read the current theme state from the documentElement class list (set by inline script)
-    const isDark = document.documentElement.classList.contains("dark");
+  // Switching language rebuilds <html>, so the saved theme is restored before paint
+  useLayoutEffect(() => {
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem("theme");
+    } catch (_) {}
+    const isDark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.toggle("dark", isDark);
     setTheme(isDark ? "dark" : "light");
-  }, []);
+  }, [language]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
