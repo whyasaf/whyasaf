@@ -100,6 +100,11 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
   const { html: bodyHtml, headings } = addHeadingIds(content.content);
   const related = getRelatedPosts(post, nextPost ? [nextPost.id] : [], 2);
 
+  // Pages are prerendered in Turkish, so the tab title follows the language here
+  useEffect(() => {
+    document.title = `${content.title} | whyasaf`;
+  }, [content.title]);
+
   return (
     <>
       {/* Reading Progress Bar */}
