@@ -663,7 +663,7 @@ export default function Notebook() {
 
   // Hidden faces stay out of the tab order and away from screen readers
   const face = (visible: boolean, content: React.ReactNode) => (
-    <div {...(visible ? {} : ({ inert: "" } as object))}>{content}</div>
+    <div {...(visible ? {} : ({ inert: true } as object))}>{content}</div>
   );
 
   return (

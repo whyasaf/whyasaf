@@ -142,8 +142,7 @@ export default function Footer({ type }: FooterProps) {
                 const Component = word.isLink ? motion.a : motion.div;
                 const linkProps = word.isLink ? {
                   href: word.href,
-                  target: "_blank",
-                  rel: "noopener noreferrer",
+                  ...(word.href?.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer" }),
                 } : {};
 
                 const isHovered = hoveredWordIndex === idx;
