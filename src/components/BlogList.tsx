@@ -62,7 +62,6 @@ export default function BlogList() {
               <ShimmerImage
                 src={`/${featured.image}`}
                 alt={label(featured).title}
-                fetchPriority="high"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
