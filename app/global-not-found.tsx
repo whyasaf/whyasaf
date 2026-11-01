@@ -3,7 +3,7 @@ import { fontVariables, themeScript } from "../src/lib/document";
 import "./globals.css";
 
 export const metadata = {
-  title: "Sayfa Bulunamadı | whyasaf",
+  title: "Sayfa Bulunamadı | Ömer Asaf Ak",
   robots: { index: false },
 };
 

@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps) {
     description: pageDescription,
     alternates: pageAlternates(language, `/blog/${slug}`),
     openGraph: {
-      title: `${pageTitle} | whyasaf`,
+      title: `${pageTitle} | Ömer Asaf Ak`,
       description: pageDescription,
       url: canonicalUrl,
       siteName: 'whyasaf',
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pageTitle} | whyasaf`,
+      title: `${pageTitle} | Ömer Asaf Ak`,
       description: pageDescription,
       creator: '@whyasaf',
       images: [imageUrl],

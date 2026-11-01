@@ -6,16 +6,19 @@ import { fontVariables, themeScript } from "../../src/lib/document";
 import { Language, languages, pageAlternates, SITE_URL, localePath } from "../../src/lib/i18n";
 import "../globals.css";
 
+const TITLE = "Ömer Asaf Ak | whyasaf";
+const PERSON_ID = `${SITE_URL}/#person`;
+
 const copy = {
   tr: {
-    title: "whyasaf | Yazılım Geliştirici ve Tasarımcı",
-    description: "Ömer Asaf Ak'ın kişisel portfolyo ve blog sitesi. Yazılım mimarisi, AI ürün geliştirme ve arayüz tasarımı üzerine çalışmalar.",
+    description: "Ömer Asaf Ak (whyasaf), web uygulamaları ve yapay zekâ ürünleri geliştiren yazılım geliştirici ve tasarımcıdır. Lecmic ve Marki Labs'in kurucusudur.",
+    jobTitle: "Yazılım Geliştirici ve Tasarımcı",
     locale: "tr_TR",
     alternateLocale: "en_US",
   },
   en: {
-    title: "whyasaf | Software Developer and Designer",
-    description: "Personal portfolio and blog of Ömer Asaf Ak. Work on software architecture, AI product development and interface design.",
+    description: "Ömer Asaf Ak (whyasaf) is a software developer and designer building web apps and AI products. Founder of Lecmic and Marki Labs.",
+    jobTitle: "Software Developer and Designer",
     locale: "en_US",
     alternateLocale: "tr_TR",
   },
@@ -40,13 +43,13 @@ export async function generateMetadata({ params }: Pick<LayoutProps, "params">) 
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: t.title,
-      template: "%s | whyasaf",
+      default: TITLE,
+      template: "%s | Ömer Asaf Ak",
     },
     description: t.description,
     alternates: pageAlternates(language, "/"),
     openGraph: {
-      title: t.title,
+      title: TITLE,
       description: t.description,
       url: `${SITE_URL}${localePath(language, "/")}`,
       siteName: "whyasaf",
@@ -58,13 +61,13 @@ export async function generateMetadata({ params }: Pick<LayoutProps, "params">) 
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: t.title,
+          alt: TITLE,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: t.title,
+      title: TITLE,
       description: t.description,
       creator: "@whyasaf",
       images: ["/og-image.png"],
@@ -86,6 +89,7 @@ export async function generateMetadata({ params }: Pick<LayoutProps, "params">) 
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
   const language = lang as Language;
+  const t = copy[language];
 
   return (
     <html lang={language} className="dark" suppressHydrationWarning>
@@ -104,12 +108,19 @@ export default async function RootLayout({ children, params }: LayoutProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": PERSON_ID,
               "name": "Ömer Asaf Ak",
-              "alternateName": "whyasaf",
-              "url": "https://whyasaf.com",
-              "image": "https://whyasaf.com/assets/cv_1.jpg",
-              "description": "Ömer Asaf Ak (whyasaf) is a software engineering student and product developer building web apps such as Lecmic and CodeVocab.",
-              "jobTitle": "Product Developer & Systems Architect",
+              "givenName": "Ömer Asaf",
+              "familyName": "Ak",
+              "alternateName": ["whyasaf", "Ömer Asaf"],
+              "url": `${SITE_URL}/`,
+              "image": `${SITE_URL}/assets/omer-asaf-ak.jpg`,
+              "description": t.description,
+              "jobTitle": t.jobTitle,
+              "worksFor": [
+                { "@type": "Organization", "name": "Lecmic", "url": "https://lecmic.whyasaf.com", "founder": { "@id": PERSON_ID } },
+                { "@type": "Organization", "name": "Marki Labs", "founder": { "@id": PERSON_ID } }
+              ],
               "sameAs": [
                 "https://github.com/whyasaf",
                 "https://lecmic.whyasaf.com",
@@ -134,9 +145,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "whyasaf",
-              "url": "https://whyasaf.com",
+              "alternateName": ["Ömer Asaf Ak"],
+              "url": `${SITE_URL}/`,
               "inLanguage": ["tr", "en"],
-              "author": { "@type": "Person", "name": "Ömer Asaf Ak", "url": "https://whyasaf.com" }
+              "author": { "@id": PERSON_ID }
             })
           }}
         />

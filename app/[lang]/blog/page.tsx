@@ -27,13 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: t.description,
     alternates: pageAlternates(language, "/blog"),
     openGraph: {
-      title: "Blog | whyasaf",
+      title: "Blog | Ömer Asaf Ak",
       description: t.ogDescription,
       url: `${SITE_URL}${localePath(language, "/blog")}`,
       siteName: "whyasaf",
       locale: t.locale,
       type: "website",
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "whyasaf | Blog" }],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Blog | Ömer Asaf Ak" }],
     },
   };
 }

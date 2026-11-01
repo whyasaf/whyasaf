@@ -1,6 +1,6 @@
 # whyasaf
 
-> Personal portfolio and blog of Ömer Asaf Ak (whyasaf): software engineering student, product developer and systems architect. Studies Software Engineering at De Montfort University Dubai (2026-2030).
+> Ömer Asaf Ak (whyasaf) is a software developer and designer building web apps and AI products. Founder of Lecmic and Marki Labs. Studies Software Engineering at De Montfort University Dubai (2026-2030).
 
 ## About
 - Name: Ömer Asaf Ak (alias: whyasaf)
