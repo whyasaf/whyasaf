@@ -215,7 +215,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
 
         {/* Cover image */}
         <div className="relative aspect-[1.618/1] w-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900">
-          <ShimmerImage src={`/${post.image}`} alt={content.title} className="w-full h-full object-cover" />
+          <ShimmerImage src={`/${post.image}`} alt={content.title} fetchPriority="high" className="w-full h-full object-cover" />
         </div>
 
         {/* Table of contents */}

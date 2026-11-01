@@ -35,7 +35,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
           <div className="flex items-center gap-3 md:gap-4">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shrink-0 shadow-sm">
               <img
-                src="/assets/cv_1.jpg"
+                src="/assets/cv_1_avatar.jpg"
                 alt="Ömer Asaf Ak Profile"
                 className="w-full h-full object-cover"
               />
