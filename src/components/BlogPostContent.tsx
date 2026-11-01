@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { localePath } from "../lib/i18n";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -100,11 +101,6 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
   const { html: bodyHtml, headings } = addHeadingIds(content.content);
   const related = getRelatedPosts(post, nextPost ? [nextPost.id] : [], 2);
 
-  // Pages are prerendered in Turkish, so the tab title follows the language here
-  useEffect(() => {
-    document.title = `${content.title} | whyasaf`;
-  }, [content.title]);
-
   return (
     <>
       {/* Reading Progress Bar */}
@@ -135,7 +131,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
           }`}
         >
           <Link
-            href="/blog"
+            href={localePath(language, "/blog")}
             className="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
           >
             <ArrowLeft
@@ -296,7 +292,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
               {t.blogNextPost}
             </div>
             <Link
-              href={`/blog/${nextPost.id}`}
+              href={localePath(language, `/blog/${nextPost.id}`)}
               className="group block relative overflow-hidden p-6 bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-800 transition-all duration-300 rounded-xl hover:shadow-md"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/0 to-cyan-50/50 dark:from-cyan-950/0 dark:to-cyan-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -344,7 +340,7 @@ export default function BlogPostContent({ post, blogPosts }: { post: any; blogPo
                 return (
                   <Link
                     key={r.id}
-                    href={`/blog/${r.id}`}
+                    href={localePath(language, `/blog/${r.id}`)}
                     className="group flex gap-4 p-3 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:border-cyan-500/30 transition-colors"
                   >
                     <img

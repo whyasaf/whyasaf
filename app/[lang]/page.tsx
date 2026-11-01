@@ -2,11 +2,11 @@
 
 import React from "react";
 import { GraduationCap, Code2, Rocket, Mail, Linkedin } from "lucide-react";
-import HeroSection from "../src/components/HeroSection";
-import ExperienceCard from "../src/components/ExperienceCard";
-import { useLanguage } from "../src/context/LanguageContext";
-import { translations } from "../src/lib/translations";
-import { mailtoHref } from "../src/lib/contact";
+import HeroSection from "../../src/components/HeroSection";
+import ExperienceCard from "../../src/components/ExperienceCard";
+import { useLanguage } from "../../src/context/LanguageContext";
+import { translations } from "../../src/lib/translations";
+import { mailtoHref } from "../../src/lib/contact";
 
 export default function HomePage() {
   const { language } = useLanguage();

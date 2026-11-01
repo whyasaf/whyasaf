@@ -15,6 +15,7 @@ import { Check, ChevronLeft, ChevronRight, Copy, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
 import { CONTACT_EMAIL, mailtoHref } from "../lib/contact";
+import { localePath } from "../lib/i18n";
 import { getReadPosts, getSortedPosts } from "../lib/blog";
 
 const TURN = { duration: 0.75, ease: [0.645, 0.045, 0.355, 1] as const };
@@ -495,7 +496,7 @@ export default function Notebook() {
           return (
             <li key={post.id} className="h-[56px]">
               <Link
-                href={`/blog/${post.id}`}
+                href={localePath(language, `/blog/${post.id}`)}
                 className="flex items-start gap-2 h-full text-zinc-700 dark:text-zinc-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 <span className="relative shrink-0 w-[18px] h-[18px] mt-[5px] rounded-[3px] border border-zinc-400/60">

@@ -1,5 +1,5 @@
-import HeroSection from "../../src/components/HeroSection";
-import { BlogSkeleton } from "../../src/components/PageSkeletons";
+import HeroSection from "../../../src/components/HeroSection";
+import { BlogSkeleton } from "../../../src/components/PageSkeletons";
 
 export default function Loading() {
   return (

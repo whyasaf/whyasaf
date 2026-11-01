@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
 import { mailtoHref } from "../lib/contact";
+import { localePath } from "../lib/i18n";
 
 interface HeroSectionProps {
   activeTab: "about" | "projects" | "blog";
@@ -19,7 +20,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
     <div className="space-y-12 max-w-5xl mx-auto">
       {/* ── Layer 1: Logo (centered, small) ── */}
       <div className="flex justify-center pt-4 mb-2">
-        <Link href="/" aria-label={language === "tr" ? "Ana sayfa" : "Home"}>
+        <Link href={localePath(language, "/")} aria-label={language === "tr" ? "Ana sayfa" : "Home"}>
           <img
             src="/assets/wa_com2.png"
             alt="WhyAsaf Logo"
@@ -75,7 +76,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
         <div className="flex justify-center mt-[34px]">
           <div className="inline-flex bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-1 rounded-full select-none shadow-sm relative">
             <Link
-              href="/"
+              href={localePath(language, "/")}
               className="relative px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors duration-200 z-10 block"
             >
               {activeTab === "about" && (
@@ -91,7 +92,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
               </span>
             </Link>
             <Link
-              href="/projects"
+              href={localePath(language, "/projects")}
               className="relative px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors duration-200 z-10 block"
             >
               {activeTab === "projects" && (
@@ -107,7 +108,7 @@ export default function HeroSection({ activeTab }: HeroSectionProps) {
               </span>
             </Link>
             <Link
-              href="/blog"
+              href={localePath(language, "/blog")}
               className="relative px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors duration-200 z-10 block"
             >
               {activeTab === "blog" && (

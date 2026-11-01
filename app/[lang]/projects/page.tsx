@@ -1,21 +1,44 @@
 import React from "react";
-import HeroSection from "../../src/components/HeroSection";
-import ProjectsGrid from "../../src/components/ProjectsGrid";
-import Footer from "../../src/components/Footer";
+import HeroSection from "../../../src/components/HeroSection";
+import ProjectsGrid from "../../../src/components/ProjectsGrid";
+import Footer from "../../../src/components/Footer";
+import { Language, SITE_URL, localePath, pageAlternates } from "../../../src/lib/i18n";
 
-export const metadata = {
-  title: "Projeler",
-  description: "Ömer Asaf Ak tarafından geliştirilmiş kurumsal, bireysel ve açık kaynak yazılım projeleri, web tasarımı ve yapay zeka entegrasyonu uygulamaları.",
-  alternates: { canonical: "/projects" },
-  openGraph: {
-    title: "Projeler | whyasaf",
-    description: "Ömer Asaf Ak tarafından geliştirilmiş yazılım projeleri, web tasarımı ve yapay zeka uygulamaları.",
-    url: "https://whyasaf.com/projects",
-    siteName: "whyasaf",
-    type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "whyasaf | Projeler" }],
+const copy = {
+  tr: {
+    title: "Projeler",
+    description: "Ömer Asaf Ak tarafından geliştirilmiş kurumsal, bireysel ve açık kaynak yazılım projeleri, web tasarımı ve yapay zeka entegrasyonu uygulamaları.",
+    ogDescription: "Ömer Asaf Ak tarafından geliştirilmiş yazılım projeleri, web tasarımı ve yapay zeka uygulamaları.",
+    locale: "tr_TR",
+  },
+  en: {
+    title: "Projects",
+    description: "Corporate, personal and open source software projects, web design and AI integration work built by Ömer Asaf Ak.",
+    ogDescription: "Software projects, web design and AI applications built by Ömer Asaf Ak.",
+    locale: "en_US",
   },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const language = lang as Language;
+  const t = copy[language];
+
+  return {
+    title: t.title,
+    description: t.description,
+    alternates: pageAlternates(language, "/projects"),
+    openGraph: {
+      title: `${t.title} | whyasaf`,
+      description: t.ogDescription,
+      url: `${SITE_URL}${localePath(language, "/projects")}`,
+      siteName: "whyasaf",
+      locale: t.locale,
+      type: "website",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `whyasaf | ${t.title}` }],
+    },
+  };
+}
 
 const projectList = [
   { name: "Lecmic", url: "https://lecmic.whyasaf.com", description: "Lecture assistant for university students: live transcription and translation, notes, recordings, PDFs, summaries and a vocabulary notebook.", category: "EducationalApplication" },

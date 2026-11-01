@@ -1,59 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext } from "react";
+import { Language } from "../lib/i18n";
 
-type Language = "tr" | "en";
+const LanguageContext = createContext<{ language: Language } | undefined>(undefined);
 
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("tr");
-
-  // Load language from localStorage after mount to avoid hydration mismatch
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("language");
-      if (stored === "tr" || stored === "en") {
-        setLanguageState(stored);
-        document.cookie = `language=${stored}; path=/; max-age=31536000; SameSite=Lax`;
-      } else {
-        // Fallback to browser language
-        const browserLang = navigator.language.split("-")[0];
-        const initialLang = browserLang === "en" ? "en" : "tr";
-        setLanguageState(initialLang);
-        document.cookie = `language=${initialLang}; path=/; max-age=31536000; SameSite=Lax`;
-      }
-    } catch (_) {}
-  }, []);
-
-  // Keep <html lang> in sync so CSS uppercase doesn't turn "i" into "İ" in English
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    try {
-      localStorage.setItem("language", lang);
-      document.cookie = `language=${lang}; path=/; max-age=31536000; SameSite=Lax`;
-    } catch (_) {}
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === "tr" ? "en" : "tr");
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+export function LanguageProvider({ language, children }: { language: Language; children: React.ReactNode }) {
+  return <LanguageContext.Provider value={{ language }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

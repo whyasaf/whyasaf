@@ -1,10 +1,12 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { blogPosts } from "../../../src/data/posts";
-import BlogPostContent from "../../../src/components/BlogPostContent";
+import { blogPosts } from "../../../../src/data/posts";
+import BlogPostContent from "../../../../src/components/BlogPostContent";
+import { Language, SITE_URL, localePath, pageAlternates } from "../../../../src/lib/i18n";
 
 interface PageProps {
   params: Promise<{
+    lang: string;
     slug: string;
   }>;
 }
@@ -16,26 +18,26 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const post = blogPosts[slug];
   if (!post) notFound();
 
-  const pageTitle = post.tr.title;
-  const pageDescription = post.tr.seoDescription;
-  const canonicalUrl = `https://whyasaf.com/blog/${slug}`;
+  const language = lang as Language;
+  const pageTitle = post[language].title;
+  const pageDescription = post[language].seoDescription;
+  const canonicalUrl = `${SITE_URL}${localePath(language, `/blog/${slug}`)}`;
   const imageUrl = `https://whyasaf.com/${post.image.replace(/^\//, "")}`;
 
   return {
     title: pageTitle,
     description: pageDescription,
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: pageAlternates(language, `/blog/${slug}`),
     openGraph: {
       title: `${pageTitle} | whyasaf`,
       description: pageDescription,
       url: canonicalUrl,
       siteName: 'whyasaf',
+      locale: language === "en" ? 'en_US' : 'tr_TR',
       type: 'article',
       publishedTime: post.dateISO,
       authors: ['https://whyasaf.com'],
@@ -52,18 +54,21 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const post = blogPosts[slug];
 
   if (!post) notFound();
 
-  const postUrl = `https://whyasaf.com/blog/${post.id}`;
+  const language = lang as Language;
+  const content = post[language];
+  const postUrl = `${SITE_URL}${localePath(language, `/blog/${post.id}`)}`;
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      headline: post.tr.title,
-      description: post.tr.seoDescription,
+      headline: content.title,
+      description: content.seoDescription,
+      inLanguage: language,
       image: `https://whyasaf.com/${post.image.replace(/^\//, "")}`,
       datePublished: post.dateISO,
       dateModified: post.dateISO,
@@ -75,9 +80,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://whyasaf.com" },
-        { "@type": "ListItem", position: 2, name: "Blog", item: "https://whyasaf.com/blog" },
-        { "@type": "ListItem", position: 3, name: post.tr.title, item: postUrl },
+        { "@type": "ListItem", position: 1, name: language === "en" ? "Home" : "Ana Sayfa", item: `${SITE_URL}${localePath(language, "/")}` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}${localePath(language, "/blog")}` },
+        { "@type": "ListItem", position: 3, name: content.title, item: postUrl },
       ],
     },
   ];

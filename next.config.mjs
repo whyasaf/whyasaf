@@ -1,8 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    globalNotFound: true,
+  },
+  // Turkish keeps the unprefixed URLs, English lives under /en
+  async rewrites() {
+    return [
+      { source: '/', destination: '/tr' },
+      { source: '/projects', destination: '/tr/projects' },
+      { source: '/blog', destination: '/tr/blog' },
+      { source: '/blog/:slug', destination: '/tr/blog/:slug' },
+    ];
+  },
   async redirects() {
     return [
+      { source: '/tr', destination: '/', permanent: true },
+      { source: '/tr/:path*', destination: '/:path*', permanent: true },
       {
         source: '/home',
         destination: '/',

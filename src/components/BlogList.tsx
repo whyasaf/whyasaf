@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { localePath } from "../lib/i18n";
 import { Calendar, Clock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../lib/translations";
@@ -55,7 +56,7 @@ export default function BlogList() {
         {/* Featured post */}
         {featured && (
           <Link
-            href={`/blog/${featured.id}`}
+            href={localePath(language, `/blog/${featured.id}`)}
             className="group grid md:grid-cols-8 gap-0 bg-white dark:bg-[#0f0f11] border border-zinc-200 dark:border-zinc-800/80 rounded-3xl overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 text-left"
           >
             <div className="relative md:col-span-3 aspect-[1.618/1] md:aspect-auto bg-zinc-100 dark:bg-zinc-900 overflow-hidden">
@@ -103,7 +104,7 @@ export default function BlogList() {
               return (
                 <li key={post.id}>
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={localePath(language, `/blog/${post.id}`)}
                     className="group flex items-center gap-[13px] md:gap-[21px] py-[21px] text-left"
                   >
                     <div className="relative w-[55px] h-[55px] md:w-[89px] md:h-[89px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0">

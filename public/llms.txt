@@ -11,8 +11,14 @@
 ## Pages
 - [Home / About](https://whyasaf.com): education, experience and background
 - [Projects](https://whyasaf.com/projects): selected products and design work
-- [Blog](https://whyasaf.com/blog): notes on technology, design, systems and investing (Turkish and English)
+- [Blog](https://whyasaf.com/blog): notes on technology, design, systems and investing
 - [RSS feed](https://whyasaf.com/feed.xml)
+
+## English pages
+- [Home / About](https://whyasaf.com/en)
+- [Projects](https://whyasaf.com/en/projects)
+- [Blog](https://whyasaf.com/en/blog)
+- [RSS feed](https://whyasaf.com/en/feed.xml)
 
 ## Projects
 - [Lecmic](https://lecmic.whyasaf.com): lecture assistant for university students. Live transcription and translation of lectures, notes, recordings and PDFs in one place, summaries, vocabulary notebook, audio transcription. Source: https://github.com/whyasaf/lecmic
