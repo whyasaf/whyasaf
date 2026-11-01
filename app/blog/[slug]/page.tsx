@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps) {
   const lang = cookieStore.get("language")?.value || "tr";
   const content = lang === "en" ? post.en : post.tr;
   const pageTitle = content.title;
-  const pageDescription = content.lead || (lang === "en" ? `${content.title} detailed review.` : `${content.title} detaylı incelemesi.`);
+  const pageDescription = content.seoDescription;
   const canonicalUrl = `https://whyasaf.com/blog/${params.slug}`;
   const imageUrl = `https://whyasaf.com/${post.image.replace(/^\//, "")}`;
 
@@ -85,7 +85,7 @@ export default function BlogPostPage({ params }: PageProps) {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: post.tr.title,
-      description: post.tr.lead,
+      description: post.tr.seoDescription,
       image: `https://whyasaf.com/${post.image.replace(/^\//, "")}`,
       datePublished: post.dateISO,
       dateModified: post.dateISO,

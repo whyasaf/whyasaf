@@ -1,6 +1,7 @@
 export interface PostTranslation {
   title: string;
   lead: string;
+  seoDescription: string;
   content: string;
 }
 
@@ -41,6 +42,7 @@ export const blogPosts: Record<string, BlogPost> = {
     tr: {
       title: "Kontrol Bizde mi, Yoksa Sadece Öyle mi Sanıyoruz?",
       lead: "Bugün yapay zekayı işlerimizi kolaylaştıran bir asistan olarak görüyoruz. Peki ya bu asistan, saniyeler içinde insanlığın toplam zekasından milyonlarca kat daha akıllı hale gelirse? Buna Süper Yapay Zeka (ASI) diyoruz. Bu sadece teknolojik bir adım değil; insanlık tarihindeki en büyük yapısal kırılma noktası.",
+      seoDescription: "Süper yapay zeka (ASI) nedir? Asistan sandığımız yapay zeka insanlığı aşarsa kontrol kimde kalır? Tarihin en büyük yapısal kırılma noktasını inceliyorum.",
       content: `
         <h2>Zeka Patlaması</h2>
         <p>
@@ -93,6 +95,7 @@ export const blogPosts: Record<string, BlogPost> = {
     en: {
       title: "Are We in Control, or Do We Just Think We Are?",
       lead: "Today we see artificial intelligence as an assistant that makes our lives easier. But what if this assistant becomes millions of times smarter than the total intelligence of humanity in seconds? We call this Artificial Superintelligence (ASI). This is not just a technological step — it is the greatest structural breaking point in human history.",
+      seoDescription: "What is artificial superintelligence (ASI)? If the assistant we rely on outgrows humanity, who stays in control? A look at history's biggest structural break.",
       content: `
         <h2>The Intelligence Explosion</h2>
         <p>
@@ -166,6 +169,7 @@ export const blogPosts: Record<string, BlogPost> = {
   tr: {
     title: "Mark Zuckerberg Bir Banka Kursaydı Ne Olurdu?",
     lead: "Bugün geleneksel bankacılık sektörü; devasa binalar, bitmek bilmeyen bürokratik prosedürler ve aşılması güç yasal mevzuatlar arkasına gizlenmiş hantal bir yapıdan ibarettir. Peki ya Silikon Vadisi'nin en agresif veri avcılarından biri olan Meta'nın kurucusu Mark Zuckerberg, geleneksel finans dünyasını tamamen yıkmak amacıyla kendi bankasını kursaydı ne olurdu?",
+    seoDescription: "Mark Zuckerberg kendi bankasını kursaydı ne olurdu? Meta'nın veri gücü, hantal geleneksel bankacılık ve finans dünyasının geleceği üzerine bir düşünce deneyi.",
     content: `
       <h2>1. Güç Katmanı: Devasa Hazır Müşteri ve Sıfır Sürtünme</h2>
       <p>
@@ -203,6 +207,7 @@ export const blogPosts: Record<string, BlogPost> = {
   en: {
     title: "What If Mark Zuckerberg Started a Bank?",
     lead: "Today, the traditional banking sector is slow and heavy, hidden behind huge buildings, endless bureaucratic procedures, and complex laws. But what if Mark Zuckerberg, the founder of Meta and one of Silicon Valley's most aggressive data collectors, started his own bank to destroy the traditional financial world?",
+    seoDescription: "What if Mark Zuckerberg started his own bank? A thought experiment on Meta's data power, slow traditional banking and where the financial world is heading.",
     content: `
       <h2>1. The Power Layer: Massive Ready Audience and Zero Friction</h2>
       <p>
@@ -255,6 +260,7 @@ export const blogPosts: Record<string, BlogPost> = {
     tr: {
       title: "110 Milyar Dolar: Bir Yatırım mı, Yoksa Geleceğin Satın Alınması mı?",
       lead: "Geçen yazımda Süper Yapay Zeka (ASI) kavramının teoride neleri değiştirebileceğini konuşmuştuk. Bugün ise bu hedefin arkasındaki devasa finansal gücü görüyoruz: OpenAI, tam 110 milyar dolarlık rekor bir yatırım aldı. Bu rakam, ASI'ya bugün ulaşacağımız anlamına gelmiyor; aksine bu yoldaki fiziksel engellerin ne kadar maliyetli olduğunun bir kanıtı.",
+      seoDescription: "OpenAI'ın 110 milyar dolarlık rekor yatırımı ne anlama geliyor? Süper yapay zekaya giden yolda finansal gücü ve fiziksel engellerin maliyetini inceliyorum.",
       content: `
         <h2>Zekanın Fizikselliği</h2>
         <p>
@@ -293,6 +299,7 @@ export const blogPosts: Record<string, BlogPost> = {
     en: {
       title: "$110 Billion: An Investment, or Purchasing the Future?",
       lead: "In my last article, we discussed what Artificial Superintelligence (ASI) could theoretically change. Today, we see the massive financial force behind that goal: OpenAI has received a record $110 billion investment. This figure doesn't mean we'll reach ASI today — rather, it's proof of how costly the physical barriers on this path truly are.",
+      seoDescription: "What does OpenAI's record $110 billion investment really mean? A look at the financial force behind ASI and the true cost of the physical barriers ahead.",
       content: `
         <h2>The Physicality of Intelligence</h2>
         <p>
@@ -354,6 +361,7 @@ export const blogPosts: Record<string, BlogPost> = {
     tr: {
       title: "Koddan Daha Büyük: Sistem Mimarı Olmak",
       lead: "Son zamanlarda kendimi tanımlamakta zorlanıyorum. Çünkü artık sadece 'yazılım öğrencisi' olmak bana yeterli gelmiyor. Kod yazabiliyorum, evet. Ama asıl ilgimi çeken şey koddan daha büyük bir olgu: Sistemler. Kaos gibi görünen bir yapının nasıl bu kadar düzenli olabildiğini anlamaya çalışıyorum.",
+      seoDescription: "Kod yazmak neden yetmiyor? Yazılım öğrencisi olarak ilgimi koddan daha büyük bir şeye, sistemlere ve kaosun ardındaki gizli düzene çeviren düşüncelerim.",
       content: `
         <h2>Kaosun Geometrisi</h2>
         <p>
@@ -392,6 +400,7 @@ export const blogPosts: Record<string, BlogPost> = {
     en: {
       title: "Bigger Than Code: Becoming a Systems Architect",
       lead: "Lately, I've been struggling to define myself. Because just being a 'software student' no longer feels sufficient. I can write code, yes. But what truly fascinates me is something bigger than code: Systems. I'm trying to understand how a structure that looks like chaos can be so perfectly ordered.",
+      seoDescription: "Why is writing code not enough? How a software student's interest moved to something bigger than code: systems and the order hidden behind apparent chaos.",
       content: `
         <h2>The Geometry of Entropy</h2>
         <p>
@@ -453,6 +462,7 @@ export const blogPosts: Record<string, BlogPost> = {
     tr: {
       title: "SpaceX Halka Arzı: Bir Yatırım Fırsatından Fazlası",
       lead: "Teknoloji ve finans dünyasında her gün aynı soru yankılanıyor: SpaceX halka arz olacak mı? Ancak SpaceX söz konusu olduğunda mesele sadece bir şirketin borsaya açılması değil; çok daha geniş bir çerçevede geleceğin altyapısına erişim anlamına geliyor.",
+      seoDescription: "SpaceX halka arz olacak mı? Mesele yalnızca bir şirketin borsaya açılması değil, geleceğin altyapısına erişim. Olası halka arzın asıl anlamını inceliyorum.",
       content: `
         <h2>SpaceX’i Farklı Kılan Nedir?</h2>
         <p>
@@ -487,6 +497,7 @@ export const blogPosts: Record<string, BlogPost> = {
     en: {
       title: "SpaceX IPO: More Than Just an Investment Opportunity",
       lead: "The tech and financial worlds echo the same question every day: Will SpaceX go public? But when it comes to SpaceX, it's not just about a company listing on the stock exchange; it means accessing the infrastructure of the future—accessing the system itself.",
+      seoDescription: "Will SpaceX go public? It is about more than one company's stock listing: it means access to the infrastructure of the future. What an IPO would really mean.",
       content: `
         <h2>What Makes SpaceX Different?</h2>
         <p>
