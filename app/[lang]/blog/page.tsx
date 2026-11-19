@@ -43,7 +43,7 @@ export default function BlogPage() {
     <div className="space-y-[34px]">
       <HeroSection activeTab="blog" />
       
-      <div className="max-w-5xl mx-auto pt-[21px] pb-6 animate-in fade-in duration-500">
+      <div className="max-w-5xl mx-auto pt-[21px] pb-6 page-enter">
         <BlogList />
       </div>
 

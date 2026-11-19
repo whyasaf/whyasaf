@@ -28,7 +28,7 @@ export default function BlogList() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto space-y-[34px] animate-in fade-in duration-500">
+    <div className="max-w-4xl mx-auto space-y-[34px]">
 
       {/* Category chips */}
       <div className="flex flex-wrap gap-[8px]" role="tablist" aria-label="Kategoriler">

@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="space-y-[34px]">
       <HeroSection activeTab="about" />
       
-      <div className="space-y-12 animate-in fade-in duration-500 max-w-5xl mx-auto pt-[21px] pb-6">
+      <div className="space-y-12 page-enter max-w-5xl mx-auto pt-[21px] pb-6">
         {/* Intro Text */}
         <div 
           className="text-zinc-500 dark:text-zinc-400/80 text-lg md:text-xl leading-relaxed text-center py-2 max-w-3xl mx-auto font-sans italic"

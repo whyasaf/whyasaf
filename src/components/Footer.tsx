@@ -68,7 +68,7 @@ export default function Footer({ type }: FooterProps) {
 
   if (type === "blog") {
     return (
-      <footer className="w-full border-t border-zinc-200 dark:border-zinc-900/60 py-[55px] mt-16 font-sans overflow-x-clip">
+      <footer className="page-enter page-enter-late w-full border-t border-zinc-200 dark:border-zinc-900/60 py-[55px] mt-16 font-sans overflow-x-clip">
         <div className="max-w-3xl mx-auto px-4 flex flex-col items-center gap-[34px]">
           <Notebook />
 
@@ -82,12 +82,12 @@ export default function Footer({ type }: FooterProps) {
   }
 
   return (
-    <footer className="w-full border-t border-zinc-200 dark:border-zinc-900/60 py-12 mt-16 font-sans">
+    <footer className="page-enter page-enter-late w-full border-t border-zinc-200 dark:border-zinc-900/60 py-12 mt-16 font-sans">
       <div className="max-w-4xl mx-auto px-4 flex flex-col gap-10 text-zinc-500 dark:text-zinc-400">
         
         {/* Connect Section for Projects Page (Kinetic Typography Cloud) */}
         {type === "projects" && (
-          <div className="space-y-6 text-left animate-in fade-in duration-500">
+          <div className="space-y-6 text-left">
             <div>
               <h3 className="text-4xl md:text-5xl font-serif italic skew-x-12 text-zinc-950 dark:text-white tracking-tight select-none origin-left inline-block mb-2">
                 Connect
