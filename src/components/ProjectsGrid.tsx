@@ -59,7 +59,7 @@ export default function ProjectsGrid() {
       detailedInfo: t.projCodeVocabDetailed,
       cover: "/assets/cv.png",
       mediaType: "video",
-      mediaSrc: "/assets/codevocab.mp4",
+      mediaSrc: "/assets/CodeVocab-Tanitim.mp4",
       links: {
         website: "https://codevocab.whyasaf.com",
         github: "https://github.com/whyasaf/CodeVocab"
@@ -73,8 +73,8 @@ export default function ProjectsGrid() {
       description: t.projNeonDesc,
       detailedInfo: t.projNeonDetailed,
       cover: "/assets/neon.png",
-      mediaType: "image",
-      mediaSrc: "/assets/neon.png",
+      mediaType: "video",
+      mediaSrc: "/assets/work-neonotokurtarma.mp4",
       links: {
         website: "https://neonotokurtarma.com",
         github: "https://github.com/whyasaf",
@@ -91,8 +91,8 @@ export default function ProjectsGrid() {
       description: t.projCvsDesc,
       detailedInfo: t.projCvsDetailed,
       cover: "/assets/zach_andre_home.jpeg",
-      mediaType: "image",
-      mediaSrc: "/assets/zach_andre_home.jpeg",
+      mediaType: "video",
+      mediaSrc: "/assets/work-cultivatedvoicesystem.mp4",
       links: {
         website: "https://www.cultivatedvoicesystem.com/",
         github: "https://github.com/whyasaf"
@@ -136,8 +136,8 @@ export default function ProjectsGrid() {
       description: t.projPlusOtoyolDesc,
       detailedInfo: t.projPlusOtoyolDetailed,
       cover: "/assets/plusotoyolresmi.png",
-      mediaType: "image",
-      mediaSrc: "/assets/plusotoyolresmi.png",
+      mediaType: "video",
+      mediaSrc: "/assets/work-plusotoyol.mp4",
       links: {
         website: "https://plusotoyol.com",
         github: "https://github.com/whyasaf"

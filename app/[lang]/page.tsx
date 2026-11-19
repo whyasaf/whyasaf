@@ -48,7 +48,7 @@ export default function HomePage() {
 
           {/* Experience 2: Lecmic */}
           <ExperienceCard
-            videoSrc={language === "tr" ? "/assets/lecmic-tr.mp4" : "/assets/lecmic-en.mp4"}
+            videoSrc={language === "tr" ? "/assets/lecmic-tr-16x9.mp4" : "/assets/lecmic-en.mp4"}
             logo={<Code2 size={18} />}
             title={t.exp2Title}
             period={t.exp2Period}
