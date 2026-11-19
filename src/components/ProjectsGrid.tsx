@@ -44,7 +44,7 @@ export default function ProjectsGrid() {
       detailedInfo: t.projLecmicDetailed,
       cover: "",
       mediaType: "video",
-      mediaSrc: language === "tr" ? "/assets/lecmic-tr.mp4" : "/assets/lecmic-en.mp4",
+      mediaSrc: language === "tr" ? "/assets/lecmic-tr-16x9.mp4" : "/assets/lecmic-en.mp4",
       links: {
         website: "https://lecmic.whyasaf.com",
         github: "https://github.com/whyasaf/lecmic"
